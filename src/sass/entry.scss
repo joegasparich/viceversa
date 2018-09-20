@@ -1,0 +1,31 @@
+#entry-modal {
+	background: url(/images/bg.png);
+	background-size:cover;
+	display: none;
+	&.active {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+
+	#entry-content {
+		height: 100%;
+		h1 {
+			font-family: 'Augusta', Times, serif;
+			margin: 0 auto;
+			line-height: 50%;
+			text-align: center;
+			font-size: 144px;
+			font-display: block;
+			color: white;
+			transform: skew(5deg, -35deg);
+			&:hover {
+				color: #c24620;
+				cursor: pointer;
+			}
+		}
+	}
+}

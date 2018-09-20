@@ -1,0 +1,19 @@
+@import "vars.scss";
+@import 'main.scss';
+@import 'nav.scss';
+@import 'footer.scss';
+@import 'entry.scss';
+@import 'events.scss';
+@import 'artists.scss';
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import "~materialize-css/sass/materialize.scss";
+
+@font-face {
+    font-family: 'Augusta';
+    src: url('/fonts/augusta-webfont.woff2') format('woff2'),
+         url('/fonts/augusta-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

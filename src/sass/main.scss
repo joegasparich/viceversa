@@ -1,0 +1,18 @@
+body {
+	background: url(/images/bg.png);
+	background-size:cover;
+	background-attachment: fixed;
+}
+
+//Sticky Footer
+body {
+	position: relative;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+	margin-top: 20px;
+}
