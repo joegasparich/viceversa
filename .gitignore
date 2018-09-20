@@ -1,0 +1,7 @@
+db/
+dist/
+node_modules/
+report.html
+libs/
+yarn-error.log
+.DS_Store
