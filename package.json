@@ -10,7 +10,7 @@
   "scripts": {
     "debug": "export DEBUG=debug; webpack --watch",
     "prestart": "gulp",
-    "start": "webpack --watch",
+    "start": "start http://localhost:5000/ & webpack --watch",
     "prebuild": "yarn prestart",
     "build": "export NODE_ENV='production'; webpack -p",
     "predeploy": "yarn build",

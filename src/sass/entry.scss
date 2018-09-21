@@ -26,6 +26,16 @@
 				color: #c24620;
 				cursor: pointer;
 			}
+			p {
+				margin: 0;
+				padding: 0;
+			}
+			#vice {
+
+			}
+			#versa {
+				transform: scaleX(-1);
+			}
 		}
 	}
 }

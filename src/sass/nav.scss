@@ -1,10 +1,16 @@
-nav .brand-logo {
-	font-family: 'Augusta', Times, serif;
-	font-size: 3.5rem !important;
-}
+.navigation {
 
-.nav-item {
-	a:focus {
-		outline: none;
+	li a {
+		color: orange;
+		text-align: center;
+		font-family: 'Courier New', Courier, monospace;
+		line-height: 4em;
+	}
+
+	.brand-logo {
+		display: flex;
+		flex-direction: column;
+		font-family: 'Augusta', Times, serif;
+		font-size: 3.5rem;
 	}
 }

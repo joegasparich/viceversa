@@ -39,37 +39,27 @@ export default class Nav extends React.Component {
 	}
 
 	render() {
-		let artistElements = this.state.artists.map(artist => 
+		let artistElements = this.state.artists.map(artist =>
 			<li key={artist._id}>
 				<a href={artist.path}>{artist.name}</a>
 			</li>
 		);
 
 		return (
-			<nav className="deep-orange lighten-2">
-				<div className="nav-wrapper">
-					<a href="/home" className="brand-logo center">Vice Versa</a>
-					<a href="#" data-target="mobile-nav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-					<ul className="left hide-on-med-and-down">
-						<li className="nav-item"><a ref={dropdownTrigger => this.dropdownTrigger = dropdownTrigger} href="/artists" className="dropdown-trigger" data-target="dropdown1">Artists<i className="material-icons right">arrow_drop_down</i></a></li>
-						<li className="nav-item"><a href="/events">Events</a></li>
-						<li className="nav-item"><a href="#">Merch</a></li>
-						<li className="nav-item"><a href="/contact">Contact</a></li>
-					</ul>
-					<ul className="sidenav" id="mobile-nav">
-						<li className="nav-item"><a href="/artists" className="dropdown-trigger" data-target="dropdown1">Artists</a></li>
-						<li className="mobile-artist-links">
-							<ul>{artistElements}</ul>
-						</li>
-						<li className="nav-item"><a href="/events">Events</a></li>
-						<li className="nav-item"><a href="#">Merch</a></li>
-						<li className="nav-item"><a href="/contact">Contact</a></li>
+			<div>
+				<div className="navigation">
+					<a href="/home" className="brand-logo">Vice Versa</a>
+					<ul className="navigation-content">
+						<li><a href="/artists">Artists</a></li>
+						<li><a href="#">Shop</a></li>
+						<li><a href="#">Shed</a></li>
+						<li><a href="/contact">About</a></li>
 					</ul>
 				</div>
 				<ul id="dropdown1" className="dropdown-content">
 					{artistElements}
 				</ul>
-			</nav>
+			</div>
 		);
 	}
 }

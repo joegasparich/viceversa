@@ -45,26 +45,26 @@ class App extends React.Component {
 		return (
 			<React.Fragment>
 				<header>
-					<Nav />
-				</header>,
+				</header>
 				<main>
-					<div className="container">
-						<div className="row">
-							<div className="col s12" style={{ position: 'relative' }}>
-								<TransitionGroup>
-									<CSSTransition key={this.props.location.pathname} timeout={1} classNames="page-fading-animation-transition" mountOnEnter unmountOnExit>
-										<Switch location={this.props.location}>
-											<Route path="/home" component={Home} />
-											<Route path="/events" component={Events} />
-											<Route path="/artists" component={Artists} />
-											<Route path="/" component={Home} />
-										</Switch>
-									</CSSTransition>
-								</TransitionGroup>
-							</div>
+					<div className="row">
+						<div className="col s2" style={{ position: 'relative' }}>
+							<Nav />
+						</div>
+						<div className="col s10" style={{ position: 'relative' }}>
+							<TransitionGroup>
+								<CSSTransition key={this.props.location.pathname} timeout={1} classNames="page-fading-animation-transition" mountOnEnter unmountOnExit>
+									<Switch location={this.props.location}>
+										<Route path="/home" component={Home} />
+										<Route path="/events" component={Events} />
+										<Route path="/artists" component={Artists} />
+										<Route path="/" component={Home} />
+									</Switch>
+								</CSSTransition>
+							</TransitionGroup>
 						</div>
 					</div>
-				</main>,
+				</main>
 				<footer className="page-footer deep-orange lighten-2">
 					<Footer />
 				</footer>
