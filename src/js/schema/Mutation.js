@@ -70,9 +70,6 @@ export default new GraphQLObjectType({
 				},
 				link: {
 					type: GraphQLNonNull(GraphQLString)
-				},
-				artists: {
-					type: GraphQLList(GraphQLString)
 				}
 			},
 			resolve: (root, args) => insertItem('events', args)

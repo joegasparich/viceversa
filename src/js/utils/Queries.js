@@ -60,13 +60,10 @@ export default class Queries {
                     date
                     description
                     link
-                    artists {
-						name
-					}
                 }
             }`,
-			create: `mutation createEvent($name: String!, $date: Date!, $description: String, $link: String!, $artists: [String]){
-				createEvent(name: $name, date: $date, description: $description, link: $link, artists: $artists) {
+			create: `mutation createEvent($name: String!, $date: Date!, $description: String, $link: String!){
+				createEvent(name: $name, date: $date, description: $description, link: $link) {
                     _id
                 }
             }`//,

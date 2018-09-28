@@ -8,7 +8,7 @@ export default class Events extends React.Component {
 		super(props);
 
 		this.state = {
-			events: []
+			events: [],
 		};
 	}
 
@@ -21,28 +21,29 @@ export default class Events extends React.Component {
 				});
 			}
 		);
-
 	}
 
 	render() {
-		let eventList = this.state.events.map(event =>
-			<li key={event._id}>
-				<Event
-					name={event.name}
-					date={new Date(event.date)}
-					description={event.description}
-					link={event.link}
-					artists={[]}
-				/>
-			</li>
-		);
+		let index = 0;
+
+		let eventList = this.state.events.map(event => {
+			if(index < this.props.displayCount || this.props.displayCount < 0) {
+				index++;
+				return (
+					<Event
+						key={event._id}
+						name={event.name}
+						date={new Date(event.date)}
+						description={event.description}
+						link={event.link}
+					/>
+				);
+			}
+		});
 
 		return (
-			<div className="row">
-				<h4 className="center">Upcoming Events</h4>
-				<ul className="event-list">
-					{eventList}
-				</ul>
+			<div className="event-list">
+				{eventList}
 			</div>
 		);
 	}

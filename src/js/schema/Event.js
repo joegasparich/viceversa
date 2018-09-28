@@ -1,11 +1,9 @@
 import {
 	GraphQLObjectType,
-	GraphQLString,
-	GraphQLList
+	GraphQLString
 } from 'graphql';
 
 import { GraphQLDate } from './Date';
-import GraphQLArtist from './Artist';
 
 const GraphQLEvent = new GraphQLObjectType({
 	name: 'Event',
@@ -16,17 +14,6 @@ const GraphQLEvent = new GraphQLObjectType({
 		date: { type: GraphQLDate },
 		description: { type: GraphQLString },
 		link: { type: GraphQLString },
-		artists: {
-			type: GraphQLList(GraphQLArtist),
-			resolve: event=>{
-				return [{
-					name: "potato"
-				},
-				{
-					name: "potato2"
-				}]
-			}
-		}
 	})
 });
 

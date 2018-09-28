@@ -10,9 +10,9 @@ Nav
 	- Everything goes grey on hover
 	- Logo (Home/News)
 	- Artists
-	- About/Contact
-	- Shop -> Bandcamp store
 	- Shed
+	- Shop -> Bandcamp store
+	- About/Contact
 	- Social Media buttons
 		- Facebook
 		- Instagram

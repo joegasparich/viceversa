@@ -1,10 +1,9 @@
 import React from 'react';
 import Cookie from 'js-cookie'
 import PropTypes from 'prop-types';
-import { Switch, Route, Link, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Nav from './Nav';
-import Footer  from './Footer';
 import Home from './Home';
 
 import Events from './Events';
@@ -48,10 +47,10 @@ class App extends React.Component {
 				</header>
 				<main>
 					<div className="row">
-						<div className="col s2" style={{ position: 'relative' }}>
+						<div className="col s3" style={{ position: 'fixed' }}>
 							<Nav />
 						</div>
-						<div className="col s10" style={{ position: 'relative' }}>
+						<div className="col s9 push-s3" style={{ position: 'relative' }}>
 							<TransitionGroup>
 								<CSSTransition key={this.props.location.pathname} timeout={1} classNames="page-fading-animation-transition" mountOnEnter unmountOnExit>
 									<Switch location={this.props.location}>
@@ -65,9 +64,7 @@ class App extends React.Component {
 						</div>
 					</div>
 				</main>
-				<footer className="page-footer deep-orange lighten-2">
-					<Footer />
-				</footer>
+				<footer></footer>
 			</React.Fragment>
 		);
 	}

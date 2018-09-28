@@ -1,7 +1,8 @@
 import React from 'react';
 
-import DynamicImport from '../utils/DynamicImport';
 import Queries from '../utils/Queries';
+
+import Events from './Events';
 
 export default class Nav extends React.Component {
 
@@ -9,56 +10,43 @@ export default class Nav extends React.Component {
 		super(props);
 
 		this.state = {
-			artists: []
+			events: []
 		};
 	}
 
-	componentDidMount() {
-		//Load Materialize
-		DynamicImport.Materialize.then((M) => {
-			new M.Dropdown(this.dropdownTrigger, {
-				hover: true,
-				coverTrigger: false,
-				inDuration: 0,
-				outDuration: 0
-			});
-
-			let elems = document.querySelectorAll('.sidenav');
-			M.Sidenav.init(elems, {});
-		});
-
-		//Load Artists
-		Queries.postRequest(
-			{ query: Queries.artist.getAll },
-			(artists) => {
-				this.setState({
-					artists: artists.data.artists
-				});
-			}
-		);
-	}
-
 	render() {
-		let artistElements = this.state.artists.map(artist =>
-			<li key={artist._id}>
-				<a href={artist.path}>{artist.name}</a>
-			</li>
-		);
-
 		return (
 			<div>
 				<div className="navigation">
 					<a href="/home" className="brand-logo">Vice Versa</a>
-					<ul className="navigation-content">
-						<li><a href="/artists">Artists</a></li>
-						<li><a href="#">Shop</a></li>
-						<li><a href="#">Shed</a></li>
-						<li><a href="/contact">About</a></li>
+
+					<ul className="links">
+						<li className="link"><a href="/artists">Artists</a></li>
+						<li className="link"><a href="/shed">Shed</a></li>
+						<li className="link"><a href="/shop">Shop</a></li>
+						<li className="link"><a href="/about">About</a></li>
 					</ul>
+
+					<div className="break" />
+
+					<div className="social-media">
+						<a href="www.facebook.com" className="facebook"></a>
+						<a href="www.instagram.com" className="instagram"></a>
+						<a href="www.bandcamp.com" className="bandcamp"></a>
+					</div>
+
+					<div className="break" />
+
+					<Events
+						displayCount={3}
+					/>
+
+					<div className="break" />
+
+					<div className="top">
+						<a href="#" onClick={() => {window.scrollTo(0, 0)}}>Top</a>
+					</div>
 				</div>
-				<ul id="dropdown1" className="dropdown-content">
-					{artistElements}
-				</ul>
 			</div>
 		);
 	}
