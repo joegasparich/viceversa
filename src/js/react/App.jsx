@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Nav from './Nav';
-import Home from './Home';
+import News from './News';
 
 import Events from './Events';
 import Artists from './Artists';
@@ -54,10 +54,10 @@ class App extends React.Component {
 							<TransitionGroup>
 								<CSSTransition key={this.props.location.pathname} timeout={1} classNames="page-fading-animation-transition" mountOnEnter unmountOnExit>
 									<Switch location={this.props.location}>
-										<Route path="/home" component={Home} />
+										<Route path="/news" component={News} />
 										<Route path="/events" component={Events} />
 										<Route path="/artists" component={Artists} />
-										<Route path="/" component={Home} />
+										<Route path="/" component={News} />
 									</Switch>
 								</CSSTransition>
 							</TransitionGroup>

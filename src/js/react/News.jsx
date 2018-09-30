@@ -2,8 +2,9 @@ import React from 'react';
 import Queries from '../utils/Queries';
 
 import Square from './Square'
+import { stringify } from 'querystring';
 
-export default class Home extends React.Component {
+export default class News extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -26,29 +27,27 @@ export default class Home extends React.Component {
 		);
 
 		// Queries.postRequest({
-		// 	query: Queries.event.create,
+		// 	query: Queries.article.create,
 		// 	variables: {
-		// 		name: "Sauce EP Release",
+		// 		title: "Article",
 		// 		date: new Date(),
-		// 		description: "Description",
-		// 		link: "www.google.com"
+		// 		content: "Description",
 		// 	}
 		// })
 	}
 
 	render() {
-		let articleList = this.state.articles.map(article =>
-			<Square 
-				key={article._id}
+		let articleList = this.state.articles.map((article) =>
+			<Square
 				title={article.title}
+				key={article._id}
 			/>
+
 		);
 
 		return (
-			<div className="row">
-				<div id="news-feed">
-					{articleList}
-				</div>
+			<div className="news-feed">
+				{articleList}
 				<ul className="pagination"></ul>
 			</div>
 		);

@@ -19,14 +19,14 @@ export default class Square extends React.Component {
 
 	render() {
 		return (
-			<div className='square' onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} onClick={() => { }}>
+			<a className='square' href={this.props.path} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
 				<div className='card-panel'>
 
 				</div>
 				<div className={`square-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
 					<h5>{this.props.title}</h5>
 				</div>
-			</div>
+			</a>
 		);
 	}
 }

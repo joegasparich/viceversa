@@ -18,7 +18,7 @@ export default class Nav extends React.Component {
 		return (
 			<div>
 				<div className="navigation">
-					<a href="/home" className="brand-logo">Vice Versa</a>
+					<a href="/home" className="brand-logo">Vice<br />Versa</a>
 
 					<ul className="links">
 						<li className="link"><a href="/artists">Artists</a></li>

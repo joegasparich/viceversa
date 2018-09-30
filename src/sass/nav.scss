@@ -7,7 +7,7 @@
 	.event,
 	.social-media,
 	.top {
-		margin: 30px 0;
+		margin: 25px 0;
 
 		// Force Link Color
 		a, & {
@@ -43,20 +43,29 @@
 	.social-media {
 		a {
 			display: inline-block;
-			width: 20px;
-			height: 20px;
+			width: 24px;
+			height: 24px;
+			margin: 20px;
+			background-color: $primary;
 			overflow:hidden;
-			background-size:contain
+			background-size:contain;
+
+			&:hover {
+				background-color: $dark;
+			}
 		}
 
 		.facebook {
-			background-image: url("/resources/icons/facebook.svg")
+			-webkit-mask-image: url("../resources/icons/facebook.svg");
+			mask-image: url("../resources/icons/facebook.svg");
 		}
 		.instagram {
-			background-image: url("/resources/icons/instagram.svg")
+			-webkit-mask-image: url("../resources/icons/instagram.svg");
+			mask-image: url("../resources/icons/instagram.svg");
 		}
 		.bandcamp {
-			background-image: url("/resources/icons/bandcamp.svg")
+			-webkit-mask-image: url("../resources/icons/bandcamp.svg");
+			mask-image: url("../resources/icons/bandcamp.svg");
 		}
 	}
 
@@ -74,6 +83,7 @@
 				display: inline-block;
 				width: 50%;
 				text-align: left;
+				vertical-align: top;
 				padding-left: 5px;
 			}
 		}

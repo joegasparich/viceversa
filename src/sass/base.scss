@@ -3,6 +3,7 @@
 @import 'nav.scss';
 @import 'entry.scss';
 @import 'square.scss';
+@import 'news.scss';
 @import 'artists.scss';
 
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -11,8 +12,8 @@
 
 @font-face {
     font-family: 'Augusta';
-    src: url('/fonts/augusta-webfont.woff2') format('woff2'),
-         url('/fonts/augusta-webfont.woff') format('woff');
+    src: url('../resources/fonts/augusta-webfont.woff2') format('woff2'),
+         url('../resources/fonts/augusta-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

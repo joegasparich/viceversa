@@ -25,8 +25,6 @@ app.get('/favicon.ico', (req, res) => {
 
 app.use(express.static('dist'));
 
-app.use(express.static('resources'));
-
 const context = {};
 app.get('/*', (req, res) => {
 	const html = ReactDOMServer.renderToString(

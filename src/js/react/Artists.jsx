@@ -1,6 +1,6 @@
 import React from 'react';
 import Queries from '../utils/Queries';
-import Artist from './Artist';
+import Square from './Square';
 
 export default class Artists extends React.Component {
 
@@ -27,9 +27,9 @@ export default class Artists extends React.Component {
 
 	render() {
 		let artistList = this.state.artists.map(artist =>
-			<Artist
+			<Square
 				key={artist._id}
-				name={artist.name}
+				title={artist.name}
 				path={artist.path}
 			/>
 		);

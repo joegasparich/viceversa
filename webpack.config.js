@@ -75,8 +75,12 @@ const common = {
 			})
 		},
 		{
-			test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-			loader: 'file-loader?name=assets/[name].[hash].[ext]'
+			test: /\.(png|jpe?g|gif|svg|ico)$/,
+			loader: 'file-loader?name=/assets/images/[name].[hash].[ext]'
+		},
+		{
+			test: /\.(woff|woff2|ttf|eot)$/,
+			loader: 'file-loader?name=/assets/fonts[name].[hash].[ext]'
 		}
 		]
 	},
