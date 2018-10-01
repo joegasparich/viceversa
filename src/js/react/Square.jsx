@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class Square extends React.Component {
@@ -20,7 +21,7 @@ export default class Square extends React.Component {
 
 	render() {
 		return (
-			<Link className='square' to={this.props.path} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
+			<Link className='square' to={this.props.path || ""} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
 				<div className='card-panel'>
 				</div>
 				{this.props.title &&

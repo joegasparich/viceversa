@@ -12,7 +12,7 @@ export default class Nav extends React.Component {
 					<Link to="/" className="brand-logo">Vice<br />Versa</Link>
 
 					<ul className="links">
-						<li className="link"><Link to="/artists/2">Artists</Link></li>
+						<li className="link"><Link to="/artists">Artists</Link></li>
 						<li className="link"><Link to="/shed">Shed</Link></li>
 						<li className="link"><Link to="https://www.bandcamp.com">Shop</Link></li>
 						<li className="link"><Link to="/about">About</Link></li>
