@@ -107,11 +107,11 @@ export default class Queries {
 					_id
                     name
 					bio
-					path
+					content
                 }
             }`,
-			create: `mutation createArtist($name: String!, $bio: String!, $path: String!){
-				createArtist(name: $name, bio: $bio, path: $path) {
+			create: `mutation createArtist($name: String!, $bio: String!, $content: String!){
+				createArtist(name: $name, bio: $bio, content: $content) {
                     _id
                 }
             }`//,

@@ -98,7 +98,7 @@ export default new GraphQLObjectType({
 				bio: {
 					type: GraphQLNonNull(GraphQLString)
 				},
-				path: {
+				content: {
 					type: GraphQLNonNull(GraphQLString)
 				}
 			},

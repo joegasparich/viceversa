@@ -2,6 +2,12 @@ body {
 	background: url(../resources/images/bg.png);
 	background-size:cover;
 	background-attachment: fixed;
+
+	font-family: 'Courier New', Courier, monospace;
+}
+h1, h2, h3, h4 {
+	font-family: 'Augusta', Times, serif;
+	color: $primary;
 }
 
 //Sticky Footer

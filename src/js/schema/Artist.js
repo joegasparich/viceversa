@@ -15,7 +15,7 @@ const GraphQLArtist = new GraphQLObjectType({
 		_id: { type: GraphQLString },
 		name: { type: GraphQLString },
 		bio: { type: GraphQLDate },
-		path: { type: GraphQLString }
+		content: { type: GraphQLString }
 	})
 });
 

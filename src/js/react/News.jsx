@@ -2,7 +2,6 @@ import React from 'react';
 import Queries from '../utils/Queries';
 
 import Square from './Square'
-import { stringify } from 'querystring';
 
 export default class News extends React.Component {
 
@@ -25,15 +24,6 @@ export default class News extends React.Component {
 				});
 			}
 		);
-
-		// Queries.postRequest({
-		// 	query: Queries.article.create,
-		// 	variables: {
-		// 		title: "Article",
-		// 		date: new Date(),
-		// 		content: "Description",
-		// 	}
-		// })
 	}
 
 	render() {

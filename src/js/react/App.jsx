@@ -1,14 +1,16 @@
 import React from 'react';
 import Cookie from 'js-cookie'
-import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
+
+import Queries from '../utils/Queries';
+
+import Entry from './Entry';
 import Nav from './Nav';
 import News from './News';
-
-import Events from './Events';
+import About from './About';
 import Artists from './Artists';
-import Entry from './Entry';
+import Shed from './Shed';
 
 class App extends React.Component {
 
@@ -26,10 +28,21 @@ class App extends React.Component {
 		this.setState({
 			hasSeenEntry: Boolean(Cookie.get('HasSeenEntry'))
 		});
+
+		// Queries.postRequest({
+		// 	query: Queries.artist.create,
+		// 	variables: {
+		// 		name: "Bonnie Strides",
+		// 		bio: "Bio",
+		// 		content: "Content",
+		// 	}
+		// })
 	}
 
 	onClear() {
-		this.setState({hasSeenEntry: true});
+		this.setState({
+			hasSeenEntry: true
+		});
 		Cookie.set("HasSeenEntry", true);
 	}
 
@@ -51,16 +64,12 @@ class App extends React.Component {
 							<Nav />
 						</div>
 						<div className="col s9 push-s3" style={{ position: 'relative' }}>
-							<TransitionGroup>
-								<CSSTransition key={this.props.location.pathname} timeout={1} classNames="page-fading-animation-transition" mountOnEnter unmountOnExit>
-									<Switch location={this.props.location}>
-										<Route path="/news" component={News} />
-										<Route path="/events" component={Events} />
-										<Route path="/artists" component={Artists} />
-										<Route path="/" component={News} />
-									</Switch>
-								</CSSTransition>
-							</TransitionGroup>
+							<Switch location={this.props.location}>
+								<Route path="/artists/:id?" component={Artists} />
+								<Route path="/about" component={About} />
+								<Route path="/shed" component={Shed} />
+								<Route path="/" component={News} />
+							</Switch>
 						</div>
 					</div>
 				</main>
@@ -70,7 +79,7 @@ class App extends React.Component {
 	}
 }
 App.propTypes = {
-	location: PropTypes.object.isRequired,
-};
+	location: PropTypes.object.isRequired
+}
 
 export default withRouter(App);

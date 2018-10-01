@@ -6,7 +6,7 @@ import '../../sass/base.scss';
 
 import App from '../react/App';
 
-ReactDOM.hydrate(
+ReactDOM.render(
 	(
 		<BrowserRouter>
 			<App />

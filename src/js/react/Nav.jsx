@@ -1,38 +1,29 @@
 import React from 'react';
-
-import Queries from '../utils/Queries';
+import {Link} from 'react-router-dom';
 
 import Events from './Events';
 
 export default class Nav extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			events: []
-		};
-	}
-
 	render() {
 		return (
 			<div>
 				<div className="navigation">
-					<a href="/home" className="brand-logo">Vice<br />Versa</a>
+					<Link to="/" className="brand-logo">Vice<br />Versa</Link>
 
 					<ul className="links">
-						<li className="link"><a href="/artists">Artists</a></li>
-						<li className="link"><a href="/shed">Shed</a></li>
-						<li className="link"><a href="/shop">Shop</a></li>
-						<li className="link"><a href="/about">About</a></li>
+						<li className="link"><Link to="/artists/2">Artists</Link></li>
+						<li className="link"><Link to="/shed">Shed</Link></li>
+						<li className="link"><Link to="https://www.bandcamp.com">Shop</Link></li>
+						<li className="link"><Link to="/about">About</Link></li>
 					</ul>
 
 					<div className="break" />
 
 					<div className="social-media">
-						<a href="www.facebook.com" className="facebook"></a>
-						<a href="www.instagram.com" className="instagram"></a>
-						<a href="www.bandcamp.com" className="bandcamp"></a>
+						<Link to="https://www.facebook.com" className="facebook"></Link>
+						<Link to="https://www.instagram.com" className="instagram"></Link>
+						<Link to="https://www.bandcamp.com" className="bandcamp"></Link>
 					</div>
 
 					<div className="break" />

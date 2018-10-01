@@ -1,3 +1,6 @@
+OLD BUILD SCRIPT
+"build": "export NODE_ENV='production'; webpack -p",
+
 TO DO
 -----
 
@@ -40,6 +43,11 @@ Artist Page
 	- Banner image at the top
 	- Bio/links on the right
 	- Feed on the left of images/music/videos/news
+		- Te Henga Collective
+		- Snitch Jimmy
+		- A Work in Progress
+		- Melanie
+		- Bonnie Strides
 About/Contact
 	- Image of everyone
 	- Bio

@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class Event extends React.Component {
 
@@ -7,12 +9,17 @@ export default class Event extends React.Component {
 		const isOld = this.props.date < Date.now();
 
 		return (
-			<div className='event' onClick={() => {window.open(this.props.link, "_blank")}}>
+			<Link className='event' to={this.props.link}>
 				<span className='event-name'>
 					{this.props.name}
 				</span>
 				<span className='event-date'>{this.props.date.toDateString()}</span>
-			</div>
+			</Link>
 		);
 	}
+}
+Event.propTypes = {
+	name: PropTypes.string.isRequired,
+	link: PropTypes.string,
+	date: PropTypes.instanceOf(Date)
 }

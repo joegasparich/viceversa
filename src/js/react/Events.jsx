@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Event from './Event';
 import Queries from '../utils/Queries';
 

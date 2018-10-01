@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Entry extends React.Component {
-
 	render() {
 		return (
 			<div id="entry-modal" className="active">
@@ -11,4 +11,7 @@ export default class Entry extends React.Component {
 			</div>
 		);
 	}
+}
+Entry.propTypes = {
+	onClear: PropTypes.func.isRequired
 }
