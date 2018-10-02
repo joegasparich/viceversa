@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class Event extends React.Component {
@@ -9,12 +8,12 @@ export default class Event extends React.Component {
 		const isOld = this.props.date < Date.now();
 
 		return (
-			<Link className='event' to={this.props.link}>
+			<a className='event' href={this.props.link}>
 				<span className='event-name'>
 					{this.props.name}
 				</span>
 				<span className='event-date'>{this.props.date.toDateString()}</span>
-			</Link>
+			</a>
 		);
 	}
 }

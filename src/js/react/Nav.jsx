@@ -104,16 +104,16 @@ export default class Nav extends React.Component {
 							<ul className="links">
 								<li id="artists" className="link"><Link to="/artists" className={location.pathname.includes("artist") ? "active" : ""}>Artists</Link></li>
 								<li id="shed" className="link"><Link to="/shed" className={location.pathname.includes("shed") ? "active" : ""}>Shed</Link></li>
-								<li id="shop" className="link"><Link to="https://www.bandcamp.com">Shop</Link></li>
+								<li id="shop" className="link"><a href="//bandcamp.com">Shop</a></li>
 								<li id="about" className="link"><Link to="/about" className={location.pathname.includes("about") ? "active" : ""}>About</Link></li>
 							</ul>
 
 							<div className="break" />
 
 							<div id="social-media">
-								<Link to="https://www.facebook.com" className="facebook"><Facebook /></Link>
-								<Link to="https://www.instagram.com" className="instagram"><Instagram /></Link>
-								<Link to="https://www.bandcamp.com" className="bandcamp"><Headphones /></Link>
+								<a href="//facebook.com" className="facebook"><Facebook /></a>
+								<a href="//instagram.com" className="instagram"><Instagram /></a>
+								<a href="//bandcamp.com" className="bandcamp"><Headphones /></a>
 							</div>
 						</div>
 
