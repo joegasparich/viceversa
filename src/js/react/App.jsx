@@ -2,6 +2,7 @@ import React from 'react';
 import Cookie from 'js-cookie'
 import { Switch, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 import Queries from '../utils/Queries';
 
@@ -18,7 +19,7 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			hasSeenEntry: false
+			hasSeenEntry: false,
 		};
 
 		this.onClear = this.onClear.bind(this);
@@ -37,6 +38,16 @@ class App extends React.Component {
 		// 		content: "Content",
 		// 	}
 		// })
+
+		// Queries.postRequest({
+		// 	query: Queries.event.create,
+		// 	variables: {
+		// 		name: "Test Event",
+		// 		date: new Date(),
+		// 		description: "desc",
+		// 		link: "#"
+		// 	}
+		// })
 	}
 
 	onClear() {
@@ -48,29 +59,31 @@ class App extends React.Component {
 
 	render() {
 
-		if(!this.state.hasSeenEntry) {
+		if (!this.state.hasSeenEntry) {
 			return (
-				<Entry onClear={this.onClear}/>
+				<React.Fragment>
+					<CssBaseline />
+					<Entry onClear={this.onClear} />
+				</React.Fragment>
 			);
 		}
 
 		return (
 			<React.Fragment>
+				<CssBaseline />
 				<header>
 				</header>
 				<main>
-					<div className="row">
-						<div className="col s3" style={{ position: 'fixed' }}>
-							<Nav />
-						</div>
-						<div className="col s9 push-s3" style={{ position: 'relative' }}>
-							<Switch location={this.props.location}>
-								<Route path="/artists/:id?" component={Artists} />
-								<Route path="/about" component={About} />
-								<Route path="/shed" component={Shed} />
-								<Route path="/" component={News} />
-							</Switch>
-						</div>
+					<div className="nav" style={{ position: 'fixed' }}>
+						<Nav />
+					</div>
+					<div className="content" style={{ position: 'relative' }}>
+						<Switch location={this.props.location}>
+							<Route path="/artists/:id?" component={Artists} />
+							<Route path="/about" component={About} />
+							<Route path="/shed" component={Shed} />
+							<Route path="/" component={News} />
+						</Switch>
 					</div>
 				</main>
 				<footer></footer>

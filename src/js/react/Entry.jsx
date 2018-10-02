@@ -6,7 +6,7 @@ export default class Entry extends React.Component {
 		return (
 			<div id="entry-modal" className="active">
 				<div id="entry-content" className="valign-wrapper">
-					<h1 onClick={this.props.onClear}><p id="vice" className="no-select">vice</p><p id="versa" className="no-select">versa</p></h1>
+					<div className="brand-logo" onClick={this.props.onClear}></div>
 				</div>
 			</div>
 		);

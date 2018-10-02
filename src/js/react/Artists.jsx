@@ -19,9 +19,12 @@ export default class Artists extends React.Component {
 		Queries.postRequest(
 			{ query: Queries.artist.getAll },
 			(artists) => {
-				console.log(artists);
+				//Sort Alphabetically
+				let sortedArtists = artists.data.artists.sort((a, b) => {
+					return a.name.localeCompare(b.name);
+				})
 				this.setState({
-					artists: artists.data.artists
+					artists: sortedArtists
 				});
 			}
 		);
@@ -38,7 +41,6 @@ export default class Artists extends React.Component {
 
 		return (
 			<div className="artists">
-				<h2 className="center">Artists</h2>
 				<div className="content">
 					{artistList}
 				</div>

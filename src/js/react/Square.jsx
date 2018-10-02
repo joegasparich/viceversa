@@ -13,20 +13,20 @@ export default class Square extends React.Component {
 		this.handleHover = this.handleHover.bind(this);
 	}
 
-	handleHover() {
+	handleHover(hovering) {
 		this.setState({
-			isHovered: !this.state.isHovered
+			isHovered: hovering
 		})
 	}
 
 	render() {
 		return (
-			<Link className='square' to={this.props.path || ""} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
+			<Link className='square' to={this.props.path || ""} onMouseEnter={() => this.handleHover(true)} onMouseLeave={() => this.handleHover(false)}>
 				<div className='card-panel'>
 				</div>
 				{this.props.title &&
 					<div className={`square-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
-						<h5>{this.props.title}</h5>
+						<h3>{this.props.title}</h3>
 					</div>
 				}
 			</Link>

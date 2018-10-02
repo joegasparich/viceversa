@@ -31,21 +31,22 @@ export default class Events extends React.Component {
 			if(index < this.props.displayCount || this.props.displayCount < 0) {
 				index++;
 				return (
-					<Event
-						key={event._id}
-						name={event.name}
-						date={new Date(event.date)}
-						description={event.description}
-						link={event.link}
-					/>
+					<li key={event._id}>
+						<Event
+							name={event.name}
+							date={new Date(event.date)}
+							description={event.description}
+							link={event.link}
+						/>
+					</li>
 				);
 			}
 		});
 
 		return (
-			<div className="event-list">
+			<ul className="event-list">
 				{eventList}
-			</div>
+			</ul>
 		);
 	}
 }

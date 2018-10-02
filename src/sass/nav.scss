@@ -1,91 +1,107 @@
 .navigation {
-	text-align: center;
+    text-align: center;
 	color: $primary;
 
-	.brand-logo,
-	.link,
-	.event,
-	.social-media,
-	.top {
-		margin: 25px 0;
-
-		// Force Link Color
-		a, & {
+    #brand-logo,
+    .link,
+    .event,
+	#more,
+    #social-media,
+    #top {
+		margin: 25px 0; // Force Link Color
+		
+        a,
+        & {
 			color: $primary;
-		}
+			text-decoration: none;
+		} 
 
 		// Hover Color
-		a:hover,
-		&:hover {
-			color: $dark;
-		}
+        a:hover,
+        &:hover {
+            color: $dark;
+        }
 	}
-
-	.break {
-		width: 40%;
-		margin: auto;
-		border-bottom: 1px solid $primary;
+	
+    .break {
+        width: 40%;
+        margin: auto;
+        border-bottom: 1px solid $primary;
 	}
-
-	.brand-logo {
-		display: flex;
-		flex-direction: column;
-		font-family: 'Augusta', Times, serif;
-		font-size: 3.5rem;
+	
+    a#brand-logo {
+		display: block;
+        -webkit-mask-image: url("../resources/images/logo.svg");
+        mask-image: url("../resources/images/logo.svg");
+		mask-repeat: no-repeat;
+        background-color: $primary;
+		background-size: contain;
+        width: 200px;
+        height: 180px;
+		margin: 50px auto;
+		
+        &:hover {
+            background-color: $dark;
+        }
 	}
-
-	.links {
-		li {
+	
+    .links {
+        li {
 			display: block;
-		}
+			a.active {
+				border-bottom: 2px solid $primary;
+				&:hover {
+					border-color: $dark;
+				}
+			}
+        }
 	}
-
-	.social-media {
-		a {
-			display: inline-block;
-			width: 24px;
-			height: 24px;
-			margin: 20px;
-			background-color: $primary;
-			overflow:hidden;
-			background-size:contain;
-
-			&:hover {
-				background-color: $dark;
-			}
-		}
-
-		a.facebook {
-			-webkit-mask-image: url("../resources/icons/facebook.svg");
-			mask-image: url("../resources/icons/facebook.svg");
-		}
-		a.instagram {
-			-webkit-mask-image: url("../resources/icons/instagram.svg");
-			mask-image: url("../resources/icons/instagram.svg");
-		}
-		a.bandcamp {
-			-webkit-mask-image: url("../resources/icons/bandcamp.svg");
-			mask-image: url("../resources/icons/bandcamp.svg");
-		}
+	
+    #social-media {
+        a {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin: auto 20px;
+            &:hover {
+                color: $dark;
+            }
+        }
 	}
+    
+    .events {
+        margin: 20px auto;
 
-	.event-list {
-		a.event {
-			display: block;
-
-			.event-name {
-				display: inline-block;
-				width: 50%;
-				text-align: right;
-				padding-right: 10px;
-			}
-			.event-date {
-				display: inline-block;
-				width: 50%;
-				text-align: left;
-				vertical-align: top;
-				padding-left: 10px;
-			}
+        .event-list {
+            a.event {
+                display: block;
+                .event-name {
+                    display: inline-block;
+                    width: 50%;
+                    text-align: right;
+                    padding-right: 10px;
+                }
+                .event-date {
+                    display: inline-block;
+                    width: 50%;
+                    text-align: left;
+                    vertical-align: top;
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+	
+    //Expand Events
+	.nav-content {
+        .events {
+            transition: height 0.5s ease-in-out;
+            overflow: hidden;
+        }
+		.collapsable {
+			overflow: hidden;
+			transition: height 0.5s ease-in-out;
+			height: auto;
 		}
 	}
 }
