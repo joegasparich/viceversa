@@ -27,7 +27,7 @@ Nav
 		✓ Show 3 that are closest to the current time
 		✓ Name and date
 		✓ Links to Facebook Event/Whatever
-		- Show More, expands to fill the whole nav
+		✓ Show More, expands to fill the whole nav
 	✓ Top
 News
 	✓ Grid
@@ -38,8 +38,8 @@ Artists
 	✓ Grid
 	- Images are black and white and transition to colour on hover with name panel coming up from the bottom
 	- Or full colour with text
-	- Alphabetical
-	✓ Click through to artist page
+	✓ Alphabetical
+	- Click through to artist page
 Artist Page
 	- Banner image at the top
 	- Data driven
