@@ -12,6 +12,7 @@ import News from './News';
 import About from './About';
 import Artists from './Artists';
 import Shed from './Shed';
+import Article from './Article';
 
 class App extends React.Component {
 
@@ -74,10 +75,10 @@ class App extends React.Component {
 				<header>
 				</header>
 				<main>
-					<div className="nav" style={{ position: 'fixed' }}>
+					<div className="nav">
 						<Nav />
 					</div>
-					<div className="content" style={{ position: 'relative' }}>
+					<div className="content">
 						<Switch location={this.props.location}>
 							<Route path="/artists/:id?" component={Artists} />
 							<Route path="/about" component={About} />

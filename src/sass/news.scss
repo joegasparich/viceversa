@@ -1,3 +1,30 @@
 .news-feed {
 	text-align: center;
+
+	.square {
+		cursor: pointer;
+	}
+}
+
+.article {
+	position: relative;
+	margin: auto 150px;
+	padding: 50px;
+	
+	h1 {
+		text-align: center;
+	}
+
+	#close {
+		cursor: pointer;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		right: 0;
+		width: 50px;
+		height: 50px;
+		svg {
+			font-size: 40px;
+		}
+	}
 }

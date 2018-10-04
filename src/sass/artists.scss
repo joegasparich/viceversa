@@ -1,3 +1,84 @@
 .artists {
 	text-align: center;
 }
+
+.artist {
+	.banner {
+		position: relative;
+		height: 30vh;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		h1 {
+			position: absolute;
+			font-size: 72px;
+			font-family: $font-content;
+			color: white;
+			bottom: 20px;
+			left: 0;
+			right: 0;
+			text-align: center;
+
+			@media screen and (max-width: $break-small) {
+				font-size: 38px;
+			}
+		}
+	}
+	
+	.content {
+		display: flex;
+		flex-flow: row;
+		padding: 30px;
+
+		.bio {
+			flex: 1 auto;
+			order: 2;
+
+			img {
+				display:block;
+				object-fit: cover;
+				object-position: center;
+				width: 300px;
+				height: 300px;
+
+				@media screen and (max-width: $break-small) {
+					width: 200px;
+					height: 200px;
+				}
+			}
+
+			p {
+				padding: 0 20%;
+			}
+		}
+	
+		.gallery {
+			flex: 3 auto;
+			order: 1;
+
+			p {
+				padding-right: 30px;
+			}
+		}
+		@media screen and (max-width: $break-small) {
+			flex-flow: row wrap;
+			.bio {
+				flex: 1 100%;
+				order: 1;
+
+				p {
+					padding: 20px
+				}
+			}
+			.gallery {
+				flex: 1 100%;
+				order: 2;
+
+				p {
+					padding: 20px
+				}
+			}
+		}
+	}
+}

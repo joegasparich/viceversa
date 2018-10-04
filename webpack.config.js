@@ -1,5 +1,5 @@
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-const IS_DEBUGGING = process.env.DEBUG === 'debug';
+const IS_PRODUCTION = process.env.DEBUG && process.env.NODE_ENV.trim() == 'production';
+const IS_DEBUGGING = process.env.DEBUG && process.env.DEBUG.trim() == 'debug';
 
 const glob = require('glob-all');
 const path = require('path');
@@ -17,8 +17,8 @@ const common_plugins = [
 		filename: 'sourceMaps/[file].map'
 	})
 ];
-
 if (IS_PRODUCTION) {
+	console.log('production');
 	[
 		new UglifyJSPlugin({
 			cache: true,
@@ -137,5 +137,5 @@ const backend = {
 
 module.exports = [
 	Object.assign({}, common, frontend),
-	Object.assign({}, common, backend)
+	Object.assign({}, common, backend),
 ];

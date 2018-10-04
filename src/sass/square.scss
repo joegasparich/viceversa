@@ -4,12 +4,20 @@
 	height: 300px;
 	margin: 10px;
 	overflow: hidden;
+	background: $dark;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+    @media screen and (max-width: $break-small) {
+		width: 250px;
+		height: 250px;
+	}
 
 	.card-panel {
 		width: 100%;
 		height: 100%;
 		margin: 0;
-		background-color: $dark;
 	}
 
 	.square-title {
@@ -26,6 +34,11 @@
 
 		&.show {
 			top: -100px;
+		}
+
+		@media screen and (max-width: $break-small) {
+			top: -100px;
+			background: none;
 		}
 	}
 

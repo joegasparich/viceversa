@@ -1,45 +1,48 @@
 body {
-    background: url(../resources/images/bg2.png);
+    background: url(../resources/images/bg2.png) no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: $font-content;
     main {
         &>.nav {
+            top: 0;
+            left: 0;
             width: 25%;
+            position: fixed;
         }
         &>.content {
             margin-left: 25%;
+            position: relative;
+            overflow: auto;
+            padding: 20px;
+        }
+        //Mobile
+        @media screen and (max-width: $break-small) {
+            &>.nav {
+                width: 100%;
+                position: relative;
+            }
+            &>.content {
+                margin-left: 0;
+                margin-top: 150px;
+            }
         }
     }
 }
 
 h1,
 h2 {
-    font-family: 'Augusta', Times, serif;
+    font-family: $font-heading;
     color: $primary;
 }
 
 h3,
 h4 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: $font-content;
 }
 
 ul {
     padding: 0;
     margin: 0;
-}
-
-//Sticky Footer
-body {
-    position: relative;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
-    margin-top: 20px;
 }
 
 //End Sticky Footer
@@ -73,9 +76,16 @@ main {
 .hidden {
     display: none !important;
 }
+.invisible {
+    opacity: 0 !important;
+}
 
 .collapse {
     height: 0px !important;
     margin: 0px !important;
     overflow: hidden !important;
+}
+.center {
+    text-align: center;
+    margin: auto;
 }

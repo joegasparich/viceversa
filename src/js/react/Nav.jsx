@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Headphones } from 'mdi-material-ui';
+import Menu from '@material-ui/icons/Menu';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import Facebook from 'mdi-material-ui/Facebook';
+import Instagram from 'mdi-material-ui/Instagram';
+import Headphones from 'mdi-material-ui/Headphones';
 
 import Events from './Events';
 
@@ -9,6 +13,7 @@ export default class Nav extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			expanded: false,
 			expandEvents: false,
 			eventsExpanded: false,
 			eventsHeight: 0
@@ -21,7 +26,20 @@ export default class Nav extends React.Component {
 		this.navContent = React.createRef();
 
 		//Binds
+		this.toggleExpandNav = this.toggleExpandNav.bind(this);
 		this.toggleExpandEvents = this.toggleExpandEvents.bind(this);
+	}
+
+	toggleExpandNav() {
+		this.setState({
+			expanded: !this.state.expanded
+		});
+		if(this.state.expanded) {
+			this.collapseElement(this.navContent.current);
+			this.navContent.current.addEventListener('transitionend', function(e) { this.navContent.current.style.height = null; }, {once: true});
+		} else {
+			this.expandElement(this.navContent.current);
+		}
 	}
 
 	toggleExpandEvents() {
@@ -31,7 +49,9 @@ export default class Nav extends React.Component {
 		if(this.state.expandEvents) {
 			//Expand other elements
 			this.expandElement(this.collapseTop.current);
+			this.collapseTop.current.addEventListener('transitionend', function(e) { this.collapseTop.current.style.height = null; }, {once: true});
 			this.expandElement(this.collapseBottom.current);
+			this.collapseBottom.current.addEventListener('transitionend', function(e) { this.collapseBottom.current.style.height = null; }, {once: true});
 			
 			//Collapse events
 			let element = this.expand.current;
@@ -55,7 +75,9 @@ export default class Nav extends React.Component {
 			//Expand events
 			let element = this.expand.current;
 			let startHeight = element.scrollHeight;
-			let endHeight = this.navContent.current.scrollHeight;
+			const style = window.getComputedStyle(element)
+			const margin = parseInt(style.getPropertyValue('margin-bottom')) + parseInt(style.getPropertyValue('margin-top'));
+			let endHeight = this.navContent.current.scrollHeight - margin;
 			let elementTransition = element.style.transition;
 			element.style.transition = '';
 
@@ -72,7 +94,8 @@ export default class Nav extends React.Component {
 
 	collapseElement(element) {
 		let sectionHeight = element.scrollHeight;
-		let elementTransition = element.style.transition;
+		const style = window.getComputedStyle(element)
+		let elementTransition = style.getPropertyValue('transition');
 		element.style.transition = '';
 
 		requestAnimationFrame(function() {
@@ -88,18 +111,18 @@ export default class Nav extends React.Component {
 	expandElement(element) {
 		let sectionHeight = element.scrollHeight;
 		element.style.height = sectionHeight + 'px';
-
-		element.addEventListener('transitionend', function(e) {
-			element.style.height = null;
-		}, {once: true});
 	}
 
 	render() {
 		return (
 			<div>
 				<div className="navigation">
-					<Link to="/" id="brand-logo"></Link>
-					<div className="nav-content" ref={this.navContent}>
+					<div className="nav-head">
+						<a id="menu" href="#" onClick={this.toggleExpandNav} ><Menu /></a>
+						<Link to="/" id="brand-logo"></Link>
+						<a id="top-mob" href="#" onClick={() => { window.scrollTo(0, 0) }} ><ArrowUpward /></a>
+					</div>
+					<div className={"nav-content"} ref={this.navContent}>
 						<div className="collapsable" ref={this.collapseTop}>
 							<ul className="links">
 								<li id="artists" className="link"><Link to="/artists" className={location.pathname.includes("artist") ? "active" : ""}>Artists</Link></li>
@@ -111,9 +134,9 @@ export default class Nav extends React.Component {
 							<div className="break" />
 
 							<div id="social-media">
-								<a href="//facebook.com" className="facebook"><Facebook /></a>
-								<a href="//instagram.com" className="instagram"><Instagram /></a>
-								<a href="//bandcamp.com" className="bandcamp"><Headphones /></a>
+								<a id="facebook" href="//facebook.com"><Facebook /></a>
+								<a id="instagram" href="//instagram.com"><Instagram /></a>
+								<a id="bandcamp" href="//bandcamp.com"><Headphones /></a>
 							</div>
 						</div>
 
@@ -121,10 +144,11 @@ export default class Nav extends React.Component {
 
 						<div className="events" ref={this.expand}>
 							<Events displayCount={this.state.eventsExpanded ? -1 : 3} />
-							<a href="#" id="more" onClick={this.toggleExpandEvents}>{this.state.eventsExpanded ? "Less" : "More"}</a>
 						</div>
 
-						<div className="break" />
+						<div className="break">
+							<a id="more" href="#" onClick={this.toggleExpandEvents}>{this.state.eventsExpanded ? "Less" : "More"}</a>
+						</div>
 
 						<div className="collapsable" ref={this.collapseBottom}>
 							<div id="top">

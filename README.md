@@ -2,9 +2,9 @@ TO DO
 -----
 
 Mobile
-	- Logo and Menu button in header
-	- Menu expands out
-	- 3/4s of the screen
+	✓ Logo and Menu button in header
+	✓ Menu expands out
+	✓ 3/4s of the screen
 
 Splash
 	✓ Only shows up once per session
@@ -32,19 +32,23 @@ Nav
 News
 	✓ Grid
 	✓ Text panel comes up when hovering over image
-	- Clicking expands it to fill the screen
-		- X at the top right to close
+	✓ Clicking opens article
+		✓ X at the top right to close
+		- Animate
+	- WYSIWYG Editor
 Artists
 	✓ Grid
 	- Images are black and white and transition to colour on hover with name panel coming up from the bottom
 	- Or full colour with text
 	✓ Alphabetical
-	- Click through to artist page
+	✓ Click through to artist page
 Artist Page
-	- Banner image at the top
-	- Data driven
-	- Bio/links on the right
-	- Feed on the left of images/music/videos/news
+	✓ Banner image at the top
+	✓ Data driven
+	✓ Bio on the right
+	- Links on the right
+	✓ Feed on the left of images/music/videos/news
+	- WYSIWYG Editor
 About/Contact
 	- Image of everyone
 	- Bio

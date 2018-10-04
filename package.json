@@ -8,11 +8,11 @@
     "last 20 versions"
   ],
   "scripts": {
-    "debug": "export DEBUG=debug; webpack --watch",
+    "debug": "set DEBUG=debug; webpack --watch",
     "prestart": "gulp",
     "start": "start http://localhost:5000/ & webpack --watch",
     "prebuild": "yarn prestart",
-    "build": "export NODE_ENV='production'; webpack -p",
+    "build": "set NODE_ENV=production & webpack -p",
     "predeploy": "yarn build",
     "deploy": "./deploy.sh"
   },
