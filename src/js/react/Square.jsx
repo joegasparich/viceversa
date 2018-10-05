@@ -19,9 +19,11 @@ export default class Square extends React.Component {
 		})
 	}
 
-	render() {
-		console.log(this.props.image);
+	handleClick(func, params) {
+		func(params, this);
+	}
 
+	render() {
 		if (this.props.path) {
 			return (
 				<Link 
@@ -47,7 +49,7 @@ export default class Square extends React.Component {
 				className='square' 
 				onMouseEnter={() => this.handleHover(true)} 
 				onMouseLeave={() => this.handleHover(false)} 
-				onClick={this.props.click}
+				onClick={() => {this.handleClick(this.props.click.func, this.props.click.params)}}
 				style={{backgroundImage: `url(${this.props.image})`}}
 			>
 				<div className='card-panel'>
@@ -65,5 +67,8 @@ Square.propTypes = {
 	title: PropTypes.string,
 	image: PropTypes.string,
 	path: PropTypes.string,
-	click: PropTypes.func
+	click: PropTypes.shape({
+		func: PropTypes.func,
+		params: PropTypes.object
+	})
 }

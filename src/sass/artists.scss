@@ -34,7 +34,12 @@
 		.bio {
 			flex: 1 auto;
 			order: 2;
-
+			max-width: 300px;
+			
+			@media screen and (max-width: $break-small) {
+				max-width: 100%;
+			}
+			
 			img {
 				display:block;
 				object-fit: cover;
@@ -46,10 +51,6 @@
 					width: 200px;
 					height: 200px;
 				}
-			}
-
-			p {
-				padding: 0 20%;
 			}
 		}
 	
@@ -66,18 +67,12 @@
 			.bio {
 				flex: 1 100%;
 				order: 1;
-
-				p {
-					padding: 20px
-				}
+				padding: 20px
 			}
 			.gallery {
 				flex: 1 100%;
 				order: 2;
-
-				p {
-					padding: 20px
-				}
+				padding: 20px
 			}
 		}
 	}

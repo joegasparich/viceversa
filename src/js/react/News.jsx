@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Queries from '../utils/Queries';
 
 import Square from './Square';
@@ -12,7 +13,8 @@ export default class News extends React.Component {
 		this.state = {
 			articles: [],
 			events: [],
-			shownArticle: null
+			shownArticle: null,
+			articlePos: {}
 		};
 
 		//Binds
@@ -41,8 +43,13 @@ export default class News extends React.Component {
 		);
 	}
 
-	handleClick(article) {
-		this.setState({shownArticle: article});
+	handleClick(params, domNode) {
+		let element = ReactDOM.findDOMNode(domNode);
+		let boundingBox = element.getBoundingClientRect();
+		this.setState({
+			shownArticle: params.article,
+			articlePos: boundingBox
+		});
 	}
 
 	closeArticle() {
@@ -52,25 +59,19 @@ export default class News extends React.Component {
 	}
 
 	render() {
-		if(this.state.shownArticle) {
-			return (
-				<Article 
-					article={this.state.shownArticle}
-					onClose={this.closeArticle}
-				/>
-			);
-		}
 
 		let articleList = this.state.articles.map((article) =>
 			<Square
+				id={article._id}
 				title={article.title}
 				key={article._id}
-				click={() => {this.handleClick(article)}}
+				click={{func: this.handleClick, params: {article: article}}}
 			/>
 		);
 
 		return (
 			<div className="news-feed">
+				{this.state.shownArticle && <Article article={this.state.shownArticle} startPos={this.state.articlePos} onClose={this.closeArticle}/>}
 				{articleList}
 				<ul className="pagination"></ul>
 			</div>
