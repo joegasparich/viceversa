@@ -35,9 +35,11 @@ export default class Nav extends React.Component {
 			expanded: !this.state.expanded
 		});
 		if(this.state.expanded) {
+			//Collapse
 			this.collapseElement(this.navContent.current);
-			this.navContent.current.addEventListener('transitionend', function(e) { this.navContent.current.style.height = null; }, {once: true});
+			this.navContent.current.addEventListener('transitionend', (e) => { this.navContent.current.style.height = null; }, {once: true});
 		} else {
+			//Expand
 			this.expandElement(this.navContent.current);
 		}
 	}
@@ -49,9 +51,9 @@ export default class Nav extends React.Component {
 		if(this.state.expandEvents) {
 			//Expand other elements
 			this.expandElement(this.collapseTop.current);
-			this.collapseTop.current.addEventListener('transitionend', function(e) { this.collapseTop.current.style.height = null; }, {once: true});
+			this.collapseTop.current.addEventListener('transitionend', (e) => { this.collapseTop.current.style.height = null; }, {once: true});
 			this.expandElement(this.collapseBottom.current);
-			this.collapseBottom.current.addEventListener('transitionend', function(e) { this.collapseBottom.current.style.height = null; }, {once: true});
+			this.collapseBottom.current.addEventListener('transitionend', (e) => { this.collapseBottom.current.style.height = null; }, {once: true});
 			
 			//Collapse events
 			let element = this.expand.current;

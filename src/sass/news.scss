@@ -6,19 +6,57 @@
 	}
 }
 
-.article {
+.testArticle {
+	display: none; 
+	top: var(--article-square-top);
+	left: var(--article-square-left);
+	height: var(--article-square-size);
+	width: var(--article-square-size);
+	background-color: white;
 	position: fixed;
-	z-index: 200;
 	transition: all 0.3s ease-in-out;
 
-	@media screen and (max-width: $break-small) {
-		margin: auto 0;
+	&.open {
+		display: block; 
+		left: 30%;
+		width: 65%;
+		top: 0;
+		height: 100%;
+	}
+}
+
+.article {
+	position: fixed;
+	z-index: 100;
+	display: none; 
+	top: var(--article-square-top);
+	left: var(--article-square-left);
+	height: var(--article-square-size);
+	width: var(--article-square-size);
+	transition: all 0.3s ease-in-out;
+	
+	&.open {
+		display: block;
+		padding: 20px;
+		left: 25%;
+		width: 75%;
+		top: 0;
+		height: 100%;
+		@media screen and (max-width: $break-small) {
+			margin: auto 0;
+			padding: 0;
+			left: 5%;
+			width: 90%;
+			top: 139px;
+			height: calc(100% - 140px);
+		}
 	}
 
 	&>div {
 		overflow: auto;
 		position: relative;
 		height: 100%;
+		background: white;
 		
 		h1 {
 			text-align: center;

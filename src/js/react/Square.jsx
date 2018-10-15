@@ -11,6 +11,7 @@ export default class Square extends React.Component {
 		}
 
 		this.handleHover = this.handleHover.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleHover(hovering) {
@@ -46,7 +47,7 @@ export default class Square extends React.Component {
 		
 		return (
 			<div 
-				className='square' 
+				className='square'
 				onMouseEnter={() => this.handleHover(true)} 
 				onMouseLeave={() => this.handleHover(false)} 
 				onClick={() => {this.handleClick(this.props.click.func, this.props.click.params)}}

@@ -44,7 +44,7 @@ class App extends React.Component {
 		// 	query: Queries.event.create,
 		// 	variables: {
 		// 		name: "Test Event",
-		// 		date: new Date(),
+		// 		date: new Date(2019, 10, 10),
 		// 		description: "desc",
 		// 		link: "#"
 		// 	}

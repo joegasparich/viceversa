@@ -8,38 +8,53 @@ export default class Article extends React.Component {
 	constructor(props) {
 		super(props);
 
+		//Binds
+		this.close = this.close.bind(this);
+
 		//Refs
 		this.articleRef = React.createRef();
 	}
 
-	componentDidMount() {
+	componentDidUpdate() {
+		//Animate open
 		let element = this.articleRef.current;
-		let pos = this.props.startPos;
+		if (element && this.props.startPos && !element.classList.contains('open')) {
+			let pos = this.props.startPos;
 
-		const style = window.getComputedStyle(element)
-		let elementTransition = style.getPropertyValue('transition');
-		element.style.transition = '';
+			element.style = `
+				--article-square-top: ${pos.top}px;
+				--article-square-left: ${pos.left}px;
+				--article-square-size: ${pos.width}px;
+				display: block;
+			`;
 
-		requestAnimationFrame(function () {
-			element.style.left = pos.left + 'px';
-			element.style.top = pos.top + 'px';
-			element.style.width = pos.width + 'px';
-			element.style.height = pos.height + 'px';
-			element.style.transition = elementTransition;
+			setTimeout(() => {
+				element.classList.add('open');
+			}, 10);
+		}
+	}
 
-			requestAnimationFrame(function () {
-				if(window.innerWidth < 900) {
-					element.style.left = "5%";
-					element.style.width = "90%";
-					element.style.top = "140px";
-				} else {
-					element.style.left = "30%";
-					element.style.width = "65%";
-					element.style.top = "5%";
-				}
-				element.style.height = element.scrollHeight;
-			});
-		});
+	close() {
+		//Animate Close
+		let element = this.articleRef.current;
+		if (element && this.props.startPos && element.classList.contains('open')) {
+			element.classList.remove('open');
+
+			let pos = this.props.startPos;
+			element.style = `
+				--article-square-top: ${pos.top}px;
+				--article-square-left: ${pos.left}px;
+				--article-square-size: ${pos.width}px;
+				display: block;
+			`;
+
+			setTimeout(() => {
+				element.style = '';
+				this.props.onClose()
+			}, 300);
+		} else {
+			this.props.onClose()
+		}
 	}
 
 	render() {
@@ -47,7 +62,7 @@ export default class Article extends React.Component {
 			return (
 				<div className="article" ref={this.articleRef}>
 					<Paper elevation={4}>
-						<div id="close" onClick={this.props.onClose}><Close /></div>
+						<div id="close" onClick={this.close}><Close /></div>
 						<h1 className="article-title">{this.props.article.title}</h1>
 						<div className="article-date">{this.props.article.date.toDateString()}</div>
 						<div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.content }}></div>

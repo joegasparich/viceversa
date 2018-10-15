@@ -71,7 +71,8 @@ export default class News extends React.Component {
 
 		return (
 			<div className="news-feed">
-				{this.state.shownArticle && <Article article={this.state.shownArticle} startPos={this.state.articlePos} onClose={this.closeArticle}/>}
+				{/* <div className="testArticle" data-height="300"/> */}
+				<Article article={this.state.shownArticle} startPos={this.state.articlePos} onClose={this.closeArticle}/>
 				{articleList}
 				<ul className="pagination"></ul>
 			</div>

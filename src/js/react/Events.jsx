@@ -28,7 +28,7 @@ export default class Events extends React.Component {
 		let index = 0;
 
 		let eventList = this.state.events.map(event => {
-			if(index < this.props.displayCount || this.props.displayCount < 0) {
+			if(Date.parse(event.date) > Date.now() && (index < this.props.displayCount || this.props.displayCount < 0)) {
 				index++;
 				return (
 					<li key={event._id}>
