@@ -34,7 +34,6 @@ export default class Artists extends React.Component {
 
 	render() {
 		if(this.props.match.params.id) {
-			console.log(this.state.artists.find(artist => artist._id == this.props.match.params.id))
 			return (
 				<ArtistDetail
 					artist={this.state.artists.find(artist => artist._id == this.props.match.params.id)}

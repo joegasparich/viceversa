@@ -6,42 +6,19 @@
 	}
 }
 
-.testArticle {
-	display: none; 
-	top: var(--article-square-top);
-	left: var(--article-square-left);
-	height: var(--article-square-size);
-	width: var(--article-square-size);
-	background-color: white;
-	position: fixed;
-	transition: all 0.3s ease-in-out;
-
-	&.open {
-		display: block; 
-		left: 30%;
-		width: 65%;
-		top: 0;
-		height: 100%;
-	}
-}
-
 .article {
 	position: fixed;
 	z-index: 100;
 	display: none; 
-	top: var(--article-square-top);
-	left: var(--article-square-left);
-	height: var(--article-square-size);
-	width: var(--article-square-size);
-	transition: all 0.3s ease-in-out;
+	transition: all 0.5s ease;
 	
 	&.open {
 		display: block;
 		padding: 20px;
-		left: 25%;
-		width: 75%;
-		top: 0;
-		height: 100%;
+		left: 25% !important;
+		width: 75% !important;
+		top: 0 !important;
+		height: 100% !important;
 		@media screen and (max-width: $break-small) {
 			margin: auto 0;
 			padding: 0;
@@ -56,7 +33,7 @@
 		overflow: auto;
 		position: relative;
 		height: 100%;
-		background: white;
+		background: #f6f3ea;
 		
 		h1 {
 			text-align: center;

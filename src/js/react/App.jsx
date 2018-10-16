@@ -12,7 +12,6 @@ import News from './News';
 import About from './About';
 import Artists from './Artists';
 import Shed from './Shed';
-import Article from './Article';
 
 class App extends React.Component {
 
@@ -83,6 +82,7 @@ class App extends React.Component {
 							<Route path="/artists/:id?" component={Artists} />
 							<Route path="/about" component={About} />
 							<Route path="/shed" component={Shed} />
+							<Route path="/articles/:id?" component={News} />
 							<Route path="/" component={News} />
 						</Switch>
 					</div>

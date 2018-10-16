@@ -25,33 +25,14 @@ export default class Square extends React.Component {
 	}
 
 	render() {
-		if (this.props.path) {
-			return (
-				<Link 
-					className='square'
-					to={this.props.path}
-					onMouseEnter={() => this.handleHover(true)}
-					onMouseLeave={() => this.handleHover(false)}
-					style={{backgroundImage: `url(${this.props.image})`}}
-				>
-					<div className='card-panel'>
-					</div>
-					{this.props.title &&
-						<div className={`square-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
-							<h3>{this.props.title}</h3>
-						</div>
-					}
-				</Link>
-			);
-		}
-		
 		return (
-			<div 
+			<Link
 				className='square'
-				onMouseEnter={() => this.handleHover(true)} 
-				onMouseLeave={() => this.handleHover(false)} 
-				onClick={() => {this.handleClick(this.props.click.func, this.props.click.params)}}
-				style={{backgroundImage: `url(${this.props.image})`}}
+				to={this.props.path && this.props.path}
+				onMouseEnter={() => this.handleHover(true)}
+				onMouseLeave={() => this.handleHover(false)}
+				onClick={() => { this.handleClick(this.props.click.func, this.props.click.params) }}
+				style={{ backgroundImage: `url(${this.props.image})` }}
 			>
 				<div className='card-panel'>
 				</div>
@@ -60,7 +41,7 @@ export default class Square extends React.Component {
 						<h3>{this.props.title}</h3>
 					</div>
 				}
-			</div>
+			</Link>
 		);
 	}
 }

@@ -76,11 +76,11 @@ const common = {
 		},
 		{
 			test: /\.(png|jpe?g|gif|svg|ico)$/,
-			loader: 'file-loader?name=/assets/images/[name].[hash].[ext]'
+			loader: 'file-loader?name=/assets/images/[name].[ext]'
 		},
 		{
 			test: /\.(woff|woff2|ttf|eot)$/,
-			loader: 'file-loader?name=/assets/fonts[name].[hash].[ext]'
+			loader: 'file-loader?name=/assets/fonts/[name].[hash].[ext]'
 		}
 		]
 	},

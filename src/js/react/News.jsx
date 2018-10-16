@@ -14,7 +14,7 @@ export default class News extends React.Component {
 			articles: [],
 			events: [],
 			shownArticle: null,
-			articlePos: {}
+			articlePos: null
 		};
 
 		//Binds
@@ -29,6 +29,7 @@ export default class News extends React.Component {
 		Queries.postRequest(
 			{ query: Queries.article.getAll },
 			(articles) => {
+				const shownArticle = articles.data.articles.find(article => {return article._id == this.props.match.params.id}) || null;
 				this.setState({
 					articles: articles.data.articles.map(article => {
 						return({
@@ -37,17 +38,28 @@ export default class News extends React.Component {
 							date: new Date(article.date),
 							content: article.content
 						});
-					})
+					}),
+					shownArticle: shownArticle ? {
+						_id: shownArticle._id,
+						title: shownArticle.title,
+						date: new Date(shownArticle.date),
+						content: shownArticle.content
+					} : null
 				});
 			}
 		);
+	}
+
+	componentWillReceiveProps(props) {
+		this.setState({
+			shownArticle: this.state.articles.find(article => {return article._id == props.match.params.id}),
+		});
 	}
 
 	handleClick(params, domNode) {
 		let element = ReactDOM.findDOMNode(domNode);
 		let boundingBox = element.getBoundingClientRect();
 		this.setState({
-			shownArticle: params.article,
 			articlePos: boundingBox
 		});
 	}
@@ -56,6 +68,7 @@ export default class News extends React.Component {
 		this.setState({
 			shownArticle: null
 		});
+		this.props.history.push('/')
 	}
 
 	render() {
@@ -65,13 +78,13 @@ export default class News extends React.Component {
 				id={article._id}
 				title={article.title}
 				key={article._id}
+				path={'/articles/' + article._id}
 				click={{func: this.handleClick, params: {article: article}}}
 			/>
 		);
 
 		return (
 			<div className="news-feed">
-				{/* <div className="testArticle" data-height="300"/> */}
 				<Article article={this.state.shownArticle} startPos={this.state.articlePos} onClose={this.closeArticle}/>
 				{articleList}
 				<ul className="pagination"></ul>
