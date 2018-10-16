@@ -20,6 +20,9 @@ export default class News extends React.Component {
 		//Binds
 		this.handleClick = this.handleClick.bind(this);
 		this.closeArticle = this.closeArticle.bind(this);
+
+		//Refs
+		this.article = React.createRef();
 	}
 
 	componentDidMount() {
@@ -68,7 +71,7 @@ export default class News extends React.Component {
 		this.setState({
 			shownArticle: null
 		});
-		this.props.history.push('/')
+		this.props.history.push('/');
 	}
 
 	render() {
@@ -85,7 +88,12 @@ export default class News extends React.Component {
 
 		return (
 			<div className="news-feed">
-				<Article article={this.state.shownArticle} startPos={this.state.articlePos} onClose={this.closeArticle}/>
+				<Article 
+					article={this.state.shownArticle}
+					startPos={this.state.articlePos} 
+					onClose={this.closeArticle}
+					open={Boolean(this.state.shownArticle)}
+				/>
 				{articleList}
 				<ul className="pagination"></ul>
 			</div>
