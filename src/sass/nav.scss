@@ -24,6 +24,7 @@
         
         // Force Link Color
         a,
+        button,
         & {
 			color: $primary;
 			text-decoration: none;
@@ -31,6 +32,7 @@
 
 		// Hover Color
         a:hover,
+        button:hover,
         &:hover {
             color: $dark;
         }
@@ -60,7 +62,7 @@
             }
         }
         
-        a#menu {
+        button#menu {
             display: none;
             @media screen and (max-width: $break-small) {
                 display: inline-block;
@@ -74,7 +76,7 @@
             }
         }
 
-        a#top-mob {
+        button#top-mob {
             display: none;
             @media screen and (max-width: $break-small) {
                 display: inline-block;
@@ -173,8 +175,8 @@
             #more {
                 position: absolute;
                 bottom: 20px;
-                left: 0px;
-                right: 0px;
+                display: block;
+                width: 100%;
                 color: $primary;
                 text-decoration: none;
                 // Hover Color

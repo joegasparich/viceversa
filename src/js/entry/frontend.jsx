@@ -7,9 +7,9 @@ import '../../sass/base.scss';
 import App from '../react/App';
 
 ReactDOM.render(
-	(
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	), document.getElementById('app'),
+  (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  ), document.getElementById('app'),
 );

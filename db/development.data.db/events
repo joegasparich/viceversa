@@ -1,27 +1,15 @@
-{"k":"0000000078","o":"0000000183","v":"001"}
-{"_id":3,"_uid":3,"_dt":1538095515031,"_s":"40b47871341320b534825dc284f361ed"}
-{"name":"Butter Butter III","date":{"$wrap":"$date","v":1538095515017,"h":"2018-09-28T00:45:15.017Z"},"description":"Description","link":"www.google.com","_id":{"$wrap":"$oid","v":3}}
-{"k":"0000000078","o":"0000000185","v":"001"}
-{"_id":4,"_uid":4,"_dt":1538095524150,"_s":"6b4a1b19b534b8eb2a60b401cdc7a001"}
-{"name":"Music in the Valley","date":{"$wrap":"$date","v":1538095523957,"h":"2018-09-28T00:45:23.957Z"},"description":"Description","link":"www.google.com","_id":{"$wrap":"$oid","v":4}}
-{"k":"0000000078","o":"0000000182","v":"001"}
-{"_id":5,"_uid":5,"_dt":1538095529790,"_s":"d9aa8d4cce899c5243abad794458b74b"}
-{"name":"Sauce EP Release","date":{"$wrap":"$date","v":1538095529655,"h":"2018-09-28T00:45:29.655Z"},"description":"Description","link":"www.google.com","_id":{"$wrap":"$oid","v":5}}
 {"k":"0000000078","o":"0000000156","v":"001"}
-{"_id":6,"_uid":6,"_dt":1538432735120,"_s":"ed967c9caf09bd3f0417562edad852a8"}
-{"name":"Test Event","date":{"$wrap":"$date","v":1538432734972,"h":"2018-10-01T22:25:34.972Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":6}}
+{"_id":2,"_uid":2,"_dt":1539743543852,"_s":"b37603f8c3078efec1868da7476063b6"}
+{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":2}}
 {"k":"0000000078","o":"0000000156","v":"001"}
-{"_id":7,"_uid":7,"_dt":1538432744176,"_s":"df0ac69e665710715fc0de1b8ec1e8bb"}
-{"name":"Test Event","date":{"$wrap":"$date","v":1538432744163,"h":"2018-10-01T22:25:44.163Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":7}}
+{"_id":3,"_uid":3,"_dt":1539743544743,"_s":"55ffb84697412af41740ba3f82f15e0f"}
+{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":3}}
 {"k":"0000000078","o":"0000000156","v":"001"}
-{"_id":8,"_uid":8,"_dt":1539560219115,"_s":"2961f8770347363929969223e67365d8"}
-{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":8}}
+{"_id":4,"_uid":4,"_dt":1539743549468,"_s":"5f9b01e5adc06cf5e9c3a4185ce4b2cd"}
+{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":4}}
 {"k":"0000000078","o":"0000000156","v":"001"}
-{"_id":9,"_uid":9,"_dt":1539560228855,"_s":"3345cd303050c219842585ce0cb3d689"}
-{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":9}}
-{"k":"0000000080","o":"0000000157","v":"001"}
-{"_id":10,"_uid":10,"_dt":1539560233023,"_s":"a01b8f2c1391ff64ebe20bc975697e7e"}
-{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":10}}
-{"k":"0000000080","o":"0000000157","v":"001"}
-{"_id":11,"_uid":11,"_dt":1539560246606,"_s":"39df16670077d9577bbb2643f9b562f4"}
-{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":11}}
+{"_id":5,"_uid":5,"_dt":1539743553333,"_s":"569b0bc9e159df0d7f511168b06ca224"}
+{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":5}}
+{"k":"0000000078","o":"0000000156","v":"001"}
+{"_id":6,"_uid":6,"_dt":1539743555684,"_s":"32207f9d23c24d344635bec888b2fff2"}
+{"name":"Test Event","date":{"$wrap":"$date","v":1573297200000,"h":"2019-11-09T11:00:00.000Z"},"description":"desc","link":"#","_id":{"$wrap":"$oid","v":6}}
