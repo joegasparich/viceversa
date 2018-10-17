@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Queries from '../utils/Queries';
+import PropTypes from 'prop-types';
 
+import Queries from '../utils/Queries';
 import Square from './Square';
 import Article from './Article';
 
@@ -49,7 +50,7 @@ export default class News extends React.Component {
 
   componentWillReceiveProps(props) {
     this.setState({
-      shownArticle: this.state.articles.find(article => article.id == props.match.params.id),
+      shownArticle: this.state.articles.find(article => article.id === props.match.params.id),
     });
   }
 
@@ -92,3 +93,7 @@ export default class News extends React.Component {
     );
   }
 }
+News.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
