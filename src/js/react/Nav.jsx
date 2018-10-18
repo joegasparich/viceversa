@@ -34,14 +34,14 @@ export default class Nav extends React.Component {
       expanded: !this.state.expanded,
     });
 
-    if (this.state.expanded) {
-      // Collapse
-      this.collapseElement(this.navContent.current);
-      this.navContent.current.addEventListener('transitionend', () => { this.navContent.current.style.height = null; }, { once: true });
-    } else {
-      // Expand
-      this.expandElement(this.navContent.current);
-    }
+    // if (this.state.expanded) {
+    //   // Collapse
+    //   this.collapseElement(this.navContent.current);
+    //   this.navContent.current.addEventListener('transitionend', () => { this.navContent.current.style.height = null; }, { once: true });
+    // } else {
+    //   // Expand
+    //   this.expandElement(this.navContent.current);
+    // }
   }
 
   toggleExpandEvents() {
@@ -67,7 +67,15 @@ export default class Nav extends React.Component {
             <Link to="/" id="brand-logo" />
             <button id="top-mob" href="#" onClick={() => { window.scrollTo(0, 0); }} ><ArrowUpward /></button>
           </div>
-          <div className="nav-content" ref={this.navContent}>
+          <div
+            className="nav-content"
+            ref={this.navContent}
+            style={this.state.expanded ? this.navContent && this.navContent.current && {
+              height: this.navContent.current.scrollHeight,
+            } : {
+              height: '0px',
+            }}
+          >
             <div
               className="collapsable"
               ref={this.collapseTop}
