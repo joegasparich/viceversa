@@ -1,39 +1,35 @@
-const IS_PRODUCTION =true;
-const IS_DEBUGGING = process.env.DEBUG && process.env.DEBUG.trim() == 'debug';
+const IS_PRODUCTION = true;
 
-const glob = require('glob-all');
-const path = require('path');
 const webpack = require('webpack');
-const WebpackShellPlugin = require('webpack-shell-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extract_styles = new ExtractTextPlugin("css/main.css");
 const nodeExternals = require('webpack-node-externals');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 const common_plugins = [
 	new webpack.SourceMapDevToolPlugin({
 		filename: 'sourceMaps/[file].map'
 	})
 ];
-if (IS_PRODUCTION) {
-	console.log('production');
-	[
-		new UglifyJSPlugin({
-			cache: true,
-			parallel: true,
-			sourceMap: true
-		}),
-		new BundleAnalyzerPlugin({
-			analyzerMode: 'static',
-			reportFilename: '../report.html'
-		})
-	].forEach(plugin => common_plugins.push(plugin));
-}
+
+const smp = new SpeedMeasurePlugin();
+
+[
+	new UglifyJSPlugin({
+		cache: true,
+		parallel: true,
+		sourceMap: true
+	}),
+	new BundleAnalyzerPlugin({
+		analyzerMode: 'static',
+		reportFilename: '../report.html'
+	})
+].forEach(plugin => common_plugins.push(plugin));
 
 const common = {
-	mode: IS_PRODUCTION ? 'production' : 'development',
+	mode: 'production',
 	module: {
 		rules: [{
 			test: /\.jsx?$/,
@@ -55,20 +51,20 @@ const common = {
 				use: [{
 					loader: 'css-loader',
 					options: {
-						sourceMap: IS_PRODUCTION,
-						minimize: IS_PRODUCTION
+						sourceMap: true,
+						minimize: true
 					}
 				},
 				{
 					loader: 'postcss-loader',
 					options: {
-						sourceMap: IS_PRODUCTION
+						sourceMap: true
 					}
 				},
 				{
 					loader: 'sass-loader',
 					options: {
-						sourceMap: IS_PRODUCTION
+						sourceMap: true
 					}
 				}
 				]
@@ -87,7 +83,6 @@ const common = {
 	resolve: {
 		extensions: ['.js', '.jsx'] // common extensions
 	},
-	devtool: !IS_PRODUCTION && IS_DEBUGGING ? 'inline-source-map' : ''
 };
 
 const frontend = {
@@ -105,21 +100,6 @@ const frontend = {
 frontend.plugins.push(
 	extract_styles
 );
-if (IS_PRODUCTION) {
-	frontend.plugins.push(
-		new PurifyCSSPlugin({
-			purifyOptions: {
-				whitelist: ['*modal*', '*datepicker*', '*month*', '*svg*', 'ul:not(.browser-default)*', '*select-wrapper*', '*enter*', '*leave*', '*exit*', '*checkbox*']
-			},
-			paths: glob.sync([
-				path.join(__dirname, 'src/js/**/*.js'),
-				path.join(__dirname, 'src/js/**/*.jsx')
-			]),
-			minimize: true,
-			verbose: true,
-		})
-	);
-}
 
 const backend = {
 	entry: {
@@ -135,7 +115,7 @@ const backend = {
 	externals: [nodeExternals()]
 };
 
-module.exports = [
+module.exports = smp.wrap([
 	Object.assign({}, common, frontend),
 	Object.assign({}, common, backend),
-];
+]);

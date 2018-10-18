@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Close from '@material-ui/icons/Close';
-import Paper from '@material-ui/core/Paper';
 
 export default class Article extends React.Component {
   constructor(props) {
@@ -21,21 +20,15 @@ export default class Article extends React.Component {
     this.articleRef = React.createRef();
   }
 
-  componentWillReceiveProps(props) {
-    if (this.props.article === null && props.article !== null) {
-      if (props.startPos) {
-        // Animate open
-        setTimeout(() => {
-          this.setState({
-            open: props.open,
-          });
-        }, 10);
-      } else {
-        // Article in URL - open immediately
-        this.setState({
-          open: props.open,
-        });
-      }
+  componentDidMount() {
+    if (this.props.open) {
+      const el = this.articleRef.current;
+      const pos = el.getBoundingClientRect();
+
+      this.setState({
+        open: this.props.open,
+        startPos: pos,
+      });
     }
   }
 
@@ -50,6 +43,8 @@ export default class Article extends React.Component {
       // Open if closed
       const el = this.articleRef.current;
       const pos = el.getBoundingClientRect();
+
+      this.props.history.push(`/articles/${this.props.article.id}`);
 
       this.setState({
         startPos: pos,
@@ -70,14 +65,12 @@ export default class Article extends React.Component {
     if (this.state.startPos) {
       // Animate close
       setTimeout(() => {
-        this.props.onClose();
         this.setState({
           startPos: null,
         });
       }, 500);
     } else {
       // Article was in URL - close immediately
-      this.props.onClose();
       this.setState({
         startPos: null,
       });
@@ -105,17 +98,12 @@ export default class Article extends React.Component {
             position: 'fixed',
           }}
         >
-          <Paper
-            elevation={4}
-            style={this.state.startPos && {
-              display: 'block',
-            }}
-          >
+          <div style={this.state.startPos && { display: 'block', }}>
             <button id="close" onClick={this.close}><Close /></button>
             <h1>{this.props.article.title}</h1>
             <div className="article-date">{this.props.article.date.toDateString()}</div>
             <div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.content }} />
-          </Paper>
+          </div>
         </div>
         <div className={`article-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
           <h3>{this.props.article.title}</h3>
@@ -133,7 +121,6 @@ Article.propTypes = {
     content: PropTypes.string,
   }).isRequired,
   startPos: PropTypes.instanceOf(DOMRect),
-  onClose: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
 };

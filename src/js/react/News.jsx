@@ -10,7 +10,7 @@ export default class News extends React.Component {
 
     this.state = {
       articles: [],
-      shownArticle: null,
+      shownArticleId: -1,
     };
 
     // Refs
@@ -22,7 +22,6 @@ export default class News extends React.Component {
     Queries.postRequest(
       { query: Queries.article.getAll },
       (articles) => {
-        const shownArticle = articles.data.articles.find(article => article.id === this.props.match.params.id) || null;
         this.setState({
           articles: articles.data.articles.map(article => ({
             id: article.id,
@@ -30,12 +29,7 @@ export default class News extends React.Component {
             date: new Date(article.date),
             content: article.content,
           })),
-          shownArticle: shownArticle ? {
-            id: shownArticle.id,
-            title: shownArticle.title,
-            date: new Date(shownArticle.date),
-            content: shownArticle.content,
-          } : null,
+          shownArticleId: this.props.match.params.id,
         });
       },
     );
@@ -43,7 +37,7 @@ export default class News extends React.Component {
 
   componentWillReceiveProps(props) {
     this.setState({
-      shownArticle: this.state.articles.find(article => article.id === props.match.params.id),
+      shownArticleId: this.state.articles.find(article => article.id === props.match.params.id),
     });
   }
 
@@ -52,9 +46,8 @@ export default class News extends React.Component {
       (<Article
         key={article.id}
         article={article}
-        onOpen={this.openArticle}
-        onClose={this.closeArticle}
-        open={Boolean(this.state.shownArticle && this.state.shownArticle.id === article.id)}
+        history={this.props.history}
+        open={Boolean(this.state.shownArticleId === article.id)}
       />));
 
     return (
@@ -67,4 +60,5 @@ export default class News extends React.Component {
 }
 News.propTypes = {
   match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
