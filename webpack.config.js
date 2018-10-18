@@ -15,8 +15,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const common_plugins = [
 	new webpack.SourceMapDevToolPlugin({
 		filename: 'sourceMaps/[file].map'
-	}),
-	new webpack.HotModuleReplacementPlugin()
+	})
 ];
 if (IS_PRODUCTION) {
 	console.log('production');
@@ -31,13 +30,16 @@ if (IS_PRODUCTION) {
 			reportFilename: '../report.html'
 		})
 	].forEach(plugin => common_plugins.push(plugin));
+} else {
+	[
+		new WebpackShellPlugin({
+			onBuildEnd: [`nodemon --watch dist ${IS_DEBUGGING ? '--inspect-brk' : ''} .`]
+		})
+	].forEach(plugin => common_plugins.push(plugin));
 }
 
 const common = {
 	mode: IS_PRODUCTION ? 'production' : 'development',
-	optimization: {
-    noEmitOnErrors: true
-	},
 	module: {
 		rules: [{
 			test: /\.jsx?$/,
@@ -45,12 +47,6 @@ const common = {
 				loader: 'babel-loader'
 			}],
 			exclude: /node_modules/
-		},
-		{
-			test: /\.html$/,
-			use: [{
-				loader: 'raw-loader'
-			}]
 		},
 		{
 			test: /\.(s?css)$/,
@@ -96,7 +92,7 @@ const common = {
 
 const frontend = {
 	entry: {
-		frontend: ['babel-polyfill', './src/js/entry/frontend.jsx', 'webpack-hot-middleware/client?reload=true']
+		frontend: ['babel-polyfill', './src/js/entry/frontend.jsx']
 	},
 	output: {
 		filename: 'js/[name]-dist.js'
@@ -127,7 +123,7 @@ if (IS_PRODUCTION) {
 
 const backend = {
 	entry: {
-		backend: ['./src/js/entry/backend.jsx']
+		backend: './src/js/entry/backend.jsx'
 	},
 	output: {
 		filename: 'js/[name]-dist.js'
