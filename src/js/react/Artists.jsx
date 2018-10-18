@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Queries from '../utils/Queries';
 
-import Square from './Square';
+import Artist from './Artist';
 import ArtistDetail from './ArtistDetail';
 
 export default class Artists extends React.Component {
@@ -48,7 +48,7 @@ export default class Artists extends React.Component {
       }
 
       return (
-        <Square
+        <Artist
           key={artist.id}
           title={artist.name}
           image={image}

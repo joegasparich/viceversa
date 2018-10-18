@@ -1,14 +1,16 @@
-import { Db } from 'tingodb';
+import tingodb from 'tingodb';
 import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLList,
 } from 'graphql';
-import { GraphQLDate } from './Date';
+import GraphQLDate from './Date';
 
 import GraphQLEvent from './Event';
 import GraphQLArticle from './Article';
 import GraphQLArtist from './Artist';
+
+const { Db } = tingodb();
 
 const DB_PREFIX = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 export function getDB() {

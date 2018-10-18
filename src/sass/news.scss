@@ -1,56 +1,108 @@
 .news-feed {
+	//Centre align article grid
 	text-align: center;
 
-	.square {
-		cursor: pointer;
-	}
-}
-
-.article {
-	position: fixed;
-	z-index: 100;
-	display: none; 
-	transition: all 0.5s ease;
+	//Set square size
+	.article,
+	.card-panel {
+		width: 300px;
+		height: 300px;
 	
-	&.open {
-		display: block;
-		padding: 20px;
-		left: 25% !important;
-		width: 75% !important;
-		top: 0 !important;
-		height: 100% !important;
 		@media screen and (max-width: $break-small) {
-			margin: auto 0;
-			padding: 0;
-			left: 5%;
-			width: 90%;
-			top: 139px;
-			height: calc(100% - 140px);
+			width: 250px;
+			height: 250px;
 		}
 	}
-
-	&>div {
-		overflow: auto;
-		position: relative;
-		height: 100%;
-		background: #f6f3ea;
-		
-		h1 {
-			text-align: center;
-		}
 	
-		#close {
-			cursor: pointer;
-			position: absolute;
-			text-align: center;
-			top: 0;
-			right: 0;
-			width: 50px;
-			height: 50px;
-			svg {
-				font-size: 40px;
+	.article {
+		// Container
+		cursor: pointer;
+		display: inline-block;
+		margin: 10px;
+		overflow: hidden;
+		background: $dark;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	
+		.card-panel {
+			transition: all 0.5s ease;
+			z-index: 100;
+
+			// Opened Article
+			&>div {
+				display: none;
+				overflow: auto;
+				position: relative;
+				height: 100%;
+				background: #f6f3ea;
+				
+				h1 {
+					text-align: center;
+					text-decoration: none;
+				}
+			
+				#close {
+					cursor: pointer;
+					position: absolute;
+					text-align: center;
+					top: 0;
+					right: 0;
+					width: 50px;
+					height: 50px;
+					svg {
+						font-size: 40px;
+					}
+				}
 			}
 		}
-	}
+	
+		.article-title {
+			transition: top 0.2s ease-in-out;
+			position: relative;
+			height: 100px;
+			top: 0;
+			background: rgba(0, 0, 0, 0.5);
+	
+			h3 {
+				color: white;
+				margin: auto;
+			}
+	
+			&.show {
+				top: -100px;
+			}
+	
+			@media screen and (max-width: $break-small) {
+				top: -100px;
+				background: none;
+			}
+		}
 
+		&.open {
+			cursor: default;
+
+			.article-title {
+				display: none;
+			}
+			.card-panel {
+				position: fixed;
+				padding: 20px;
+				left: 25% !important;
+				width: 75% !important;
+				top: 0 !important;
+				height: 100% !important;
+
+				@media screen and (max-width: $break-small) {
+					margin: auto 0;
+					padding: 0;
+					left: 5%;
+					width: 90%;
+					top: 139px;
+					height: calc(100% - 140px);
+				}
+			}
+
+		}
+	}
 }

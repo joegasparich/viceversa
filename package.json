@@ -5,12 +5,12 @@
   "license": "MIT",
   "browserslist": [
     "> 1%",
-    "last 20 versions"
+    "last 2 versions"
   ],
   "scripts": {
     "debug": "set DEBUG=debug; webpack --watch",
     "prestart": "gulp",
-    "start": "webpack & node dist/js/backend-dist.js",
+    "start": "webpack --config webpack.devserver.dev.config.js & node dist/js/devserver-dist.js",
     "prebuild": "yarn prestart",
     "build": "set NODE_ENV=production & webpack -p",
     "predeploy": "yarn build",
@@ -51,7 +51,8 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.3",
-    "uglifyjs-webpack-plugin": "^1.2.0"
+    "uglifyjs-webpack-plugin": "^1.2.0",
+    "url-loader": "^1.1.2"
   },
   "dependencies": {
     "@material-ui/core": "^3.1.2",
@@ -73,6 +74,7 @@
     "react": "^16.3.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.3.1",
+    "react-hot-loader": "^4.3.11",
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.3.0",
     "tingodb": "^0.6.1",

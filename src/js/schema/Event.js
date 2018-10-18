@@ -3,7 +3,7 @@ import {
   GraphQLString,
 } from 'graphql';
 
-import { GraphQLDate } from './Date';
+import GraphQLDate from './Date';
 
 const GraphQLEvent = new GraphQLObjectType({
   name: 'Event',

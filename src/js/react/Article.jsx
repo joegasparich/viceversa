@@ -9,10 +9,13 @@ export default class Article extends React.Component {
 
     this.state = {
       open: false,
+      startPos: null,
     };
 
     // Binds
     this.close = this.close.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     // Refs
     this.articleRef = React.createRef();
@@ -36,48 +39,88 @@ export default class Article extends React.Component {
     }
   }
 
+  handleHover(hovering) {
+    this.setState({
+      isHovered: hovering,
+    });
+  }
+
+  handleClick() {
+    if (!this.state.open) {
+      // Open if closed
+      const el = this.articleRef.current;
+      const pos = el.getBoundingClientRect();
+
+      this.setState({
+        startPos: pos,
+      }, () => {
+        setTimeout(() => {
+          this.setState({
+            open: true,
+          });
+        }, 1);
+      });
+    }
+  }
+
   close() {
     this.setState({
       open: false,
     });
-    if (this.props.startPos) {
+    if (this.state.startPos) {
       // Animate close
       setTimeout(() => {
         this.props.onClose();
-      }, 400);
+        this.setState({
+          startPos: null,
+        });
+      }, 500);
     } else {
       // Article was in URL - close immediately
       this.props.onClose();
+      this.setState({
+        startPos: null,
+      });
     }
+    this.props.history.push('/');
   }
 
   render() {
-    if (this.props.article) {
-      const pos = this.props.startPos;
-
-      return (
+    return (
+      <div
+        className={`article ${this.state.open ? 'open' : ''}`}
+        onMouseEnter={() => this.handleHover(true)}
+        onMouseLeave={() => this.handleHover(false)}
+        onClick={this.handleClick}
+        onKeyPress={this.handleClick}
+      >
         <div
-          className={`article ${this.state.open ? 'open' : ''}`}
+          className="card-panel"
           ref={this.articleRef}
-          style={pos && {
-            top: `${pos.top}px`,
-            left: `${pos.left}px`,
-            width: `${pos.width}px`,
-            height: `${pos.height}px`,
-            display: 'block',
+          style={this.state.startPos && {
+            top: `${this.state.startPos.top}px`,
+            left: `${this.state.startPos.left}px`,
+            width: `${this.state.startPos.width}px`,
+            height: `${this.state.startPos.height}px`,
+            position: 'fixed',
           }}
         >
-          <Paper elevation={4}>
+          <Paper
+            elevation={4}
+            style={this.state.startPos && {
+              display: 'block',
+            }}
+          >
             <button id="close" onClick={this.close}><Close /></button>
-            <h1 className="article-title">{this.props.article.title}</h1>
+            <h1>{this.props.article.title}</h1>
             <div className="article-date">{this.props.article.date.toDateString()}</div>
             <div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.content }} />
           </Paper>
         </div>
-      );
-    }
-    return (
-      <div />
+        <div className={`article-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
+          <h3>{this.props.article.title}</h3>
+        </div>
+      </div>
     );
   }
 }
@@ -85,14 +128,15 @@ Article.propTypes = {
   article: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
+    image: PropTypes.string,
     date: PropTypes.instanceOf(Date),
     content: PropTypes.string,
-  }),
+  }).isRequired,
   startPos: PropTypes.instanceOf(DOMRect),
   onClose: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
 };
 Article.defaultProps = {
-  article: null,
   startPos: null,
 };

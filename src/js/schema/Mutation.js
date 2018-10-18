@@ -4,7 +4,7 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import { GraphQLDate } from './Date';
+import GraphQLDate from './Date';
 import { getDB } from './Query';
 import GraphQLEvent from './Event';
 import GraphQLArticle from './Article';
@@ -26,7 +26,7 @@ function insertItem(collectionName, args) {
 function updateItem(collectionName, args) {
   return new Promise((resolve, reject) => {
     const collection = getDB().collection(collectionName);
-    collection.update({ id: args.id }, args, {}, (err, doc) => {
+    collection.update({ _id: args._id }, args, {}, (err, doc) => {
       if (err) {
         reject(err);
       } else {
@@ -36,10 +36,10 @@ function updateItem(collectionName, args) {
   });
 }
 
-function deleteItem(collectionMame, id) {
+function deleteItem(collectionMame, _id) {
   return new Promise((resolve, reject) => {
     const collection = getDB().collection(collectionMame);
-    collection.remove({ id }, (err, result) => {
+    collection.remove({ _id }, (err, result) => {
       if (err) {
         reject(err);
       } else {

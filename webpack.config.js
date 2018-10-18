@@ -1,4 +1,4 @@
-const IS_PRODUCTION = process.env.DEBUG && process.env.NODE_ENV.trim() == 'production';
+const IS_PRODUCTION =true;
 const IS_DEBUGGING = process.env.DEBUG && process.env.DEBUG.trim() == 'debug';
 
 const glob = require('glob-all');
@@ -30,12 +30,6 @@ if (IS_PRODUCTION) {
 			reportFilename: '../report.html'
 		})
 	].forEach(plugin => common_plugins.push(plugin));
-} else {
-	[
-		new WebpackShellPlugin({
-			onBuildEnd: [`nodemon --watch dist ${IS_DEBUGGING ? '--inspect-brk' : ''} .`]
-		})
-	].forEach(plugin => common_plugins.push(plugin));
 }
 
 const common = {
@@ -47,6 +41,12 @@ const common = {
 				loader: 'babel-loader'
 			}],
 			exclude: /node_modules/
+		},
+		{
+			test: /\.html$/,
+			use: [{
+				loader: 'raw-loader'
+			}]
 		},
 		{
 			test: /\.(s?css)$/,

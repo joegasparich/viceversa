@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Queries from '../utils/Queries';
-import Square from './Square';
 import Article from './Article';
 
 export default class News extends React.Component {
@@ -13,12 +11,7 @@ export default class News extends React.Component {
     this.state = {
       articles: [],
       shownArticle: null,
-      articlePos: null,
     };
-
-    // Binds
-    this.handleClick = this.handleClick.bind(this);
-    this.closeArticle = this.closeArticle.bind(this);
 
     // Refs
     this.article = React.createRef();
@@ -54,39 +47,18 @@ export default class News extends React.Component {
     });
   }
 
-  handleClick(params, domNode) {
-    const element = ReactDOM.findDOMNode(domNode);
-    const boundingBox = element.getBoundingClientRect();
-    this.setState({
-      articlePos: boundingBox,
-    });
-  }
-
-  closeArticle() {
-    this.setState({
-      shownArticle: null,
-    });
-    this.props.history.push('/');
-  }
-
   render() {
     const articleList = this.state.articles.map(article =>
-      (<Square
-        id={article.id}
-        title={article.title}
+      (<Article
         key={article.id}
-        path={`/articles/${article.id}`}
-        click={{ func: this.handleClick, params: { article } }}
+        article={article}
+        onOpen={this.openArticle}
+        onClose={this.closeArticle}
+        open={Boolean(this.state.shownArticle && this.state.shownArticle.id === article.id)}
       />));
 
     return (
       <div className="news-feed">
-        <Article
-          article={this.state.shownArticle}
-          startPos={this.state.articlePos}
-          onClose={this.closeArticle}
-          open={Boolean(this.state.shownArticle)}
-        />
         {articleList}
         <ul className="pagination" />
       </div>
@@ -95,5 +67,4 @@ export default class News extends React.Component {
 }
 News.propTypes = {
   match: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
 };

@@ -3,6 +3,7 @@ import Cookie from 'js-cookie';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { hot } from 'react-hot-loader';
 
 // import Queries from '../utils/Queries';
 
@@ -98,4 +99,4 @@ App.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default withRouter(App);
+export default withRouter(hot(module)(App));

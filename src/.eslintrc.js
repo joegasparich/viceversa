@@ -25,6 +25,7 @@ module.exports = {
         "react/no-danger": 0,
         "react/forbid-prop-types": 0,
         "import/no-dynamic-require": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
         "jsx-a11y/anchor-is-valid": [ "error", {
             "components": [ "Link" ],
             "specialLink": [ "hrefLeft", "hrefRight", "to" ],

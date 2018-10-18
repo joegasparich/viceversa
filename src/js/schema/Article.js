@@ -2,7 +2,7 @@ import {
   GraphQLObjectType,
   GraphQLString,
 } from 'graphql';
-import { GraphQLDate } from './Date';
+import GraphQLDate from './Date';
 
 const GraphQLArticle = new GraphQLObjectType({
   name: 'Article',

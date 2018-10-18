@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default class Square extends React.Component {
+export default class Artist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ export default class Square extends React.Component {
   render() {
     return (
       <Link
-        className="square"
+        className="artist-square"
         to={this.props.path && this.props.path}
         onMouseEnter={() => this.handleHover(true)}
         onMouseLeave={() => this.handleHover(false)}
@@ -36,7 +36,7 @@ export default class Square extends React.Component {
       >
         <div className="card-panel" />
         {this.props.title &&
-          <div className={`square-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
+          <div className={`artist-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
             <h3>{this.props.title}</h3>
           </div>
         }
@@ -44,7 +44,7 @@ export default class Square extends React.Component {
     );
   }
 }
-Square.propTypes = {
+Artist.propTypes = {
   title: PropTypes.string,
   image: PropTypes.string,
   path: PropTypes.string,
@@ -53,7 +53,7 @@ Square.propTypes = {
     params: PropTypes.object,
   }),
 };
-Square.defaultProps = {
+Artist.defaultProps = {
   title: '',
   image: '',
   path: '',
