@@ -11,17 +11,12 @@ export default class Artist extends React.Component {
 
     // Binds
     this.handleHover = this.handleHover.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   handleHover(hovering) {
     this.setState({
       isHovered: hovering,
     });
-  }
-
-  handleClick(func, params) {
-    func(params, this);
   }
 
   render() {
@@ -31,7 +26,6 @@ export default class Artist extends React.Component {
         to={this.props.path && this.props.path}
         onMouseEnter={() => this.handleHover(true)}
         onMouseLeave={() => this.handleHover(false)}
-        onClick={() => { this.handleClick(this.props.click.func, this.props.click.params); }}
         style={{ backgroundImage: `url(${this.props.image})` }}
       >
         <div className="card-panel" />

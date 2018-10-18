@@ -22,8 +22,9 @@ export default class News extends React.Component {
     Queries.postRequest(
       { query: Queries.article.getAll },
       (articles) => {
+        const sortedArticles = articles.data.articles.sort((a, b) => b.date.localeCompare(a.date));
         this.setState({
-          articles: articles.data.articles.map(article => ({
+          articles: sortedArticles.map(article => ({
             id: article.id,
             title: article.title,
             date: new Date(article.date),

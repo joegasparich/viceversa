@@ -17,8 +17,9 @@ export default class Events extends React.Component {
     Queries.postRequest(
       { query: Queries.event.getAll },
       (events) => {
+        const sortedEvents = events.data.events.sort((a, b) => a.date.localeCompare(b.date));
         this.setState({
-          events: events.data.events,
+          events: sortedEvents,
         });
       },
     );
@@ -44,10 +45,15 @@ export default class Events extends React.Component {
       return undefined;
     });
 
+    if (eventList.length > 0) {
+      return (
+        <ul className="event-list">
+          {eventList}
+        </ul>
+      );
+    }
     return (
-      <ul className="event-list">
-        {eventList}
-      </ul>
+      <p>No upcoming events</p>
     );
   }
 }
