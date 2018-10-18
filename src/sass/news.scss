@@ -97,10 +97,10 @@
 				@media screen and (max-width: $break-small) {
 					margin: auto 0;
 					padding: 0;
-					left: 5%;
-					width: 90%;
-					top: 139px;
-					height: calc(100% - 140px);
+					left: 5% !important;
+					width: 90% !important;
+					top: 139px !important;
+					height: calc(100% - 140px) !important;
 				}
 			}
 

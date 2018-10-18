@@ -169,6 +169,9 @@
             transition: height 0.3s ease-in-out;
             height: auto;
         }
+        .collapsed {
+            height: 0;
+        }
     
         .break {
             position: relative;

@@ -98,7 +98,7 @@ export default class Article extends React.Component {
             position: 'fixed',
           }}
         >
-          <div style={this.state.startPos && { display: 'block', }}>
+          <div style={this.state.startPos && { display: 'block' }}>
             <button id="close" onClick={this.close}><Close /></button>
             <h1>{this.props.article.title}</h1>
             <div className="article-date">{this.props.article.date.toDateString()}</div>

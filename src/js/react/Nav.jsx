@@ -13,16 +13,16 @@ export default class Nav extends React.Component {
     super(props);
     this.state = {
       expanded: false,
-      expandEvents: false,
+      // expandEvents: false,
       eventsExpanded: false,
       eventsHeight: 0,
     };
 
     // References
+    this.navContent = React.createRef();
+    this.events = React.createRef();
     this.collapseTop = React.createRef();
     this.collapseBottom = React.createRef();
-    this.expand = React.createRef();
-    this.navContent = React.createRef();
 
     // Binds
     this.toggleExpandNav = this.toggleExpandNav.bind(this);
@@ -45,75 +45,17 @@ export default class Nav extends React.Component {
   }
 
   toggleExpandEvents() {
-    this.setState({
-      expandEvents: !this.state.expandEvents,
-    });
-
-    if (this.state.expandEvents) {
-      // Expand other elements
-      this.expandElement(this.collapseTop.current);
-      this.collapseTop.current.addEventListener('transitionend', () => { this.collapseTop.current.style.height = null; }, { once: true });
-      this.expandElement(this.collapseBottom.current);
-      this.collapseBottom.current.addEventListener('transitionend', () => { this.collapseBottom.current.style.height = null; }, { once: true });
-
-      // Collapse events
-      const element = this.expand.current;
-      const setExpanded = () => { this.setState({ eventsExpanded: false }); };
-      element.style.height = `${this.state.eventsHeight}px`;
-
-      element.addEventListener('transitionend', () => {
-        element.style.height = null;
-        setExpanded();
-      }, { once: true });
-    } else {
+    if (!this.state.eventsExpanded) {
       this.setState({
-        eventsHeight: this.expand.current.scrollHeight,
-        eventsExpanded: true,
-      });
-
-      // Collapse other elements
-      this.collapseElement(this.collapseTop.current);
-      this.collapseElement(this.collapseBottom.current);
-
-      // Expand events
-      const element = this.expand.current;
-      const startHeight = element.scrollHeight;
-      const style = window.getComputedStyle(element);
-      const margin = parseInt(style.getPropertyValue('margin-bottom')) + parseInt(style.getPropertyValue('margin-top'));
-      const endHeight = this.navContent.current.scrollHeight - margin;
-      const elementTransition = element.style.transition;
-      element.style.transition = '';
-
-      requestAnimationFrame(() => {
-        element.style.height = `${startHeight}px`;
-        element.style.transition = elementTransition;
-
-        requestAnimationFrame(() => {
-          element.style.height = `${endHeight}px`;
-        });
+        eventsHeight: this.events.current.scrollHeight,
       });
     }
-  }
 
-  collapseElement(element) {
-    const sectionHeight = element.scrollHeight;
-    const style = window.getComputedStyle(element);
-    const elementTransition = style.getPropertyValue('transition');
-    element.style.transition = '';
-
-    requestAnimationFrame(() => {
-      element.style.height = sectionHeight + 'px';
-      element.style.transition = elementTransition;
-
-      requestAnimationFrame(function() {
-        element.style.height = 0 + 'px';
+    setTimeout(() => {
+      this.setState({
+        eventsExpanded: !this.state.eventsExpanded,
       });
-    });
-  }
-
-  expandElement(element) {
-    const sectionHeight = element.scrollHeight;
-    element.style.height = `${sectionHeight}px`;
+    }, 10);
   }
 
   render() {
@@ -126,7 +68,15 @@ export default class Nav extends React.Component {
             <button id="top-mob" href="#" onClick={() => { window.scrollTo(0, 0); }} ><ArrowUpward /></button>
           </div>
           <div className="nav-content" ref={this.navContent}>
-            <div className="collapsable" ref={this.collapseTop}>
+            <div
+              className="collapsable"
+              ref={this.collapseTop}
+              style={this.state.eventsExpanded ? {
+                height: '0',
+              } : this.collapseTop && this.collapseTop.current && {
+                height: this.collapseTop.current.scrollHeight,
+              }}
+            >
               <ul className="links">
                 <li id="artists" className="link"><Link to="/artists" className={window.location.pathname.includes('artist') ? 'active' : ''}>Artists</Link></li>
                 <li id="shed" className="link"><Link to="/shed" className={window.location.pathname.includes('shed') ? 'active' : ''}>Shed</Link></li>
@@ -145,7 +95,15 @@ export default class Nav extends React.Component {
 
             <div className="break" />
 
-            <div className="events" ref={this.expand}>
+            <div
+              className="events"
+              ref={this.events}
+              style={(this.state.eventsExpanded) ? {
+                height: `${this.navContent.current.scrollHeight}px`,
+              } : {
+                height: (this.state.eventsHeight > 0) && `${this.state.eventsHeight}px`,
+              }}
+            >
               <Events displayCount={this.state.eventsExpanded ? -1 : 3} />
             </div>
 
@@ -153,7 +111,15 @@ export default class Nav extends React.Component {
               <button id="more" href="#" onClick={this.toggleExpandEvents}>{this.state.eventsExpanded ? 'Less' : 'More'}</button>
             </div>
 
-            <div className="collapsable" ref={this.collapseBottom}>
+            <div
+              className="collapsable"
+              ref={this.collapseBottom}
+              style={this.state.eventsExpanded ? {
+                height: '0',
+              } : this.collapseBottom && this.collapseBottom.current && {
+                height: this.collapseBottom.current.scrollHeight,
+              }}
+            >
               <div id="top">
                 <button href="#" onClick={() => { window.scrollTo(0, 0); }}>Top</button>
               </div>
