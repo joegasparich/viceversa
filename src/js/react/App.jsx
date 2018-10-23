@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { hot } from 'react-hot-loader';
 
-// import Queries from '../utils/Queries';
-
 import Entry from './Entry';
 import Nav from './Nav';
 import News from './News';
@@ -24,37 +22,6 @@ class App extends React.Component {
 
     this.onClear = this.onClear.bind(this);
   }
-
-  componentDidMount() {
-    // Queries.postRequest({
-    //   query: Queries.artist.create,
-    //   variables: {
-    //     name: 'Bonnie Strides',
-    //     bio: 'Bio',
-    //     content: 'Content',
-    //   },
-    // });
-
-    // Queries.postRequest({
-    //   query: Queries.article.create,
-    //   variables: {
-    //     title: 'Article',
-    //     date: new Date(),
-    //     content: 'Content',
-    //   },
-    // });
-
-    // Queries.postRequest({
-    //   query: Queries.event.create,
-    //   variables: {
-    //     name: 'Test Event',
-    //     date: new Date(2019, 10, 10),
-    //     description: 'desc',
-    //     link: '#',
-    //   },
-    // });
-  }
-
   onClear() {
     this.setState({
       hasSeenEntry: true,

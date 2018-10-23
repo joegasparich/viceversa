@@ -13,7 +13,6 @@ export default class Nav extends React.Component {
     super(props);
     this.state = {
       expanded: false,
-      // expandEvents: false,
       eventsExpanded: false,
       eventsHeight: 0,
     };
@@ -33,15 +32,6 @@ export default class Nav extends React.Component {
     this.setState({
       expanded: !this.state.expanded,
     });
-
-    // if (this.state.expanded) {
-    //   // Collapse
-    //   this.collapseElement(this.navContent.current);
-    //   this.navContent.current.addEventListener('transitionend', () => { this.navContent.current.style.height = null; }, { once: true });
-    // } else {
-    //   // Expand
-    //   this.expandElement(this.navContent.current);
-    // }
   }
 
   toggleExpandEvents() {

@@ -35,7 +35,6 @@ News
 	✓ Clicking opens article
 		✓ X at the top right to close
 		✓ Animate
-	- WYSIWYG Editor
 Artists
 	✓ Grid
 	- Images are black and white and transition to colour on hover with name panel coming up from the bottom
@@ -48,7 +47,6 @@ Artist Page
 	✓ Bio on the right
 	- Links on the right
 	✓ Feed on the left of images/music/videos/news
-	- WYSIWYG Editor
 About/Contact
 	- Image of everyone
 	- Bio
