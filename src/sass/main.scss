@@ -3,7 +3,10 @@ body {
     background-size: cover;
     font-family: $font-content;
     main {
+        
+        // padding-top: 20px;
         &>.nav {
+            // padding-top: 40px;
             top: 0;
             left: 0;
             width: 25%;
@@ -17,7 +20,9 @@ body {
         }
         //Mobile
         @media screen and (max-width: $break-small) {
+            // padding-top: 0;
             &>.nav {
+                // padding-top: 0;
                 width: 100%;
                 position: relative;
             }

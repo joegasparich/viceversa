@@ -97,7 +97,7 @@ export default class Nav extends React.Component {
               className="events"
               ref={this.events}
               style={(this.state.eventsExpanded) ? {
-                height: `${this.navContent.current.scrollHeight}px`,
+                height: `${this.navContent.current.scrollHeight - 2}px`,
               } : {
                 height: (this.state.eventsHeight > 0) && `${this.state.eventsHeight}px`,
               }}

@@ -47,6 +47,11 @@ Artist Page
 	✓ Bio on the right
 	- Links on the right
 	✓ Feed on the left of images/music/videos/news
+		- Snitch Jimmy
+		- Melanie
+		- Te Henga Collective
+		- A Work in Progress
+		- Bonnie Strides
 About/Contact
 	- Image of everyone
 	- Bio
@@ -54,3 +59,4 @@ About/Contact
 Shed
 	- Youtube stream shows up if livestreaming
 	- Soundcloud links of past streams
+	- Shed Sessions videos
