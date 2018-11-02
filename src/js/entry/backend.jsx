@@ -1,4 +1,5 @@
 import express from 'express';
+import http from 'http';
 import graphQLHTTP from 'express-graphql';
 import schema from '../schema/Schema';
 import document from '../../html/index.html';
@@ -21,4 +22,4 @@ app.get('/*', (req, res) => {
   res.send(document);
 });
 
-app.listen(5000);
+http.createServer(app).listen(5000, '127.0.0.1');

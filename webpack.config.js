@@ -5,7 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extract_styles = new ExtractTextPlugin("css/main.css");
 const nodeExternals = require('webpack-node-externals');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 const common_plugins = [
@@ -21,10 +20,6 @@ const smp = new SpeedMeasurePlugin();
 		cache: true,
 		parallel: true,
 		sourceMap: true
-	}),
-	new BundleAnalyzerPlugin({
-		analyzerMode: 'static',
-		reportFilename: '../report.html'
 	})
 ].forEach(plugin => common_plugins.push(plugin));
 
@@ -103,7 +98,7 @@ frontend.plugins.push(
 
 const backend = {
 	entry: {
-		backend: './src/js/entry/backend.jsx'
+		backend: ['babel-polyfill', './src/js/entry/backend.jsx']
 	},
 	output: {
 		filename: 'js/[name]-dist.js'

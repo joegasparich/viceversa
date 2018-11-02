@@ -5,7 +5,7 @@ module.exports = {
      */
     apps : [
       {
-        name      : 'polaco-accounts',
+        name      : 'vice-versa',
         script    : 'dist/js/backend-dist.js',
         instances : 4,
         exec_mode : 'cluster',

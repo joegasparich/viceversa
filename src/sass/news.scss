@@ -5,9 +5,12 @@
 	//Set square size
 	.article,
 	.card-panel {
-		width: 300px;
-		height: 300px;
-	
+		// Desktop
+		@media screen and (min-width: $break-small) {
+			width: 300px;
+			height: 300px;
+		}
+		// Mobile
 		@media screen and (max-width: $break-small) {
 			width: 250px;
 			height: 250px;

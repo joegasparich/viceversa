@@ -11,39 +11,14 @@ import GraphQLArticle from './Article';
 import GraphQLArtist from './Artist';
 
 function insertItem(collectionName, args) {
-  return new Promise((resolve, reject) => {
-    const collection = getDB().collection(collectionName);
-    collection.insert(args, (err, doc) => {
+  return new Promise(async (resolve, reject) => {
+    const db = await getDB();
+    const collection = db.collection(collectionName);
+    collection.insertOne(args, (err, doc) => {
       if (err) {
         reject(err);
       } else {
         resolve(doc);
-      }
-    });
-  });
-}
-
-function updateItem(collectionName, args) {
-  return new Promise((resolve, reject) => {
-    const collection = getDB().collection(collectionName);
-    collection.update({ _id: args._id }, args, {}, (err, doc) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(doc);
-      }
-    });
-  });
-}
-
-function deleteItem(collectionMame, _id) {
-  return new Promise((resolve, reject) => {
-    const collection = getDB().collection(collectionMame);
-    collection.remove({ _id }, (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
       }
     });
   });

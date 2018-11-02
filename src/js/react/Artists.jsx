@@ -20,6 +20,7 @@ export default class Artists extends React.Component {
     Queries.postRequest(
       { query: Queries.artist.getAll },
       (artists) => {
+        if (!artists.data.artists) return;
         // Sort Alphabetically
         const sortedArtists = artists.data.artists.sort((a, b) => a.name.localeCompare(b.name));
         this.setState({

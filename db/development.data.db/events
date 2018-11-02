@@ -1,9 +1,0 @@
-{"k":"0000000078","o":"0000000187","v":"001"}
-{"_id":2,"_uid":2,"_dt":1539900764244,"_s":"50337f42db78f6cca19ae2c43cff7093"}
-{"name":"Music in the Valley","date":{"$wrap":"$date","v":1547078400000,"h":"2019-01-10T00:00:00.000Z"},"description":"Description","link":"www.facebook.com","_id":{"$wrap":"$oid","v":2}}
-{"k":"0000000078","o":"0000000184","v":"001"}
-{"_id":3,"_uid":3,"_dt":1539900885670,"_s":"ec31fb439e48c2f3ea0a76ceb7a83ef9"}
-{"name":"Sauce-EP Release","date":{"$wrap":"$date","v":1542758400000,"h":"2018-11-21T00:00:00.000Z"},"description":"Description","link":"www.facebook.com","_id":{"$wrap":"$oid","v":3}}
-{"k":"0000000078","o":"0000000185","v":"001"}
-{"_id":4,"_uid":4,"_dt":1539900907309,"_s":"eab451f80598f1a497ec1eae5dca1b73"}
-{"name":"Vice Versa Launch","date":{"$wrap":"$date","v":1541808000000,"h":"2018-11-10T00:00:00.000Z"},"description":"Description","link":"www.facebook.com","_id":{"$wrap":"$oid","v":4}}

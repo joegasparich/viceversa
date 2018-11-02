@@ -17,6 +17,7 @@ export default class Events extends React.Component {
     Queries.postRequest(
       { query: Queries.event.getAll },
       (events) => {
+        if (!events.data.events) return;
         const sortedEvents = events.data.events.sort((a, b) => a.date.localeCompare(b.date));
         this.setState({
           events: sortedEvents,

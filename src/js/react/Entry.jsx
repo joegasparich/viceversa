@@ -6,7 +6,10 @@ export default class Entry extends React.Component {
     return (
       <div id="entry-modal" className="active">
         <div id="entry-content" className="valign-wrapper">
-          <button className="brand-logo" onClick={this.props.onClear} />
+          <div className="center">
+            <button className="brand-logo" onClick={() => { if (document.querySelector('#passcode').value === 'buckysaturday') this.props.onClear(); }} />
+            <p><input type="password" id="passcode" className="center" placeholder="Passcode" /></p>
+          </div>
         </div>
       </div>
     );

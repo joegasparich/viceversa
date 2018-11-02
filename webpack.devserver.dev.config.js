@@ -7,7 +7,7 @@ const nodeExternals = require('webpack-node-externals');
 const devserver = {
 	mode: 'development',
 	entry: {
-		devserver: ['./src/js/entry/devserver.jsx']
+		devserver: ['babel-polyfill', './src/js/entry/devserver.jsx']
 	},
 	output: {
 		filename: 'js/[name]-dist.js'

@@ -1,4 +1,4 @@
-import tingodb from 'tingodb';
+import { MongoClient } from 'mongodb';
 import {
   GraphQLObjectType,
   GraphQLString,
@@ -10,21 +10,27 @@ import GraphQLEvent from './Event';
 import GraphQLArticle from './Article';
 import GraphQLArtist from './Artist';
 
-const { Db } = tingodb();
+const MONGO_URL = 'mongodb://127.0.0.1:27017/';
 
-const DB_PREFIX = process.env.NODE_ENV === 'production' ? 'production' : 'development';
-export function getDB() {
-  return new Db(`./db/${DB_PREFIX}.data.db`, {});
+let globalDB = null;
+export async function getDB() {
+  if (!globalDB) {
+    const dbc = await MongoClient.connect(MONGO_URL);
+    globalDB = dbc.db('viceversa');
+    return globalDB;
+  }
+  return globalDB;
 }
 
 export function getCollection(collectionName, args) {
-  return new Promise((resolve, reject) => {
-    const collection = getDB().collection(collectionName);
+  return new Promise(async (resolve, reject) => {
+    const db = await getDB();
+    const collection = db.collection(collectionName);
     collection.find(args, ((err, collectionItems) => {
       if (err) {
         reject(err);
       } else {
-        collectionItems.toArray((err, data) => {
+        collectionItems.toArray((e, data) => {
           resolve(data);
         });
       }

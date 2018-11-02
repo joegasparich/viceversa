@@ -1,25 +1,28 @@
 .navigation {
+    // Center nav elements
     text-align: center;
+    // Set default colour to the primary colour
     color: $primary;
-    
+    //Mobile
     @media screen and (max-width: $break-small) {
-        position: fixed;
-        top: 0px;
         padding: 20px 0;
-        width: 100%;
-        z-index: 200;
+        // Set background of nav so that it hides content below it
         background: url(../resources/images/bg2.png) no-repeat center center fixed;
         background-size: cover;
     }
 
+    //Nav elements
     #brand-logo,
     .link,
     .event,
     #social-media,
     #top {
-        margin: 25px 0;
+        //Desktop
+        @media screen and (min-height: $vert-break) {
+            margin: 25px 0; //Default margin around nav elements
+        }
         @media screen and (max-height: $vert-break) {
-            margin: 15px 0;
+            margin: 15px 0; //Smaller for shorter screens
         }
         
         // Force Link Color
@@ -40,34 +43,44 @@
     
     .nav-head {
         a#brand-logo {
-            display: block;
             -webkit-mask-image: url("../resources/images/logo.svg");
             mask-image: url("../resources/images/logo.svg");
             mask-repeat: no-repeat;
             background-color: $primary;
             background-size: contain;
-            width: 200px;
-            height: 200px;
-            margin: 20px auto 0;
             
             &:hover {
                 background-color: $dark;
             }
+    
+            // Desktop
+            @media screen and (min-width: $break-small) {
+                display: block;
+                width: 200px;
+                height: 200px;
+                margin: 20px auto 0;
+            }
+            // Mobile
             @media screen and (max-width: $break-small) {
+                display: inline-block;
                 width: 100px;
                 height: 100px;
                 margin: 0;
-                display: inline-block;
                 vertical-align: middle;
             }
         }
         
-        button#menu {
-            display: none;
+        // Mobile nav buttons
+        button#menu,
+        button#top-mob {
+            // Desktop
+            @media screen and (min-width: $break-small) {
+                display: none; // Hide on desktop
+            }
+            // Mobile
             @media screen and (max-width: $break-small) {
                 display: inline-block;
                 position: absolute;
-                left: 10px;
                 top: 36px;
                 svg {
                     font-size: 60px;
@@ -75,58 +88,51 @@
                 }
             }
         }
-
         button#top-mob {
-            display: none;
-            @media screen and (max-width: $break-small) {
-                display: inline-block;
-                position: absolute;
-                right: 10px;
-                top: 36px;
-                svg {
-                    font-size: 60px;
-                    fill: #c24620;
-                }
-            }
+            right: 10px;
+        }
+        button#menu {
+            left: 10px;
         }
     }
     
     .nav-content {
         padding: 0 20px;
 
+        //Mobile expand animation
         @media screen and (max-width: $break-small) {
             transition: height 0.3s ease-in-out;
             overflow: hidden;
             height: 0px;
         }
 
+        // Nav to site pages
         .links {
             li {
                 display: block;
+                // Underline if link is currently open
                 a.active {
                     border-bottom: 2px solid $primary;
                     &:hover {
-                        border-color: $dark;
+                        border-color: $dark; // Darken with text on hover
                     }
                 }
             }
         }
         
+        // Social media icons
         #social-media {
             a {
                 display: inline-block;
                 width: 24px;
                 height: 24px;
                 margin: auto 20px;
-                &:hover {
-                    color: $dark;
-                }
             }
         }
         
+        // Event list
         .events {
-            position: relative;
-            padding-bottom: calc(20px + 1em);
+            padding-bottom: calc(20px + 1em); // Make room for More/Less button
 
             .event-list {
                 a.event {
@@ -147,16 +153,13 @@
                 }
             }
         }
+
+        // Top button
         #top {
+            //Mobile
             @media screen and (max-width: $break-small) {
-                display: none;
+                display: none; // Hide on Mobile
             }
-        }
-        .break {
-            width: 40%;
-            max-width: 150px;
-            margin: auto;
-            border-bottom: 1px solid $primary;
         }
 
         //Expand Events
@@ -165,20 +168,26 @@
             overflow: hidden;
         }
         .collapsable {
-            overflow: hidden;
             transition: height 0.3s ease-in-out;
+            overflow: hidden;
             height: auto;
         }
     
+        //Seperating lines
         .break {
-            position: relative;
+            width: 40%;
+            max-width: 150px;
+            margin: auto;
+            border-bottom: 1px solid $primary;
+
+            position: relative; // Set relative for child absolute
             #more {
+                // More button sits above line
                 position: absolute;
                 bottom: 20px;
                 display: block;
                 width: 100%;
                 color: $primary;
-                text-decoration: none;
                 // Hover Color
                 &:hover {
                     color: $dark;
