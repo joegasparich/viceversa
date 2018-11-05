@@ -43,7 +43,7 @@ export default class Artists extends React.Component {
       let image = '';
 
       try {
-        image = require(`../../resources/images/artists/${artist.id}/main.jpg`);
+        image = require(`../../resources/images/artists/${artist.name}/main.jpg`);
       } catch (error) {
         console.warn(`Could not find images for ${artist.name}`);
       }

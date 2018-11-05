@@ -1,5 +1,3 @@
-const IS_PRODUCTION = true;
-
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extract_styles = new ExtractTextPlugin("css/main.css");
@@ -67,8 +65,9 @@ const common = {
 		},
 		{
 			test: /\.(png|jpe?g|gif|svg|ico)$/,
-			loader: 'file-loader?name=/assets/images/[name].[ext]'
+			loader: 'file-loader?name=/assets/[path][name].[ext]&context=src/resources'
 		},
+		
 		{
 			test: /\.(woff|woff2|ttf|eot)$/,
 			loader: 'file-loader?name=/assets/fonts/[name].[hash].[ext]'

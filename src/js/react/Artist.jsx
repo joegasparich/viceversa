@@ -26,9 +26,8 @@ export default class Artist extends React.Component {
         to={this.props.path && this.props.path}
         onMouseEnter={() => this.handleHover(true)}
         onMouseLeave={() => this.handleHover(false)}
-        style={{ backgroundImage: `url(${this.props.image})` }}
       >
-        <div className="card-panel" />
+        <img src={this.props.image} alt={this.props.title} />
         {this.props.title &&
           <div className={`artist-title valign-wrapper ${this.state.isHovered ? 'show' : ''}`}>
             <h3>{this.props.title}</h3>
