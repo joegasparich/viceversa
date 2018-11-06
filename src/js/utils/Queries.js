@@ -53,11 +53,11 @@ export default class Queries {
           link
         }
       }`,
-      create: `mutation createEvent($name: String!, $date: Date!, $description: String, $link: String!){
-        createEvent(name: $name, date: $date, description: $description, link: $link) {
-          _id
-        }
-      }`,
+      // create: `mutation createEvent($name: String!, $date: Date!, $description: String, $link: String!){
+      //   createEvent(name: $name, date: $date, description: $description, link: $link) {
+      //     _id
+      //   }
+      // }`,
       // update: `mutation updateBillingItem($_id: String!, $name: String!, $type: String!, $startDate: Date!, $endDate: Date, $amount: Float!){
       //     updateBillingItem(_id: $_id, name: $name, type: $type, startDate: $startDate, endDate: $endDate, amount: $amount)
       // }`,
@@ -77,11 +77,11 @@ export default class Queries {
           content
         }
       }`,
-      create: `mutation createArticle($title: String!, $date: Date!, $content: String!){
-        createArticle(title: $title, date: $date, content: $content) {
-          _id
-        }
-      }`,
+      // create: `mutation createArticle($title: String!, $date: Date!, $content: String!){
+      //   createArticle(title: $title, date: $date, content: $content) {
+      //     _id
+      //   }
+      // }`,
       // update: `mutation updateBillingItem($_id: String!, $name: String!, $type: String!, $startDate: Date!, $endDate: Date, $amount: Float!){
       //     updateBillingItem(_id: $_id, name: $name, type: $type, startDate: $startDate, endDate: $endDate, amount: $amount)
       // }`,
@@ -101,11 +101,11 @@ export default class Queries {
           content
         }
       }`,
-      create: `mutation createArtist($name: String!, $bio: String!, $content: String!){
-        createArtist(name: $name, bio: $bio, content: $content) {
-          _id
-        }
-      }`,
+      // create: `mutation createArtist($name: String!, $bio: String!, $content: String!){
+      //   createArtist(name: $name, bio: $bio, content: $content) {
+      //     _id
+      //   }
+      // }`,
       // update: `mutation updateBillingItem($_id: String!, $name: String!, $type: String!, $startDate: Date!, $endDate: Date, $amount: Float!){
       //     updateBillingItem(_id: $_id, name: $name, type: $type, startDate: $startDate, endDate: $endDate, amount: $amount)
       // }`,

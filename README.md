@@ -5,12 +5,13 @@ Mobile
 	✓ Logo and Menu button in header
 	✓ Menu expands out
 	✓ 3/4s of the screen
-
+	- Links close the nav
 Splash
 	✓ Only shows up once per session
 	✓ Click logo to get to home
 	✓ Change to SVG
 	- Animate?
+	- Get rid of password
 Nav
 	✓ Always visible on the left
 	✓ Everything goes grey on hover
@@ -22,34 +23,38 @@ Nav
 	✓ Social Media buttons
 		✓ Facebook
 		✓ Instagram
-		✓ Bandcamp
+		- Bandcamp
 	✓ Events list
 		✓ Show 3 that are closest to the current time
 		✓ Name and date
 		✓ Links to Facebook Event/Whatever
 		✓ Show More, expands to fill the whole nav
+		- Events without a date show TBA
 	✓ Top
 News
 	✓ Grid
+	- Images
+	- URL Property
 	✓ Text panel comes up when hovering over image
 	✓ Clicking opens article
 		✓ X at the top right to close
 		✓ Animate
 Artists
 	✓ Grid
-	- Images are black and white and transition to colour on hover with name panel coming up from the bottom
 	✓ Or full colour with text
 	✓ Alphabetical
 	✓ Click through to artist page
+	- Sort out mobile text on images
 Artist Page
 	✓ Banner image at the top
 	✓ Data driven
 	✓ Bio on the right
-	- Links on the right
+	- URL Property
+	- Social Media
 	✓ Feed on the left of images/music/videos/news
-		- Snitch Jimmy
+		✓ Snitch Jimmy
 		- Melanie
-		- Te Henga Collective
+		✓ Te Henga Collective
 		- A Work in Progress
 		- Bonnie Strides
 About/Contact
@@ -57,6 +62,11 @@ About/Contact
 	- Bio
 	- Contact
 Shed
-	- Youtube stream shows up if livestreaming
-	- Soundcloud links of past streams
-	- Shed Sessions videos
+	- Pictures of the Shed
+	- Come Back Later
+		- Youtube channel stream
+		- Shed Sessions videos
+		- Soundcloud links of podcasts/radio
+Shop
+	- Coming Soon
+		- Link to bandcamp shop

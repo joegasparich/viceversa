@@ -84,7 +84,7 @@ export default class Nav extends React.Component {
             <div className="break" />
 
             <div id="social-media">
-              <a id="facebook" href="//www.facebook.com/groups/819023558295629/"><Facebook /></a>
+              <a id="facebook" href="//www.facebook.com/viceversanz/"><Facebook /></a>
               <a id="instagram" href="//www.instagram.com/viceversa_nz/"><Instagram /></a>
               <a id="bandcamp" href="//bandcamp.com"><Headphones /></a>
             </div>

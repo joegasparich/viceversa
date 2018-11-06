@@ -12,17 +12,13 @@ body {
             top: 0;
             left: 0;
         }
-        &>.content {
-            padding: 20px;
-        }
         //Desktop
         @media screen and (min-width: $break-small) {
-            padding-top: 20px;
             &>.nav {
-                padding-top: 40px;
                 width: 25%; // Nav is 1/4 of screen
             }
             &>.content {
+                padding: 40px;
                 margin-left: 25%; // Make room for nav to the left
             }
         }
@@ -33,7 +29,7 @@ body {
                 width: 100%; // Nav takes up all of screen
             }
             &>.content {
-                margin-top: 150px; // Make room for nav above
+                margin-top: 140px; // Make room for nav above
             }
         }
     }
@@ -102,4 +98,17 @@ button, input[type="submit"], input[type="reset"] {
 .center {
     text-align: center;
     margin: auto;
+}
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

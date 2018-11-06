@@ -16,11 +16,11 @@ export default class ArtistDetail extends React.Component {
 
       return (
         <div className="artist">
-          <div className="banner">
+          <div className="artist-banner">
             <img src={bannerImage} alt={this.props.artist.name} />
             <h1 className="center">{this.props.artist.name}</h1>
           </div>
-          <div className="content">
+          <div className="artist-content">
             <div className="bio">
               <h3 className="center">Bio</h3>
               <img className="center" src={mainImage} alt={this.props.artist.name} />
