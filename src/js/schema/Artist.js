@@ -9,6 +9,7 @@ const GraphQLArtist = new GraphQLObjectType({
   fields: () => ({
     _id: { type: GraphQLString },
     name: { type: GraphQLString },
+    url: { type: GraphQLString },
     bio: { type: GraphQLString },
     content: { type: GraphQLString },
   }),

@@ -42,5 +42,6 @@ ArtistDetail.propTypes = {
     name: PropTypes.string,
     bio: PropTypes.string,
     content: PropTypes.string,
+    url: PropTypes.string,
   }).isRequired,
 };

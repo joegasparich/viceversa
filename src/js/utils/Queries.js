@@ -99,6 +99,7 @@ export default class Queries {
           name
           bio
           content
+          url
         }
       }`,
       // create: `mutation createArtist($name: String!, $bio: String!, $content: String!){

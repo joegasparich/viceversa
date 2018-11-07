@@ -34,7 +34,7 @@ export default class Artists extends React.Component {
     if (this.props.match.params.id) {
       return (
         <ArtistDetail
-          artist={this.state.artists.find(artist => artist.id === this.props.match.params.id)}
+          artist={this.state.artists.find(artist => artist.url === this.props.match.params.id)}
         />
       );
     }
@@ -53,7 +53,7 @@ export default class Artists extends React.Component {
           key={artist.id}
           title={artist.name}
           image={image}
-          path={`/artists/${artist.id}`}
+          path={`/artists/${artist.url}`}
         />
       );
     });
