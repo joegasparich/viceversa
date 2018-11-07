@@ -18,7 +18,7 @@ export default class Events extends React.Component {
       { query: Queries.event.getAll },
       (events) => {
         if (!events.data.events) return;
-        const sortedEvents = events.data.events.sort((a, b) => a.date.localeCompare(b.date));
+        const sortedEvents = events.data.events.sort((a, b) => (a.date === '') - (b.date === '') || a.date.localeCompare(b.date));
         this.setState({
           events: sortedEvents,
         });
@@ -30,13 +30,14 @@ export default class Events extends React.Component {
     let index = 0;
 
     const eventList = this.state.events.map((event) => {
-      if (Date.parse(event.date) > Date.now() && (index < this.props.displayCount || this.props.displayCount < 0)) {
+      // If date is either in the future or is TBA
+      if ((event.date === '' || Date.parse(event.date) > Date.now()) && (index < this.props.displayCount || this.props.displayCount < 0)) {
         index++;
         return (
           <li key={event.id}>
             <Event
               name={event.name}
-              date={new Date(event.date)}
+              date={event.date ? new Date(event.date) : null}
               description={event.description}
               link={event.link}
             />
