@@ -22,7 +22,6 @@ export default class ArtistDetail extends React.Component {
           </div>
           <div className="artist-content">
             <div className="bio">
-              <h3 className="center">Bio</h3>
               <img className="center" src={mainImage} alt={this.props.artist.name} />
               <p>{this.props.artist.bio}</p>
             </div>

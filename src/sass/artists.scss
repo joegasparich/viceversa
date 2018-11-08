@@ -6,24 +6,22 @@
 	display: inline-block;
 	margin: 10px;
 	overflow: hidden;
-	background: $dark;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 	text-decoration: none;
 	
 	width: 300px;
 	height: 300px;
-	@media screen and (max-width: $break-small) {
+	@media screen and (max-width: $break-med),
+	screen and (max-height: $vert-break-med) {
 		width: 250px;
-		height: 250px;
+		height: 310px;
 	}
 
 	img {
 		object-fit: cover;
 		width: 300px;
 		height: 300px;
-		@media screen and (max-width: $break-small) {
+		@media screen and (max-width: $break-med),
+		screen and (max-height: $vert-break-med) {
 			width: 250px;
 			height: 250px;
 		}
@@ -45,14 +43,20 @@
 		h3 {
 			color: white;
 			margin: auto;
+			@media screen and (max-width: $break-med),
+			screen and (max-height: $vert-break-med) {
+				color: black;
+			}
 		}
 
 		&.show {
 			top: -100px;
 		}
 
-		@media screen and (max-width: $break-small) {
-			top: -100px;
+		@media screen and (max-width: $break-med),
+		screen and (max-height: $vert-break-med) {
+			top: 0;
+			height: 50px;
 			background: none;
 		}
 	}
@@ -83,8 +87,14 @@
 			right: 0;
 			text-align: center;
 
-			@media screen and (max-width: $break-small) {
+			@media screen and (max-width: 1400px) {
+				font-size: 48px;
+			}
+			@media screen and (max-width: $break-med) {
 				font-size: 38px;
+				@media screen and (min-width: $break-small) {
+					font-size: 3vw;
+				}
 			}
 		}
 	}
@@ -94,7 +104,7 @@
 		flex-flow: row;
 		padding: 30px 0;
 
-		@media screen and (max-width: $break-small) {
+		@media screen and (max-width: $break-med) {
 			padding: 0;
 		}
 
@@ -103,7 +113,7 @@
 			order: 2;
 			max-width: 300px;
 			
-			@media screen and (max-width: $break-small) {
+			@media screen and (max-width: $break-med) {
 				max-width: 100%;
 			}
 			
@@ -112,9 +122,8 @@
 				object-fit: cover;
 				object-position: center;
 				width: 300px;
-				height: 300px;
 
-				@media screen and (max-width: $break-small) {
+				@media screen and (max-width: $break-med) {
 					width: 100%;
 				}
 			}
@@ -126,11 +135,11 @@
 			flex: 3 auto;
 			order: 1;
 			
-			@media screen and (min-width: $break-small) {
+			@media screen and (min-width: $break-med) {
 				padding-right: 50px
 			}
 		}
-		@media screen and (max-width: $break-small) {
+		@media screen and (max-width: $break-med) {
 			flex-flow: row wrap;
 			.bio {
 				flex: 1 100%;

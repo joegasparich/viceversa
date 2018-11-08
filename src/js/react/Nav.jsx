@@ -8,6 +8,8 @@ import Headphones from 'mdi-material-ui/Headphones';
 
 import Events from './Events';
 
+const BREAK_SMALL = 480;
+
 export default class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -50,11 +52,12 @@ export default class Nav extends React.Component {
 
   render() {
     return (
-      <div className="navigation">
+      <div className={`navigation ${this.state.expanded ? 'expanded' : ''}`}>
+        <div className="background" />
         <div className="nav-head">
           <button id="menu" href="#" onClick={this.toggleExpandNav} ><Menu /></button>
           <Link to="/" id="brand-logo" />
-          <button id="top-mob" href="#" onClick={() => { window.scrollTo(0, 0); }} ><ArrowUpward /></button>
+          {/* <button id="top-mob" href="#" onClick={() => { window.scrollTo(0, 0); }} ><ArrowUpward /></button> */}
         </div>
         <div
           className="nav-content"
@@ -62,8 +65,8 @@ export default class Nav extends React.Component {
           style={this.state.expanded ? this.navContent && this.navContent.current && {
             height: this.navContent.current.scrollHeight,
           } : {
-              height: '0px',
-            }}
+            height: null,
+          }}
         >
           <div
             className="collapsable"
@@ -75,10 +78,26 @@ export default class Nav extends React.Component {
             }}
           >
             <ul className="links">
-              <li id="artists" className="link"><Link to="/artists" className={window.location.pathname.includes('artist') ? 'active' : ''}>Artists</Link></li>
-              <li id="shed" className="link"><Link to="/shed" className={window.location.pathname.includes('shed') ? 'active' : ''}>Shed</Link></li>
-              <li id="shop" className="link"><a href="//bandcamp.com">Shop</a></li>
-              <li id="about" className="link"><Link to="/about" className={window.location.pathname.includes('about') ? 'active' : ''}>About</Link></li>
+              <li id="artists" className="link">
+                <Link to="/artists" className={window.location.pathname.includes('artist') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                  Artists
+                </Link>
+              </li>
+              <li id="shed" className="link">
+                <Link to="/shed" className={window.location.pathname.includes('shed') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                  Shed
+                </Link>
+              </li>
+              <li id="shop" className="link">
+                <Link to="/shop" className={window.location.pathname.includes('shop') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                  Shop
+                </Link>
+              </li>
+              <li id="about" className="link">
+                <Link to="/about" className={window.location.pathname.includes('about') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                  About
+                </Link>
+              </li>
             </ul>
 
             <div className="break" />
@@ -98,14 +117,14 @@ export default class Nav extends React.Component {
             style={(this.state.eventsExpanded) ? {
               height: `${this.navContent.current.scrollHeight - 2}px`,
             } : {
-                height: (this.state.eventsHeight > 0) && `${this.state.eventsHeight}px`,
-              }}
+              height: (this.state.eventsHeight > 0) && `${this.state.eventsHeight}px`,
+            }}
           >
             <Events displayCount={this.state.eventsExpanded ? -1 : 3} />
           </div>
 
-          <div className="break">
-            <button id="more" href="#" onClick={this.toggleExpandEvents}>{this.state.eventsExpanded ? 'Less' : 'More'}</button>
+          <div className="break more">
+            <button id="more" className="more" href="#" onClick={this.toggleExpandEvents}>{this.state.eventsExpanded ? 'Less' : 'More'}</button>
           </div>
 
           <div

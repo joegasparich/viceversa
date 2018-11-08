@@ -11,6 +11,7 @@ import News from './News';
 import About from './About';
 import Artists from './Artists';
 import Shed from './Shed';
+import Shop from './Shop';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends React.Component {
         <CssBaseline />
         <header />
         <main>
+          <div className="background" />
           <div className="nav">
             <Nav />
           </div>
@@ -52,6 +54,7 @@ class App extends React.Component {
               <Route path="/artists/:id?" component={Artists} />
               <Route path="/about" component={About} />
               <Route path="/shed" component={Shed} />
+              <Route path="/shop" component={Shop} />
               <Route path="/articles/:id?" component={News} />
               <Route path="/" component={News} />
             </Switch>

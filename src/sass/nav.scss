@@ -6,9 +6,14 @@
     //Mobile
     @media screen and (max-width: $break-small) {
         padding: 20px 0;
-        // Set background of nav so that it hides content below it
-        background: url(../resources/images/bg2.png) no-repeat center center fixed;
-        background-size: cover;
+    }
+    //Hide nav background unless mobile portrait view
+    .background {
+        position: absolute;
+        
+        @media screen and (min-width: $break-small) {
+            display: none;
+        }
     }
 
     //Nav elements
@@ -18,11 +23,14 @@
     #social-media,
     #top {
         //Desktop
-        @media screen and (min-height: $vert-break) {
+        @media screen and (min-height: $vert-break-med) {
             margin: 25px 0; //Default margin around nav elements
         }
-        @media screen and (max-height: $vert-break) {
+        @media screen and (max-height: $vert-break-med) {
             margin: 15px 0; //Smaller for shorter screens
+        }
+        @media screen and (max-height: $vert-break-tiny) {
+            margin: 10px 0; //Smaller for shorter screens
         }
         
         // Force Link Color
@@ -56,9 +64,12 @@
             // Desktop
             @media screen and (min-width: $break-small) {
                 display: block;
-                width: 200px;
-                height: 200px;
                 margin: 20px auto 0;
+                //Scale with height
+                max-width: 200px;
+                max-height: 200px;
+                width: 25vh;
+                height: 25vh;
             }
             // Mobile
             @media screen and (max-width: $break-small) {
@@ -132,6 +143,11 @@
         
         // Event list
         .events {
+            //Hide if screen is too short
+            @media screen and (max-height: $vert-break-small) {
+                display: none;
+            }
+
             padding-bottom: calc(20px + 1em); // Make room for More/Less button
 
             .event-list {
@@ -173,6 +189,13 @@
             height: auto;
         }
     
+        .more {
+            //Hide if screen is too short
+            @media screen and (max-height: $vert-break-small) {
+                display: none;
+            }
+        }
+
         //Seperating lines
         .break {
             width: 40%;

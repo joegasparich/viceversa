@@ -12,6 +12,7 @@ Splash
 	✓ Change to SVG
 	- Animate?
 	- Get rid of password
+	- Only show if entering at root url
 Nav
 	✓ Always visible on the left
 	✓ Everything goes grey on hover
@@ -29,12 +30,11 @@ Nav
 		✓ Name and date
 		✓ Links to Facebook Event/Whatever
 		✓ Show More, expands to fill the whole nav
-		- Events without a date show TBA
+		✓ Events without a date show TBA
 	✓ Top
 News
 	✓ Grid
-	- Images
-	- URL Property
+	✓ Images
 	✓ Text panel comes up when hovering over image
 	✓ Clicking opens article
 		✓ X at the top right to close
@@ -49,7 +49,7 @@ Artist Page
 	✓ Banner image at the top
 	✓ Data driven
 	✓ Bio on the right
-	- URL Property
+	✓ URL Property
 	- Social Media
 	✓ Feed on the left of images/music/videos/news
 		✓ Snitch Jimmy
@@ -63,10 +63,10 @@ About/Contact
 	- Contact
 Shed
 	- Pictures of the Shed
-	- Come Back Later
+	✓ Come Back Later
 		- Youtube channel stream
 		- Shed Sessions videos
 		- Soundcloud links of podcasts/radio
 Shop
-	- Coming Soon
+	✓ Coming Soon
 		- Link to bandcamp shop
