@@ -9,6 +9,7 @@ export default class Article extends React.Component {
     this.state = {
       open: false,
       startPos: null,
+      canHover: true,
     };
 
     // Binds
@@ -34,7 +35,7 @@ export default class Article extends React.Component {
 
   handleHover(hovering) {
     this.setState({
-      isHovered: hovering,
+      isHovered: hovering && this.state.canHover,
     });
   }
 
@@ -52,8 +53,9 @@ export default class Article extends React.Component {
         setTimeout(() => {
           this.setState({
             open: true,
+            canHover: false,
           });
-        }, 1);
+        }, 50);
       });
     }
   }
@@ -67,12 +69,14 @@ export default class Article extends React.Component {
       setTimeout(() => {
         this.setState({
           startPos: null,
+          canHover: true,
         });
       }, 500);
     } else {
       // Article was in URL - close immediately
       this.setState({
         startPos: null,
+        canHover: true,
       });
     }
     this.props.history.push('/');
