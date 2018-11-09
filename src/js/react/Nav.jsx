@@ -20,6 +20,7 @@ export default class Nav extends React.Component {
     };
 
     // References
+    this.nav = React.createRef();
     this.navContent = React.createRef();
     this.events = React.createRef();
     this.collapseTop = React.createRef();
@@ -28,6 +29,11 @@ export default class Nav extends React.Component {
     // Binds
     this.toggleExpandNav = this.toggleExpandNav.bind(this);
     this.toggleExpandEvents = this.toggleExpandEvents.bind(this);
+
+  }
+
+  componentDidMount() {
+    this.nav.current.addEventListener('touchmove', e => e.preventDefault());
   }
 
   toggleExpandNav() {
@@ -52,7 +58,7 @@ export default class Nav extends React.Component {
 
   render() {
     return (
-      <div className={`navigation ${this.state.expanded ? 'expanded' : ''}`}>
+      <div className={`navigation ${this.state.expanded ? 'expanded' : ''}`} ref={this.nav}>
         <div className="background" />
         <div className="nav-head">
           <button id="menu" href="#" onClick={this.toggleExpandNav} ><Menu /></button>
