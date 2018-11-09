@@ -100,6 +100,11 @@ export default class Queries {
           bio
           content
           url
+          links {
+            title
+            url
+          }
+          showTitle
         }
       }`,
       // create: `mutation createArtist($name: String!, $bio: String!, $content: String!){

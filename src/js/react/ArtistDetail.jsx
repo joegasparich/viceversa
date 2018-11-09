@@ -14,16 +14,19 @@ export default class ArtistDetail extends React.Component {
         console.warn(`Could not find images for ${this.props.artist.name}`);
       }
 
+      const linkList = this.props.artist.links.map(link => <li key={link.title}><a href={link.url}>{link.title}</a></li>);
+
       return (
         <div className="artist">
           <div className="artist-banner">
             <img src={bannerImage} alt={this.props.artist.name} />
-            <h1 className="center">{this.props.artist.name}</h1>
           </div>
+          {this.props.artist.showTitle && <h1 className="center">{this.props.artist.name}</h1>}
           <div className="artist-content">
             <div className="bio">
               <img className="center" src={mainImage} alt={this.props.artist.name} />
               <p>{this.props.artist.bio}</p>
+              <ul className="links">{linkList}</ul>
             </div>
             <div className="gallery" dangerouslySetInnerHTML={{ __html: this.props.artist.content }} />
           </div>
@@ -42,5 +45,9 @@ ArtistDetail.propTypes = {
     bio: PropTypes.string,
     content: PropTypes.string,
     url: PropTypes.string,
-  }).isRequired,
+    links: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })),
+  }),
 };

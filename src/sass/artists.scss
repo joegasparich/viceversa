@@ -20,6 +20,7 @@
 		object-fit: cover;
 		width: 300px;
 		height: 300px;
+
 		@media screen and (max-width: $break-med),
 		screen and (max-height: $vert-break-med) {
 			width: 250px;
@@ -77,24 +78,20 @@
 			transform: translate(-50%,-50%);
 		}
 
-		h1 {
-			position: absolute;
-			font-size: 72px;
-			font-family: $font-content;
-			color: white;
-			bottom: 20px;
-			left: 0;
-			right: 0;
-			text-align: center;
+	}
+	h1 {
+		font-size: 72px;
+		font-family: $font-content;
+		color: black;
+		text-align: center;
 
-			@media screen and (max-width: 1400px) {
-				font-size: 48px;
-			}
-			@media screen and (max-width: $break-med) {
-				font-size: 38px;
-				@media screen and (min-width: $break-small) {
-					font-size: 3vw;
-				}
+		@media screen and (max-width: 1400px) {
+			font-size: 48px;
+		}
+		@media screen and (max-width: $break-med) {
+			font-size: 38px;
+			@media screen and (min-width: $break-small) {
+				font-size: 3vw;
 			}
 		}
 	}
@@ -125,6 +122,22 @@
 
 				@media screen and (max-width: $break-med) {
 					width: 100%;
+				}
+			}
+			.links {
+				list-style: none;
+				text-align: center;
+				li {
+					display: inline;
+					margin: 7px;
+					a {
+						text-decoration: none;
+						color: $primary;
+						&:hover {
+							text-decoration: underline;
+							color: $dark;
+						}
+					}
 				}
 			}
 		}

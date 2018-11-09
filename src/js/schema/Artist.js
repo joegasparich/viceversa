@@ -1,7 +1,18 @@
 import {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLList,
+  GraphQLBoolean,
 } from 'graphql';
+
+const GraphQLLink = new GraphQLObjectType({
+  name: 'Link',
+  description: '...',
+  fields: () => ({
+    title: { type: GraphQLString },
+    url: { type: GraphQLString },
+  }),
+});
 
 const GraphQLArtist = new GraphQLObjectType({
   name: 'Artist',
@@ -12,6 +23,8 @@ const GraphQLArtist = new GraphQLObjectType({
     url: { type: GraphQLString },
     bio: { type: GraphQLString },
     content: { type: GraphQLString },
+    links: { type: GraphQLList(GraphQLLink) },
+    showTitle: { type: GraphQLBoolean },
   }),
 });
 

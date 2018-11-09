@@ -5,7 +5,7 @@ Mobile
 	✓ Logo and Menu button in header
 	✓ Menu expands out
 	✓ 3/4s of the screen
-	- Links close the nav
+	✓ Links close the nav
 Splash
 	✓ Only shows up once per session
 	✓ Click logo to get to home
@@ -57,6 +57,8 @@ Artist Page
 		✓ Te Henga Collective
 		- A Work in Progress
 		- Bonnie Strides
+		- Zeb
+		- Logan
 About/Contact
 	- Image of everyone
 	- Bio
