@@ -3,6 +3,7 @@
     text-align: center;
     // Set default colour to the primary colour
     color: $primary;
+    padding-top: 50px;
     //Mobile
     @media screen and (max-width: $break-small) {
         padding: 20px 0;

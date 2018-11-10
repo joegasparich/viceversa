@@ -1,10 +1,27 @@
 .about {
+	padding: 20px 25%;
+	
+	@media screen and (max-width: $break-med) {
+		padding: 20px ;
+	}
+	@media screen and (max-width: $break-small) {
+		padding: 20px 40px;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
 	.banner {
 		
 	}
-	.content {
-		@media screen and (max-width: $break-small) {
-			padding: 20px 40px;
+	.bio {
+		margin-bottom: 120px;
+		h1 {
+			margin-bottom: 50px;
 		}
+	}
+	.contact {
+		text-align: center;
 	}
 }

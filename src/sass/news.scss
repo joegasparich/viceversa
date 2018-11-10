@@ -7,8 +7,8 @@
 	.card-panel {
 		// Desktop
 		@media screen and (min-width: $break-small) {
-			width: 300px;
-			height: 300px;
+			width: 250px;
+			height: 250px;
 		}
 		// Mobile
 		@media screen and (max-width: $break-small),
@@ -30,15 +30,15 @@
 		background-position: center;
 		background-size: cover;
 
-		img {
+		&>img {
 			position: absolute;
 			top: 0;
 			left: 0;
 			object-fit: cover;
 			// Desktop
 			@media screen and (min-width: $break-small) {
-				width: 300px;
-				height: 300px;
+				width: 250px;
+				height: 250px;
 			}
 			// Mobile
 			@media screen and (max-width: $break-small),
@@ -63,10 +63,35 @@
 				position: relative;
 				height: 100%;
 				background: white;
+				border: 1px solid $primary;
+				text-align: left;
+				
+				// Mobile
+				@media screen and (max-width: $break-small),
+				screen and (max-height: $vert-break-small) {
+					padding: 20px;
+				}
+				//Med
+				@media screen and (min-width: $break-small) {
+					padding: 20px 10%;
+				}
+				//Large
+				@media screen and (min-width: $break-med) {
+					padding: 20px 20%;
+				}
 				
 				h1 {
 					text-align: center;
 					text-decoration: none;
+				}
+				
+				.article-date {
+					font-style: italic;
+					text-align: center;
+				}
+
+				img {
+					width: 100%;
 				}
 			
 				#close {
@@ -137,7 +162,7 @@
 				}
 				@media screen and (max-width: $break-small) {
 					margin: auto 0;
-					padding: 0 20px;
+					padding: 5px 20px;
 					left: 0 !important;
 					width: 100% !important;
 					top: 139px !important;

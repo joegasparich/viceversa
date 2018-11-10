@@ -26,6 +26,10 @@ export default class Article extends React.Component {
       const el = this.articleRef.current;
       const pos = el.getBoundingClientRect();
 
+      if (this.props.open) {
+        document.body.classList.add('noscroll');
+      }
+
       this.setState({
         open: this.props.open,
         startPos: pos,
@@ -46,6 +50,8 @@ export default class Article extends React.Component {
       const pos = el.getBoundingClientRect();
 
       this.props.history.push(`/articles/${this.props.article.id}`);
+
+      document.body.classList.add('noscroll');
 
       this.setState({
         startPos: pos,
@@ -71,6 +77,7 @@ export default class Article extends React.Component {
           startPos: null,
           canHover: true,
         });
+        document.body.classList.remove('noscroll');
       }, 500);
     } else {
       // Article was in URL - close immediately

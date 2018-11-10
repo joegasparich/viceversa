@@ -26,6 +26,7 @@ export default class Artist extends React.Component {
         to={this.props.path && this.props.path}
         onMouseEnter={() => this.handleHover(true)}
         onMouseLeave={() => this.handleHover(false)}
+        onClick={() => window.scrollTo(0, 0) }
       >
         <img src={this.props.image} alt={this.props.title} />
         {this.props.title &&

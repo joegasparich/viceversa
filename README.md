@@ -44,13 +44,13 @@ Artists
 	✓ Or full colour with text
 	✓ Alphabetical
 	✓ Click through to artist page
-	- Sort out mobile text on images
+	✓ Sort out mobile text on images
 Artist Page
 	✓ Banner image at the top
 	✓ Data driven
 	✓ Bio on the right
 	✓ URL Property
-	- Social Media
+	- Links
 	✓ Feed on the left of images/music/videos/news
 		✓ Snitch Jimmy
 		- Melanie

@@ -39,9 +39,10 @@ body {
                 }
             }
             &>.content {
-                padding: 40px;
+                padding: 80px;
                 margin-left: 25%; // Make room for nav to the left
                 @media screen and (max-width: $break-med) {
+                    padding: 60px 20px;
                     margin-left: 375px; //Account for min nav width
                     @media screen and (max-height: $vert-break-small) {
                         margin-left: 250px;
@@ -59,6 +60,10 @@ body {
                 margin-top: 140px; // Make room for nav above
             }
         }
+    }
+
+    &.noscroll {
+        overflow: hidden;
     }
 }
 

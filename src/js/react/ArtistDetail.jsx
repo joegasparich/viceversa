@@ -18,17 +18,19 @@ export default class ArtistDetail extends React.Component {
 
       return (
         <div className="artist">
-          <div className="artist-banner">
-            <img src={bannerImage} alt={this.props.artist.name} />
-          </div>
-          {this.props.artist.showTitle && <h1 className="center">{this.props.artist.name}</h1>}
           <div className="artist-content">
             <div className="bio">
               <img className="center" src={mainImage} alt={this.props.artist.name} />
+              {this.props.artist.showTitle && <h2 className="center">{this.props.artist.name}</h2>}
               <p>{this.props.artist.bio}</p>
               <ul className="links">{linkList}</ul>
             </div>
-            <div className="gallery" dangerouslySetInnerHTML={{ __html: this.props.artist.content }} />
+            <div className="gallery">
+              <div className="artist-banner">
+                <img src={bannerImage} alt={this.props.artist.name} />
+              </div>
+              <div dangerouslySetInnerHTML={{ __html: this.props.artist.content }} />
+            </div>
           </div>
         </div>
       );

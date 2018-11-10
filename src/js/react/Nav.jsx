@@ -33,6 +33,7 @@ export default class Nav extends React.Component {
   }
 
   componentDidMount() {
+    //Prevent scrolling through nav
     this.nav.current.addEventListener('touchmove', e => e.preventDefault());
   }
 
@@ -62,8 +63,7 @@ export default class Nav extends React.Component {
         <div className="background" />
         <div className="nav-head">
           <button id="menu" href="#" onClick={this.toggleExpandNav} ><Menu /></button>
-          <Link to="/" id="brand-logo" />
-          {/* <button id="top-mob" href="#" onClick={() => { window.scrollTo(0, 0); }} ><ArrowUpward /></button> */}
+          <Link to="/" id="brand-logo" onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}/>
         </div>
         <div
           className="nav-content"
@@ -85,22 +85,22 @@ export default class Nav extends React.Component {
           >
             <ul className="links">
               <li id="artists" className="link">
-                <Link to="/artists" className={window.location.pathname.includes('artist') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                <Link to="/artists" className={window.location.pathname.includes('artist') ? 'active' : ''} onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}>
                   Artists
                 </Link>
               </li>
               <li id="shed" className="link">
-                <Link to="/shed" className={window.location.pathname.includes('shed') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                <Link to="/shed" className={window.location.pathname.includes('shed') ? 'active' : ''} onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}>
                   Shed
                 </Link>
               </li>
               <li id="shop" className="link">
-                <Link to="/shop" className={window.location.pathname.includes('shop') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                <Link to="/shop" className={window.location.pathname.includes('shop') ? 'active' : ''} onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}>
                   Shop
                 </Link>
               </li>
               <li id="about" className="link">
-                <Link to="/about" className={window.location.pathname.includes('about') ? 'active' : ''} onClick={() => this.setState({ expanded: false })}>
+                <Link to="/about" className={window.location.pathname.includes('about') ? 'active' : ''} onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}>
                   About
                 </Link>
               </li>
@@ -111,7 +111,7 @@ export default class Nav extends React.Component {
             <div id="social-media">
               <a id="facebook" href="//www.facebook.com/viceversanz/"><Facebook /></a>
               <a id="instagram" href="//www.instagram.com/viceversa_nz/"><Instagram /></a>
-              <a id="bandcamp" href="//bandcamp.com"><Headphones /></a>
+              <a id="bandcamp" href="//viceversanz.bandcamp.com/"><Headphones /></a>
             </div>
           </div>
 

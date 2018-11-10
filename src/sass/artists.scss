@@ -8,8 +8,8 @@
 	overflow: hidden;
 	text-decoration: none;
 	
-	width: 300px;
-	height: 300px;
+	width: 250px;
+	height: 250px;
 	@media screen and (max-width: $break-med),
 	screen and (max-height: $vert-break-med) {
 		width: 250px;
@@ -18,8 +18,8 @@
 
 	img {
 		object-fit: cover;
-		width: 300px;
-		height: 300px;
+		width: 250px;
+		height: 250px;
 
 		@media screen and (max-width: $break-med),
 		screen and (max-height: $vert-break-med) {
@@ -66,40 +66,16 @@
 
 .artist {
 	.artist-banner {
-		position: relative;
-		height: 30vh;
-		overflow: hidden;
+		margin-bottom: 60px;
+
 		img {
 			width: 100%;
-			//Center absolute
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-		}
-
-	}
-	h1 {
-		font-size: 72px;
-		font-family: $font-content;
-		color: black;
-		text-align: center;
-
-		@media screen and (max-width: 1400px) {
-			font-size: 48px;
-		}
-		@media screen and (max-width: $break-med) {
-			font-size: 38px;
-			@media screen and (min-width: $break-small) {
-				font-size: 3vw;
-			}
 		}
 	}
 	
 	.artist-content {
 		display: flex;
 		flex-flow: row;
-		padding: 30px 0;
 
 		@media screen and (max-width: $break-med) {
 			padding: 0;
@@ -124,7 +100,13 @@
 					width: 100%;
 				}
 			}
+
+			h2 {
+				margin-top: 40px;
+			}
+
 			.links {
+				margin-top: 40px;
 				list-style: none;
 				text-align: center;
 				li {
@@ -149,9 +131,10 @@
 			order: 1;
 			
 			@media screen and (min-width: $break-med) {
-				padding-right: 50px
+				padding-right: 100px
 			}
 		}
+
 		@media screen and (max-width: $break-med) {
 			flex-flow: row wrap;
 			.bio {
