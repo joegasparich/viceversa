@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { hot } from 'react-hot-loader';
+import ReactGA from 'react-ga';
 
 import Entry from './Entry';
 import Nav from './Nav';
@@ -17,12 +18,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.initializeReactGA();
+
     this.state = {
       hasSeenEntry: Boolean(Cookie.get('HasSeenEntry')),
     };
 
     this.onClear = this.onClear.bind(this);
   }
+
+  initializeReactGA() {
+    ReactGA.initialize('UA-129101953-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
+
   onClear() {
     this.setState({
       hasSeenEntry: true,
