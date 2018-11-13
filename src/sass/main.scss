@@ -26,6 +26,10 @@ body {
             position: fixed;
             top: 0;
             left: 0;
+            padding-top: 50px;
+            @media screen and (max-height: $vert-break-small) {
+                padding-top: 20px;
+            }
         }
         //Desktop
         @media screen and (min-width: $break-small) {
@@ -45,6 +49,7 @@ body {
                     padding: 60px 20px;
                     margin-left: 375px; //Account for min nav width
                     @media screen and (max-height: $vert-break-small) {
+                        padding: 20px;
                         margin-left: 250px;
                     }
                 }
