@@ -84,6 +84,11 @@ export default class Nav extends React.Component {
             }}
           >
             <ul className="links">
+              <li id="news" className="link">
+                <Link to="/" className={window.location.pathname == '/' ? 'active' : ''} onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}>
+                  News
+                </Link>
+              </li>
               <li id="artists" className="link">
                 <Link to="/artists" className={window.location.pathname.includes('artist') ? 'active' : ''} onClick={() => {this.setState({ expanded: false }); window.scrollTo(0, 0);}}>
                   Artists
