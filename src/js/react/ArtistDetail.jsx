@@ -21,7 +21,7 @@ export default class ArtistDetail extends React.Component {
           <div className="artist-content">
             <div className="bio">
               <img className="center" src={mainImage} alt={this.props.artist.name} />
-              {this.props.artist.showTitle && <h2 className="center">{this.props.artist.name}</h2>}
+              <h2 className="center">{this.props.artist.name}</h2>
               <p>{this.props.artist.bio}</p>
               <ul className="links">{linkList}</ul>
             </div>

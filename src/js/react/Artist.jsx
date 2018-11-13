@@ -14,9 +14,11 @@ export default class Artist extends React.Component {
   }
 
   handleHover(hovering) {
-    this.setState({
-      isHovered: hovering,
-    });
+    if(!hovering || window.innerWidth > 1000) {
+      this.setState({
+        isHovered: hovering,
+      });
+    }
   }
 
   render() {
