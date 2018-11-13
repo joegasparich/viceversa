@@ -30,6 +30,7 @@ export default class News extends React.Component {
             title: article.title,
             date: new Date(article.date),
             content: article.content,
+            image: article.image,
           })),
           shownArticleId: this.props.match.params.id,
         });
@@ -45,18 +46,18 @@ export default class News extends React.Component {
 
   render() {
     const articleList = this.state.articles.map((article) => {
-      let image = '';
-      try {
-        image = require(`../../resources/images/articles/${article.title}/main.jpg`);
-      } catch (error) {
-        console.warn(`Could not find images for ${article.title}`);
-      }
+      // let image = '';
+      // try {
+      //   image = require(`../../resources/images/articles/${article.title}/main.jpg`);
+      // } catch (error) {
+      //   console.warn(`Could not find images for ${article.title}`);
+      // }
 
       return (
         <Article
           key={article.id}
           article={article}
-          image={image}
+          image={article.image}
           history={this.props.history}
           open={Boolean(this.state.shownArticleId === article.id)}
         />

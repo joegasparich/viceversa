@@ -98,7 +98,7 @@ export default class Article extends React.Component {
         onClick={this.handleClick}
         onKeyPress={this.handleClick}
       >
-        <img src={this.props.image} alt={this.props.article.title} />
+        <img src={this.props.article.image} alt={this.props.article.title} />
         <div
           className="card-panel"
           ref={this.articleRef}
@@ -130,8 +130,8 @@ Article.propTypes = {
     title: PropTypes.string,
     date: PropTypes.instanceOf(Date),
     content: PropTypes.string,
+    image: PropTypes.string,
   }).isRequired,
-  image: PropTypes.string.isRequired,
   startPos: PropTypes.instanceOf(DOMRect),
   history: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,

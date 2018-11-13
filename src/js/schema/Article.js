@@ -12,6 +12,7 @@ const GraphQLArticle = new GraphQLObjectType({
     title: { type: GraphQLString },
     date: { type: GraphQLDate },
     content: { type: GraphQLString },
+    image: { type: GraphQLString },
   }),
 });
 
