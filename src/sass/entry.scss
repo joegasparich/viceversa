@@ -12,18 +12,28 @@
     }
     #entry-content {
         height: 100%;
-        .brand-logo {
-			cursor: pointer;
-            -webkit-mask-image: url("../resources/images/logo.svg");
-            mask-image: url("../resources/images/logo.svg");
-			mask-repeat: no-repeat;
-            background-color: $primary;
-			background-size: contain;
-            width: 300px;
-            height: 270px;
-            margin: 50px auto;
+        .enter {
+            cursor: pointer;
             &:hover {
-				background-color: $light;
+                h2 {
+                    color: $light;
+                }
+                .brand-logo {
+                    background-color: $light;
+                }
+            }
+            .brand-logo {
+                -webkit-mask-image: url("../resources/images/logo.svg");
+                mask-image: url("../resources/images/logo.svg");
+                mask-repeat: no-repeat;
+                background-color: $primary;
+                background-size: contain;
+                width: 300px;
+                height: 270px;
+                margin: 50px auto;
+                // &:hover {
+                //     background-color: $light;
+                // }
             }
         }
     }

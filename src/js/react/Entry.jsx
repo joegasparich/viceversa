@@ -7,7 +7,10 @@ export default class Entry extends React.Component {
       <div id="entry-modal" className="active">
         <div id="entry-content" className="valign-wrapper">
           <div className="center">
-            <button className="brand-logo" onClick={() => this.props.onClear() } />
+            <div className="enter" onClick={() => this.props.onClear() }>
+              <div className="brand-logo" />
+              <h2>Enter</h2>
+            </div>
           </div>
         </div>
       </div>
