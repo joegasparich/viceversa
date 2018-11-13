@@ -76,6 +76,7 @@ export default class Queries {
           date
           content
           image
+          animation
         }
       }`,
       // create: `mutation createArticle($title: String!, $date: Date!, $content: String!){

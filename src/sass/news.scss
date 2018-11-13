@@ -4,7 +4,8 @@
 
 	//Set square size
 	.article,
-	.card-panel {
+	.card-panel,
+	img {
 		// Desktop
 		@media screen and (min-width: $break-small) {
 			width: 250px;
@@ -16,6 +17,11 @@
 			width: 250px;
 			height: 250px;
 		}
+	}
+
+	//Animations
+	&>img {
+		margin: 10px;
 	}
 	
 	.article {

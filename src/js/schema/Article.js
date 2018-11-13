@@ -1,6 +1,7 @@
 import {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLBoolean,
 } from 'graphql';
 import GraphQLDate from './Date';
 
@@ -13,6 +14,7 @@ const GraphQLArticle = new GraphQLObjectType({
     date: { type: GraphQLDate },
     content: { type: GraphQLString },
     image: { type: GraphQLString },
+    animation: { type: GraphQLBoolean },
   }),
 });
 

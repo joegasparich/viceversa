@@ -31,6 +31,7 @@ export default class News extends React.Component {
             date: new Date(article.date),
             content: article.content,
             image: article.image,
+            animation: article.animation,
           })),
           shownArticleId: this.props.match.params.id,
         });
@@ -46,12 +47,12 @@ export default class News extends React.Component {
 
   render() {
     const articleList = this.state.articles.map((article) => {
-      // let image = '';
-      // try {
-      //   image = require(`../../resources/images/articles/${article.title}/main.jpg`);
-      // } catch (error) {
-      //   console.warn(`Could not find images for ${article.title}`);
-      // }
+
+      if(article.animation) {
+        return (
+          <img key={article.id} src={article.image} />
+        );
+      }
 
       return (
         <Article

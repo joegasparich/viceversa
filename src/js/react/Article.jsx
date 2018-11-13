@@ -131,6 +131,7 @@ Article.propTypes = {
     date: PropTypes.instanceOf(Date),
     content: PropTypes.string,
     image: PropTypes.string,
+    animation: PropTypes.bool,
   }).isRequired,
   startPos: PropTypes.instanceOf(DOMRect),
   history: PropTypes.object.isRequired,
