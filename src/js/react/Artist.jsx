@@ -14,12 +14,9 @@ export default class Artist extends React.Component {
   }
 
   handleHover(hovering) {
-    //Disable hover animation if on mobile resolution
-    if(!hovering || (window.innerWidth > 1000 && window.innerHeight > 890)) {
-      this.setState({
-        isHovered: hovering,
-      });
-    }
+    this.setState({
+      isHovered: hovering,
+    });
   }
 
   render() {

@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Menu from '@material-ui/icons/Menu';
-import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Facebook from 'mdi-material-ui/Facebook';
 import Instagram from 'mdi-material-ui/Instagram';
 import Headphones from 'mdi-material-ui/Headphones';
 
 import Events from './Events';
-
-const BREAK_SMALL = 480;
 
 export default class Nav extends React.Component {
   constructor(props) {

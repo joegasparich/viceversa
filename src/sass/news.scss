@@ -7,7 +7,7 @@
 	.card-panel,
 	img {
 		// Desktop
-		@media screen and (min-width: $break-med), screen and (orientation: landscape) {
+		@media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
 			width: 250px;
 			height: 250px;
 		}
@@ -41,7 +41,7 @@
 			left: 0;
 			object-fit: cover;
 			// Desktop
-            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+			@media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
 				width: 250px;
 				height: 250px;
 			}

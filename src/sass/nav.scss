@@ -14,7 +14,7 @@
         position: absolute;
         
         //Desktop
-        @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+        @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
             display: none;
         }
     }
@@ -64,7 +64,7 @@
             }
     
             //Desktop
-            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
                 display: block;
                 margin: 20px auto 0;
                 //Scale with height
@@ -87,7 +87,7 @@
         button#menu,
         button#top-mob {
             //Desktop
-            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
                 display: none; // Hide on desktop
             }
             //Mobile
@@ -146,7 +146,7 @@
         // Event list
         .events {
             //Desktop
-            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
                 //Hide if screen is too short
                 @media screen and (max-height: $vert-break-small) {
                     display: none;
@@ -196,7 +196,7 @@
     
         .more {
             //Desktop
-            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
                 //Hide if screen is too short
                 @media screen and (max-height: $vert-break-small) {
                     display: none;

@@ -9,23 +9,17 @@
 	text-decoration: none;
 	
 	width: 250px;
-	height: 250px;
-	@media screen and (max-width: $break-med),
-	screen and (max-height: $vert-break-med) {
+	height: 310px;
+	
+	@media (pointer: fine) {
 		width: 250px;
-		height: 310px;
+		height: 250px;
 	}
 
 	img {
 		object-fit: cover;
 		width: 250px;
 		height: 250px;
-
-		@media screen and (max-width: $break-med),
-		screen and (max-height: $vert-break-med) {
-			width: 250px;
-			height: 250px;
-		}
 	}
 
 	.card-panel {
@@ -37,33 +31,34 @@
 	.artist-title {
 		transition: top 0.2s ease-in-out;
 		position: relative;
-		height: 100px;
 		top: 0;
-		background: rgba(0, 0, 0, 0.5);
+		height: 50px;
+		background: none;
 
 		h3 {
-			color: white;
+			color: black;
 			margin: auto;
-			@media screen and (max-width: $break-med),
-			screen and (max-height: $vert-break-med) {
-				color: black;
+		}
+
+		
+		@media (pointer: fine) {
+			height: 100px;
+			top: 0px;
+			background: rgba(0, 0, 0, 0.5);
+			
+			h3 {
+				color: white;
 			}
-		}
 
-		&.show {
-			top: -100px;
-		}
-
-		@media screen and (max-width: $break-med),
-		screen and (max-height: $vert-break-med) {
-			top: 0;
-			height: 50px;
-			background: none;
+			&.show {
+				top: -100px;
+			}
 		}
 	}
 
 }
 
+//ArtistDetail
 .artist {
 	.artist-banner {
 		margin-bottom: 60px;
@@ -77,7 +72,8 @@
 		display: flex;
 		flex-flow: row;
 
-		@media screen and (max-width: $break-med) {
+		//Mobile
+		@media screen and (max-device-width: $break-med) and (orientation: portrait) {
 			padding: 0;
 		}
 
@@ -86,7 +82,8 @@
 			order: 2;
 			max-width: 300px;
 			
-			@media screen and (max-width: $break-med) {
+			//Mobile
+			@media screen and (max-device-width: $break-med) and (orientation: portrait) {
 				max-width: 100%;
 			}
 			
@@ -96,7 +93,8 @@
 				object-position: center;
 				width: 300px;
 
-				@media screen and (max-width: $break-med) {
+        //Mobile
+        @media screen and (max-device-width: $break-med) and (orientation: portrait) {
 					width: 100%;
 				}
 			}
@@ -130,12 +128,14 @@
 			flex: 3 auto;
 			order: 1;
 			
-			@media screen and (min-width: $break-med) {
+			//Desktop
+			@media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
 				padding-right: 100px
 			}
 		}
 
-		@media screen and (max-width: $break-med) {
+		//Mobile
+		@media screen and (max-device-width: $break-med) and (orientation: portrait) {
 			flex-flow: row wrap;
 			.bio {
 				flex: 1 100%;

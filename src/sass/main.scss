@@ -27,7 +27,7 @@ body {
             top: 0;
         }
         //Desktop
-        @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+        @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
             &>.nav {
                 padding-top: 50px;
                 @media screen and (max-height: $vert-break-small) {
