@@ -3,16 +3,18 @@
     text-align: center;
     // Set default colour to the primary colour
     color: $primary;
-    // padding-top: 50px;
+    
     //Mobile
-    @media screen and (max-width: $break-small) {
+    @media screen and (max-device-width: $break-med) and (orientation: portrait) {
         padding: 20px 0;
     }
+
     //Hide nav background unless mobile portrait view
     .background {
         position: absolute;
         
-        @media screen and (min-width: $break-small) {
+        //Desktop
+        @media screen and (min-width: $break-med), screen and (orientation: landscape) {
             display: none;
         }
     }
@@ -23,7 +25,6 @@
     .event,
     #social-media,
     #top {
-        //Desktop
         @media screen and (min-height: $vert-break-med) {
             margin: 25px 0; //Default margin around nav elements
         }
@@ -62,8 +63,8 @@
                 background-color: $dark;
             }
     
-            // Desktop
-            @media screen and (min-width: $break-small) {
+            //Desktop
+            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
                 display: block;
                 margin: 20px auto 0;
                 //Scale with height
@@ -72,8 +73,8 @@
                 width: 25vh;
                 height: 25vh;
             }
-            // Mobile
-            @media screen and (max-width: $break-small) {
+            //Mobile
+            @media screen and (max-device-width: $break-med) and (orientation: portrait) {
                 display: inline-block;
                 width: 100px;
                 height: 100px;
@@ -85,12 +86,12 @@
         // Mobile nav buttons
         button#menu,
         button#top-mob {
-            // Desktop
-            @media screen and (min-width: $break-small) {
+            //Desktop
+            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
                 display: none; // Hide on desktop
             }
-            // Mobile
-            @media screen and (max-width: $break-small) {
+            //Mobile
+            @media screen and (max-device-width: $break-med) and (orientation: portrait) {
                 display: inline-block;
                 position: absolute;
                 top: 36px;
@@ -112,7 +113,7 @@
         padding: 0 20px;
 
         //Mobile expand animation
-        @media screen and (max-width: $break-small) {
+        @media screen and (max-device-width: $break-med) and (orientation: portrait) {
             transition: height 0.3s ease-in-out;
             overflow: hidden;
             height: 0px;
@@ -144,9 +145,12 @@
         
         // Event list
         .events {
-            //Hide if screen is too short
-            @media screen and (max-height: $vert-break-small) {
-                display: none;
+            //Desktop
+            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+                //Hide if screen is too short
+                @media screen and (max-height: $vert-break-small) {
+                    display: none;
+                }
             }
 
             padding-bottom: calc(20px + 1em); // Make room for More/Less button
@@ -174,8 +178,8 @@
         // Top button
         #top {
             //Mobile
-            @media screen and (max-width: $break-small) {
-                display: none; // Hide on Mobile
+            @media screen and (max-device-width: $break-med) and (orientation: portrait) {
+                display: none; // Hide on mobile
             }
         }
 
@@ -191,9 +195,12 @@
         }
     
         .more {
-            //Hide if screen is too short
-            @media screen and (max-height: $vert-break-small) {
-                display: none;
+            //Desktop
+            @media screen and (min-width: $break-med), screen and (orientation: landscape) {
+                //Hide if screen is too short
+                @media screen and (max-height: $vert-break-small) {
+                    display: none;
+                }
             }
         }
 

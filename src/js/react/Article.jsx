@@ -111,8 +111,10 @@ export default class Article extends React.Component {
           }}
         >
           <div style={this.state.startPos && { display: 'block' }}>
-            <button id="close" onClick={this.close}><Close /></button>
-            <h1>{this.props.article.title}</h1>
+            <div className="article-header">
+              <button id="close" onClick={this.close}><Close /></button>
+              <h1>{this.props.article.title}</h1>
+            </div>
             <div className="article-date">{this.props.article.date.toDateString()}</div>
             <div className="article-content" dangerouslySetInnerHTML={{ __html: this.props.article.content }} />
           </div>
