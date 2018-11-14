@@ -2,25 +2,33 @@
 	//Centre align article grid
 	text-align: center;
 
+	.card-panel {
+		width: 250px;
+		height: 250px;
+	}
+
 	//Set square size
-	.article,
-	.card-panel,
-	img {
-		// Desktop
-		@media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-			width: 250px;
-			height: 250px;
-		}
-		// Mobile
-    @media screen and (max-device-width: $break-med) and (orientation: portrait) {
+	.article {
+		width: 250px;
+		height: 310px;
+		
+		@media (pointer: fine) {
 			width: 250px;
 			height: 250px;
 		}
 	}
-
+	
 	//Animations
 	&>img {
 		margin: 10px;
+		margin-bottom: 70px;
+		width: 250px;
+		height: 250px;
+		object-fit: cover;
+		
+		@media (pointer: fine) {
+			margin-bottom: 10px;
+		}
 	}
 	
 	.article {
@@ -30,7 +38,6 @@
 		display: inline-block;
 		margin: 10px;
 		overflow: hidden;
-		background: $dark;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -126,22 +133,28 @@
 		.article-title {
 			transition: top 0.2s ease-in-out;
 			position: relative;
-			height: 100px;
 			top: 0;
-			background: rgba(0, 0, 0, 0.5);
+			height: 50px;
+			background: none;
 	
 			h3 {
-				color: white;
+				color: black;
 				margin: auto;
 			}
 	
-			&.show {
-				top: -100px;
-			}
+			
+			@media (pointer: fine) {
+				height: 100px;
+				top: 0px;
+				background: rgba(0, 0, 0, 0.5);
+				
+				h3 {
+					color: white;
+				}
 	
-			@media screen and (max-width: $break-small) {
-				top: -100px;
-				background: none;
+				&.show {
+					top: -100px;
+				}
 			}
 		}
 
