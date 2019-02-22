@@ -19,23 +19,31 @@ export default class News extends React.Component {
 	}
 
 	componentDidMount() {
-		Queries.postRequest({ query: Queries.article.getAll }, articles => {
-			if (!articles.data.articles) return;
-			const sortedArticles = articles.data.articles.sort((a, b) =>
-				b.date.localeCompare(a.date)
-			);
-			this.setState({
-				articles: sortedArticles.map(article => ({
-					id: article.id,
-					title: article.title,
-					date: new Date(article.date),
-					content: article.content,
-					image: article.image,
-					animation: article.animation
-				})),
-				shownArticleId: this.props.match.params.id
-			});
-		});
+		setTimeout(
+			() => {
+				Queries.postRequest(
+					{ query: Queries.article.getAll },
+					articles => {
+						if (!articles.data.articles) return;
+						const sortedArticles = articles.data.articles.sort(
+							(a, b) => b.date.localeCompare(a.date)
+						);
+						this.setState({
+							articles: sortedArticles.map(article => ({
+								id: article.id,
+								title: article.title,
+								date: new Date(article.date),
+								content: article.content,
+								image: article.image,
+								animation: article.animation
+							})),
+							shownArticleId: this.props.match.params.id
+						});
+					}
+				);
+			},
+			this.props.delayLoad ? 1500 : 100
+		);
 	}
 
 	componentWillReceiveProps(props) {

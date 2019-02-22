@@ -24,19 +24,16 @@ class App extends React.Component {
 
 		this.initializeReactGA();
 
+		const entry =
+			!Boolean(Cookie.get("HasSeenEntry")) &&
+			window.location.pathname == "/";
+
 		this.state = {
-			hasSeenEntry: Boolean(Cookie.get("HasSeenEntry"))
+			showEntry: entry,
+			delayLoad: entry
 		};
 
 		this.onClear = this.onClear.bind(this);
-	}
-
-	componentDidMount() {
-		if (!this.state.hasSeenEntry && window.location.pathname != "/") {
-			this.setState({
-				hasSeenEntry: true
-			});
-		}
 	}
 
 	initializeReactGA() {
@@ -46,19 +43,53 @@ class App extends React.Component {
 
 	onClear() {
 		this.setState({
-			hasSeenEntry: true
+			showEntry: false
 		});
 		Cookie.set("HasSeenEntry", true);
+		setTimeout(
+			() =>
+				this.setState({
+					delayLoad: false
+				}),
+			1000
+		);
 	}
 
 	render() {
-		let entry;
+		let content;
 		//Show entry page if hasn't seen it this session
-		if (!this.state.hasSeenEntry && window.location.pathname == "/") {
-			entry = (
+		if (this.state.showEntry) {
+			content = (
 				<div key="entry">
 					<Entry onClear={this.onClear} />
 				</div>
+			);
+		} else {
+			content = (
+				<main key="main">
+					<div className="background" />
+					<div className="nav">
+						<Nav />
+					</div>
+					<div className="content">
+						<Switch location={this.props.location}>
+							<Route path="/artists/:id?" component={Artists} />
+							<Route path="/about" component={About} />
+							<Route path="/shed" component={Shed} />
+							<Route path="/shop" component={Shop} />
+							<Route path="/articles/:id?" component={News} />
+							<Route
+								path="/"
+								render={props => (
+									<News
+										{...props}
+										delayLoad={this.state.delayLoad}
+									/>
+								)}
+							/>
+						</Switch>
+					</div>
+				</main>
 			);
 		}
 
@@ -72,27 +103,7 @@ class App extends React.Component {
 					transitionEnter={false}
 					transitionLeaveTimeout={3000}
 				>
-					{entry}
-
-					<main key="main">
-						<div className="background" />
-						<div className="nav">
-							<Nav />
-						</div>
-						<div className="content">
-							<Switch location={this.props.location}>
-								<Route
-									path="/artists/:id?"
-									component={Artists}
-								/>
-								<Route path="/about" component={About} />
-								<Route path="/shed" component={Shed} />
-								<Route path="/shop" component={Shop} />
-								<Route path="/articles/:id?" component={News} />
-								<Route path="/" component={News} />
-							</Switch>
-						</div>
-					</main>
+					{content}
 				</ReactCSSTransitionGroup>
 				<footer />
 			</React.Fragment>
