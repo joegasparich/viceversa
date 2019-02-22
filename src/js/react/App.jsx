@@ -25,7 +25,7 @@ class App extends React.Component {
 		this.initializeReactGA();
 
 		this.state = {
-			hasSeenEntry: false //Boolean(Cookie.get("HasSeenEntry"))
+			hasSeenEntry: Boolean(Cookie.get("HasSeenEntry"))
 		};
 
 		this.onClear = this.onClear.bind(this);
@@ -52,32 +52,13 @@ class App extends React.Component {
 	}
 
 	render() {
-		let content;
+		let entry;
 		//Show entry page if hasn't seen it this session
 		if (!this.state.hasSeenEntry && window.location.pathname == "/") {
-			content = (
+			entry = (
 				<div key="entry">
 					<Entry onClear={this.onClear} />
 				</div>
-			);
-		} else {
-			content = (
-				<main key="main">
-					<div className="background" />
-					<div className="nav">
-						<Nav />
-					</div>
-					<div className="content">
-						<Switch location={this.props.location}>
-							<Route path="/artists/:id?" component={Artists} />
-							<Route path="/about" component={About} />
-							<Route path="/shed" component={Shed} />
-							<Route path="/shop" component={Shop} />
-							<Route path="/articles/:id?" component={News} />
-							<Route path="/" component={News} />
-						</Switch>
-					</div>
-				</main>
 			);
 		}
 
@@ -91,7 +72,27 @@ class App extends React.Component {
 					transitionEnter={false}
 					transitionLeaveTimeout={3000}
 				>
-					{content}
+					{entry}
+
+					<main key="main">
+						<div className="background" />
+						<div className="nav">
+							<Nav />
+						</div>
+						<div className="content">
+							<Switch location={this.props.location}>
+								<Route
+									path="/artists/:id?"
+									component={Artists}
+								/>
+								<Route path="/about" component={About} />
+								<Route path="/shed" component={Shed} />
+								<Route path="/shop" component={Shop} />
+								<Route path="/articles/:id?" component={News} />
+								<Route path="/" component={News} />
+							</Switch>
+						</div>
+					</main>
 				</ReactCSSTransitionGroup>
 				<footer />
 			</React.Fragment>
