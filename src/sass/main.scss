@@ -1,151 +1,173 @@
+::-webkit-scrollbar {
+	width: 0px; /* remove scrollbar space */
+}
+
 body {
-    // Set default font to content font
-    font-family: $font-content;
-    background-color: #fff;
+	// Set default font to content font
+	font-family: $font-content;
+	background-color: #fff;
 
-    .background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        background-color: #fff;
-        background-image: url(../resources/images/bg2.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-attachment: fixed;
-        z-index: -1;
-    }
+	.background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		background-color: #fff;
+		background-image: url(../resources/images/bg2.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50%;
+		background-attachment: fixed;
+		z-index: -1;
+	}
 
-    main {
-        &>.nav {
-            // Set nav fixed and above rest of content
-            z-index: 10;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-        }
-        //Desktop
-        @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-            &>.nav {
-                padding-top: 50px;
-                @media screen and (max-height: $vert-break-small) {
-                    padding-top: 20px;
-                }
+	main {
+		& > .nav {
+			// Set nav fixed and above rest of content
+			z-index: 10;
+			overflow: hidden;
+			position: fixed;
+			top: 0;
+		}
+		//Desktop
+		@media screen and (min-device-width: $break-med),
+			screen and (orientation: landscape) {
+			& > .nav {
+				padding-top: 50px;
+				@media screen and (max-height: $vert-break-small) {
+					padding-top: 20px;
+				}
 
-                width: 25%; // Nav is 1/4 of screen
-                @media screen and (max-width: $break-med) {
-                    width: 375px; // Min width so it doesn't get too crushed
-                    @media screen and (max-height: $vert-break-small) {
-                        width: 250px;
-                    }
-                }
-            }
-            &>.content {
-                padding: 80px;
-                margin-left: 25%; // Make room for nav to the left
-                @media screen and (max-width: $break-med) {
-                    padding: 60px 20px;
-                    margin-left: 375px; //Account for min nav width
-                    @media screen and (max-height: $vert-break-small) {
-                        padding: 20px;
-                        margin-left: 250px;
-                    }
-                }
-            }
-        }
+				width: 25%; // Nav is 1/4 of screen
+				@media screen and (max-width: $break-med) {
+					width: 375px; // Min width so it doesn't get too crushed
+					@media screen and (max-height: $vert-break-small) {
+						width: 250px;
+					}
+				}
+			}
+			& > .content {
+				padding: 80px;
+				margin-left: 25%; // Make room for nav to the left
+				@media screen and (max-width: $break-med) {
+					padding: 60px 20px;
+					margin-left: 375px; //Account for min nav width
+					@media screen and (max-height: $vert-break-small) {
+						padding: 20px;
+						margin-left: 250px;
+					}
+				}
+			}
+		}
 
-        //Mobile
-        @media screen and (max-device-width: $break-med) and (orientation: portrait) {
-            &>.nav {
-                width: 100%; // Nav takes up all of screen
-            }
-            &>.content {
-                margin-top: 140px; // Make room for nav above
-            }
-        }
-    }
+		//Mobile
+		@media screen and (max-device-width: $break-med) and (orientation: portrait) {
+			& > .nav {
+				width: 100%; // Nav takes up all of screen
+			}
+			& > .content {
+				margin-top: 140px; // Make room for nav above
+			}
+		}
+	}
 
-    &.noscroll {
-        overflow: hidden;
-    }
+	&.noscroll {
+		overflow: hidden;
+	}
 }
 
 // Default headings
 h1,
 h2 {
-    font-family: $font-heading;
-    color: $primary;
+	font-family: $font-heading;
+	color: $primary;
 }
 
 h3,
 h4 {
-    font-family: $font-content;
+	font-family: $font-content;
 }
 
 ul {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 // Remove button styling
-button, input[type="submit"], input[type="reset"] {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
+button,
+input[type="submit"],
+input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .valign-wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
 .hidden {
-    display: none !important;
+	display: none !important;
 }
 .invisible {
-    opacity: 0 !important;
+	opacity: 0 !important;
 }
 
 .collapse {
-    height: 0px !important;
-    margin: 0px !important;
-    overflow: hidden !important;
+	height: 0px !important;
+	margin: 0px !important;
+	overflow: hidden !important;
 }
 .center {
-    text-align: center;
-    margin: auto;
+	text-align: center;
+	margin: auto;
 }
 .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
 }
 .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.expandable {
+	cursor: pointer;
+
+	&.expand {
+		position: fixed !important;
+		width: 100% !important;
+		height: 100% !important;
+		top: 0;
+		left: 0;
+		object-fit: contain !important;
+		z-index: 100 !important;
+		padding: 50px !important;
+		background-color: rgba(0, 0, 0, 0.8);
+	}
 }

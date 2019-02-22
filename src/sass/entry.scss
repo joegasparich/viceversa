@@ -1,40 +1,111 @@
 #entry-modal {
-    background: url(../resources/images/bg.jpg);
-    background-size: cover;
-    display: none;
-    &.active {
-        display: block;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
-    #entry-content {
-        height: 100%;
-        .enter {
-            cursor: pointer;
-            &:hover {
-                h2 {
-                    color: $light;
-                }
-                .brand-logo {
-                    background-color: $light;
-                }
-            }
-            .brand-logo {
-                -webkit-mask-image: url("../resources/images/logo.svg");
-                mask-image: url("../resources/images/logo.svg");
-                mask-repeat: no-repeat;
-                background-color: $primary;
-                background-size: contain;
-                width: 300px;
-                height: 270px;
-                margin: 50px auto;
-                // &:hover {
-                //     background-color: $light;
-                // }
-            }
-        }
-    }
+	background: url(../resources/images/bg.jpg);
+	background-size: cover;
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+
+	#entry-content {
+		height: 100%;
+		.enter {
+			cursor: pointer;
+			&:hover {
+				h2 {
+					color: $light;
+					transform: translateY(-10px);
+				}
+				.brand-logo {
+					div {
+						background-color: $light;
+					}
+
+					#vice {
+						top: 40px;
+						right: 65px;
+					}
+					#versa {
+						top: -40px;
+						right: -65px;
+					}
+				}
+			}
+			.brand-logo {
+				position: relative;
+				width: 300px;
+				height: 270px;
+				margin: 50px auto;
+
+				div {
+					top: 0;
+					right: 0;
+					position: absolute;
+					mask-repeat: no-repeat;
+					width: 100%;
+					height: 100%;
+					background-color: $primary;
+					background-size: contain;
+					transition: top 0.2s, right 0.2s;
+				}
+
+				#vice {
+					-webkit-mask-image: url("../resources/images/vice.svg");
+					mask-image: url("../resources/images/vice.svg");
+				}
+
+				#versa {
+					-webkit-mask-image: url("../resources/images/versa.svg");
+					mask-image: url("../resources/images/versa.svg");
+				}
+			}
+			h2 {
+				transition: transform 0.2s;
+			}
+		}
+	}
+}
+
+//entry animation
+.entry-leave {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 200;
+
+	opacity: 1;
+
+	#entry-content {
+		transform: translateY(0);
+	}
+}
+.entry-leave.entry-leave-active {
+	opacity: 0.01;
+	transition: opacity 3000ms;
+
+	#entry-content {
+		transform: translateY(-100px);
+		transition: transform 3000ms;
+	}
+
+	h2 {
+		transition: transform 3000ms !important;
+		color: $primary !important;
+	}
+
+	#vice {
+		background-color: $primary !important;
+		top: 400px !important;
+		right: 650px !important;
+		transition: top 3000ms, right 3000ms !important;
+	}
+	#versa {
+		background-color: $primary !important;
+		top: -400px !important;
+		right: -650px !important;
+		transition: top 3000ms, right 3000ms !important;
+	}
 }

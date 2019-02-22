@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class ArtistDetail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.artistRef = React.createRef();
+  }
+
   render() {
     if (this.props.artist) {
       let mainImage = '';
@@ -17,7 +23,7 @@ export default class ArtistDetail extends React.Component {
       const linkList = this.props.artist.links.map(link => <li key={link.title}><a href={link.url}>{link.title}</a></li>);
 
       return (
-        <div className="artist">
+        <div className="artist" ref={this.artistRef}>
           <div className="artist-content">
             <div className="bio">
               <img className="center" src={mainImage} alt={this.props.artist.name} />

@@ -2,11 +2,6 @@
 	//Centre align article grid
 	text-align: center;
 
-	.card-panel {
-		width: 250px;
-		height: 250px;
-	}
-
 	//Set square size
 	.article {
 		width: 250px;
@@ -16,6 +11,10 @@
 			width: 250px;
 			height: 250px;
 		}
+	}
+	.card-panel {
+		width: 250px;
+		height: 250px;
 	}
 	
 	//Animations
@@ -193,6 +192,32 @@
 					width: 100% !important;
 					top: 139px !important;
 					height: calc(100% - 140px) !important;
+				}
+
+				.article-content {
+					margin-top: 30px;
+
+					.post-grid-3 {
+						position: relative;
+						display: inline-block;
+						width: 32%;
+						padding-top: 32%;
+						overflow: hidden;
+						@media screen and (max-width: $break-small) {
+							width: 100%;
+							padding-top: 100%;
+						}
+					}
+					.post-img {
+						position: absolute;
+						top: 0; bottom: 0; left: 0; right: 0; 
+						text-align: center;
+						padding: 10px;
+						display: flex;
+						align-items: center;
+						height: 100%;
+						object-fit: cover;
+					}
 				}
 			}
 
