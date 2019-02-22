@@ -1,6 +1,4 @@
 dist/
 node_modules/
-libs/
 yarn-error.log
-.DS_Store
-report.html
+yarn.lock
