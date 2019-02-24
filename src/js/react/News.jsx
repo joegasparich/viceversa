@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Cookie from "js-cookie";
 
 import Queries from "../utils/Queries";
 import Article from "./Article";
@@ -13,21 +12,22 @@ export default class News extends React.Component {
 			articles: [],
 			shownArticleId: -1
 		};
-
-		// Refs
-		this.article = React.createRef();
 	}
 
 	componentDidMount() {
 		setTimeout(
 			() => {
+				//Get articles - delayed if entry animation if playing
 				Queries.postRequest(
 					{ query: Queries.article.getAll },
 					articles => {
-						if (!articles.data.articles) return;
+						if (!articles.data.articles) return; //Don't update page if no articles are received
+
+						//Sort in reverse chronological order
 						const sortedArticles = articles.data.articles.sort(
 							(a, b) => b.date.localeCompare(a.date)
 						);
+
 						this.setState({
 							articles: sortedArticles.map(article => ({
 								id: article.id,
@@ -47,6 +47,7 @@ export default class News extends React.Component {
 	}
 
 	componentWillReceiveProps(props) {
+		//Show article from url
 		this.setState({
 			shownArticleId: this.state.articles.find(
 				article => article.id === props.match.params.id
@@ -55,7 +56,9 @@ export default class News extends React.Component {
 	}
 
 	render() {
+		//Create article elements
 		const articleList = this.state.articles.map(article => {
+			//Return image if gif
 			if (article.animation) {
 				return <img key={article.id} src={article.image} />;
 			}
@@ -81,5 +84,6 @@ export default class News extends React.Component {
 }
 News.propTypes = {
 	match: PropTypes.object.isRequired,
-	history: PropTypes.object.isRequired
+	history: PropTypes.object.isRequired,
+	delayLoad: PropTypes.bool
 };

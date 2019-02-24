@@ -1,26 +1,25 @@
-
 @font-face {
-    font-family: 'Augusta';
-    src: url('../resources/fonts/augusta-webfont.woff2') format('woff2'),
-         url('../resources/fonts/augusta-webfont.woff') format('woff');
-         font-weight: normal;
-    font-style: normal;
+	font-family: "Augusta";
+	src: url("../resources/fonts/augusta-webfont.woff2") format("woff2"),
+		url("../resources/fonts/augusta-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Porter';
-    src: url('../resources/fonts/Porter\ Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Porter";
+	src: url("../resources/fonts/Porter\ Bold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @import "vars.scss";
 @import "normalize.scss";
-@import 'main.scss';
-@import 'nav.scss';
-@import 'entry.scss';
-@import 'news.scss';
-@import 'artists.scss';
-@import 'about.scss';
-@import 'shed.scss';
-@import 'shop.scss';
+@import "main.scss";
+@import "nav.scss";
+@import "entry.scss";
+@import "news.scss";
+@import "artists.scss";
+@import "about.scss";
+@import "shed.scss";
+@import "shop.scss";

@@ -36,16 +36,19 @@ class App extends React.Component {
 		this.onClear = this.onClear.bind(this);
 	}
 
+	//Google Analytics
 	initializeReactGA() {
 		ReactGA.initialize("UA-129101953-1");
 		ReactGA.pageview(window.location.pathname + window.location.search);
 	}
 
+	//On entry from entry page
 	onClear() {
 		this.setState({
 			showEntry: false
 		});
 		Cookie.set("HasSeenEntry", true);
+		//Turn off delayLoad later so load is delayed while animating
 		setTimeout(
 			() =>
 				this.setState({

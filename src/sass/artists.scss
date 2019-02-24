@@ -7,10 +7,10 @@
 	margin: 10px;
 	overflow: hidden;
 	text-decoration: none;
-	
+
 	width: 250px;
 	height: 310px;
-	
+
 	@media (pointer: fine) {
 		width: 250px;
 		height: 250px;
@@ -40,12 +40,11 @@
 			margin: auto;
 		}
 
-		
 		@media (pointer: fine) {
 			height: 100px;
 			top: 0px;
 			background: rgba(0, 0, 0, 0.5);
-			
+
 			h3 {
 				color: white;
 			}
@@ -55,7 +54,6 @@
 			}
 		}
 	}
-
 }
 
 //ArtistDetail
@@ -67,7 +65,7 @@
 			width: 100%;
 		}
 	}
-	
+
 	.artist-content {
 		display: flex;
 		flex-flow: row;
@@ -81,20 +79,20 @@
 			flex: 1 auto;
 			order: 2;
 			max-width: 300px;
-			
+
 			//Mobile
 			@media screen and (max-device-width: $break-med) and (orientation: portrait) {
 				max-width: 100%;
 			}
-			
+
 			img {
-				display:block;
+				display: block;
 				object-fit: cover;
 				object-position: center;
 				width: 300px;
 
-        //Mobile
-        @media screen and (max-device-width: $break-med) and (orientation: portrait) {
+				//Mobile
+				@media screen and (max-device-width: $break-med) and (orientation: portrait) {
 					width: 100%;
 				}
 			}
@@ -121,16 +119,17 @@
 				}
 			}
 		}
-	
+
 		.gallery {
 			width: 100%;
 			overflow: hidden;
 			flex: 3 auto;
 			order: 1;
-			
+
 			//Desktop
-			@media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-				padding-right: 100px
+			@media screen and (min-device-width: $break-med),
+				screen and (orientation: landscape) {
+				padding-right: 100px;
 			}
 		}
 
@@ -140,12 +139,12 @@
 			.bio {
 				flex: 1 100%;
 				order: 1;
-				padding: 20px
+				padding: 20px;
 			}
 			.gallery {
 				flex: 1 100%;
 				order: 2;
-				padding: 20px
+				padding: 20px;
 			}
 		}
 	}

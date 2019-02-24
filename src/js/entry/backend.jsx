@@ -1,25 +1,34 @@
-import express from 'express';
-import http from 'http';
-import graphQLHTTP from 'express-graphql';
-import schema from '../schema/Schema';
-import document from '../../html/index.html';
+import express from "express";
+import http from "http";
+import graphQLHTTP from "express-graphql";
+import schema from "../schema/Schema";
+import document from "../../html/index.html";
 
-import '../../resources/images/favicon.ico';
+import "../../resources/images/favicon.ico";
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+//Get whether production from command line
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
+//Create express app
 const app = express();
 
-app.use('/graphql', graphQLHTTP({
-  schema,
-  graphiql: !IS_PRODUCTION,
-}));
+//GraphQL - hide interface if in production
+app.use(
+	"/graphql",
+	graphQLHTTP({
+		schema,
+		graphiql: !IS_PRODUCTION
+	})
+);
 
-app.use(express.static('dist'));
+//Set static folder
+app.use(express.static("dist"));
 
-app.get('/*', (req, res) => {
-  // Sends the response back to the client
-  res.send(document);
+//Send back index.html as initial response
+app.get("/*", (req, res) => {
+	// Sends the response back to the client
+	res.send(document);
 });
 
-http.createServer(app).listen(5000, '127.0.0.1');
+//Start server
+app.listen(5000);

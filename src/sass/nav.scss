@@ -1,229 +1,234 @@
 .navigation {
-    // Center nav elements
-    text-align: center;
-    // Set default colour to the primary colour
-    color: $primary;
-    
-    //Mobile
-    @media screen and (max-device-width: $break-med) and (orientation: portrait) {
-        padding: 20px 0;
-    }
+	// Center nav elements
+	text-align: center;
+	// Set default colour to the primary colour
+	color: $primary;
 
-    //Hide nav background unless mobile portrait view
-    .background {
-        position: absolute;
-        
-        //Desktop
-        @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-            display: none;
-        }
-    }
+	//Mobile
+	@media screen and (max-device-width: $break-med) and (orientation: portrait) {
+		padding: 20px 0;
+	}
 
-    //Nav elements
-    #brand-logo,
-    .link,
-    .event,
-    #social-media,
-    #top {
-        @media screen and (min-height: $vert-break-med) {
-            margin: 25px 0; //Default margin around nav elements
-        }
-        @media screen and (max-height: $vert-break-med) {
-            margin: 15px 0; //Smaller for shorter screens
-        }
-        @media screen and (max-height: $vert-break-tiny) {
-            margin: 10px 0; //Smaller for shorter screens
-        }
-        
-        // Force Link Color
-        a,
-        button,
-        & {
+	//Hide nav background unless mobile portrait view
+	.background {
+		position: absolute;
+
+		//Desktop
+		@media screen and (min-device-width: $break-med),
+			screen and (orientation: landscape) {
+			display: none;
+		}
+	}
+
+	//Nav elements
+	#brand-logo,
+	.link,
+	.event,
+	#social-media,
+	#top {
+		@media screen and (min-height: $vert-break-med) {
+			margin: 25px 0; //Default margin around nav elements
+		}
+		@media screen and (max-height: $vert-break-med) {
+			margin: 15px 0; //Smaller for shorter screens
+		}
+		@media screen and (max-height: $vert-break-tiny) {
+			margin: 10px 0; //Smaller for shorter screens
+		}
+
+		// Force Link Color
+		a,
+		button,
+		& {
 			color: $primary;
 			text-decoration: none;
-		} 
+		}
 
 		// Hover Color
-        a:hover,
-        button:hover,
-        &:hover {
-            color: $dark;
-        }
+		a:hover,
+		button:hover,
+		&:hover {
+			color: $dark;
+		}
 	}
-    
-    .nav-head {
-        a#brand-logo {
-            -webkit-mask-image: url("../resources/images/logo.svg");
-            mask-image: url("../resources/images/logo.svg");
-            mask-repeat: no-repeat;
-            background-color: $primary;
-            background-size: contain;
-            
-            &:hover {
-                background-color: $dark;
-            }
-    
-            //Desktop
-            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-                display: block;
-                margin: 20px auto 0;
-                //Scale with height
-                max-width: 200px;
-                max-height: 200px;
-                width: 25vh;
-                height: 25vh;
-            }
-            //Mobile
-            @media screen and (max-device-width: $break-med) and (orientation: portrait) {
-                display: inline-block;
-                width: 100px;
-                height: 100px;
-                margin: 0;
-                vertical-align: middle;
-            }
-        }
-        
-        // Mobile nav buttons
-        button#menu,
-        button#top-mob {
-            //Desktop
-            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-                display: none; // Hide on desktop
-            }
-            //Mobile
-            @media screen and (max-device-width: $break-med) and (orientation: portrait) {
-                display: inline-block;
-                position: absolute;
-                top: 36px;
-                svg {
-                    font-size: 60px;
-                    fill: #c24620;
-                }
-            }
-        }
-        button#top-mob {
-            right: 10px;
-        }
-        button#menu {
-            left: 10px;
-        }
-    }
-    
-    .nav-content {
-        padding: 0 20px;
 
-        //Mobile expand animation
-        @media screen and (max-device-width: $break-med) and (orientation: portrait) {
-            transition: height 0.3s ease-in-out;
-            overflow: hidden;
-            height: 0px;
-        }
+	.nav-head {
+		a#brand-logo {
+			-webkit-mask-image: url("../resources/images/logo.svg");
+			mask-image: url("../resources/images/logo.svg");
+			mask-repeat: no-repeat;
+			background-color: $primary;
+			background-size: contain;
 
-        // Nav to site pages
-        .links {
-            li {
-                display: block;
-                // Underline if link is currently open
-                a.active {
-                    border-bottom: 2px solid $primary;
-                    &:hover {
-                        border-color: $dark; // Darken with text on hover
-                    }
-                }
-            }
-        }
-        
-        // Social media icons
-        #social-media {
-            a {
-                display: inline-block;
-                width: 24px;
-                height: 24px;
-                margin: auto 20px;
-            }
-        }
-        
-        // Event list
-        .events {
-            //Desktop
-            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-                //Hide if screen is too short
-                @media screen and (max-height: $vert-break-small) {
-                    display: none;
-                }
-            }
+			&:hover {
+				background-color: $dark;
+			}
 
-            padding-bottom: calc(20px + 1em); // Make room for More/Less button
+			//Desktop
+			@media screen and (min-device-width: $break-med),
+				screen and (orientation: landscape) {
+				display: block;
+				margin: 20px auto 0;
+				//Scale with height
+				max-width: 200px;
+				max-height: 200px;
+				width: 25vh;
+				height: 25vh;
+			}
+			//Mobile
+			@media screen and (max-device-width: $break-med) and (orientation: portrait) {
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				margin: 0;
+				vertical-align: middle;
+			}
+		}
 
-            .event-list {
-                a.event {
-                    display: block;
-                    .event-name {
-                        display: inline-block;
-                        width: 50%;
-                        text-align: right;
-                        padding-right: 10px;
-                    }
-                    .event-date {
-                        display: inline-block;
-                        width: 50%;
-                        text-align: left;
-                        vertical-align: top;
-                        padding-left: 10px;
-                    }
-                }
-            }
-        }
+		// Mobile nav buttons
+		button#menu,
+		button#top-mob {
+			//Desktop
+			@media screen and (min-device-width: $break-med),
+				screen and (orientation: landscape) {
+				display: none; // Hide on desktop
+			}
+			//Mobile
+			@media screen and (max-device-width: $break-med) and (orientation: portrait) {
+				display: inline-block;
+				position: absolute;
+				top: 36px;
+				svg {
+					font-size: 60px;
+					fill: #c24620;
+				}
+			}
+		}
+		button#top-mob {
+			right: 10px;
+		}
+		button#menu {
+			left: 10px;
+		}
+	}
 
-        // Top button
-        #top {
-            //Mobile
-            @media screen and (max-device-width: $break-med) and (orientation: portrait) {
-                display: none; // Hide on mobile
-            }
-        }
+	.nav-content {
+		padding: 0 20px;
 
-        //Expand Events
-        .events {
-            transition: height 0.3s ease-in-out;
-            overflow: hidden;
-        }
-        .collapsable {
-            transition: height 0.3s ease-in-out;
-            overflow: hidden;
-            height: auto;
-        }
-    
-        .more {
-            //Desktop
-            @media screen and (min-device-width: $break-med), screen and (orientation: landscape) {
-                //Hide if screen is too short
-                @media screen and (max-height: $vert-break-small) {
-                    display: none;
-                }
-            }
-        }
+		//Mobile expand animation
+		@media screen and (max-device-width: $break-med) and (orientation: portrait) {
+			transition: height 0.3s ease-in-out;
+			overflow: hidden;
+			height: 0px;
+		}
 
-        //Seperating lines
-        .break {
-            width: 40%;
-            max-width: 150px;
-            margin: auto;
-            border-bottom: 1px solid $primary;
+		// Nav to site pages
+		.links {
+			li {
+				display: block;
+				// Underline if link is currently open
+				a.active {
+					border-bottom: 2px solid $primary;
+					&:hover {
+						border-color: $dark; // Darken with text on hover
+					}
+				}
+			}
+		}
 
-            position: relative; // Set relative for child absolute
-            #more {
-                // More button sits above line
-                position: absolute;
-                bottom: 20px;
-                display: block;
-                width: 100%;
-                color: $primary;
-                // Hover Color
-                &:hover {
-                    color: $dark;
-                }
-            }
-        }
-    }
+		// Social media icons
+		#social-media {
+			a {
+				display: inline-block;
+				width: 24px;
+				height: 24px;
+				margin: auto 20px;
+			}
+		}
+
+		// Event list
+		.events {
+			//Desktop
+			@media screen and (min-device-width: $break-med),
+				screen and (orientation: landscape) {
+				//Hide if screen is too short
+				@media screen and (max-height: $vert-break-small) {
+					display: none;
+				}
+			}
+
+			padding-bottom: calc(20px + 1em); // Make room for More/Less button
+
+			.event-list {
+				a.event {
+					display: block;
+					.event-name {
+						display: inline-block;
+						width: 50%;
+						text-align: right;
+						padding-right: 10px;
+					}
+					.event-date {
+						display: inline-block;
+						width: 50%;
+						text-align: left;
+						vertical-align: top;
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+
+		// Top button
+		#top {
+			//Mobile
+			@media screen and (max-device-width: $break-med) and (orientation: portrait) {
+				display: none; // Hide on mobile
+			}
+		}
+
+		//Expand Events
+		.events {
+			transition: height 0.3s ease-in-out;
+			overflow: hidden;
+		}
+		.collapsable {
+			transition: height 0.3s ease-in-out;
+			overflow: hidden;
+			height: auto;
+		}
+
+		.more {
+			//Desktop
+			@media screen and (min-device-width: $break-med),
+				screen and (orientation: landscape) {
+				//Hide if screen is too short
+				@media screen and (max-height: $vert-break-small) {
+					display: none;
+				}
+			}
+		}
+
+		//Seperating lines
+		.break {
+			width: 40%;
+			max-width: 150px;
+			margin: auto;
+			border-bottom: 1px solid $primary;
+
+			position: relative; // Set relative for child absolute
+			#more {
+				// More button sits above line
+				position: absolute;
+				bottom: 20px;
+				display: block;
+				width: 100%;
+				color: $primary;
+				// Hover Color
+				&:hover {
+					color: $dark;
+				}
+			}
+		}
+	}
 }
