@@ -21,15 +21,13 @@
 					transform: translateY(-10px);
 				}
 				.brand-logo {
-					div {
-						background-color: $light;
-					}
-
 					#vice {
+						background-image: url("../resources/images/viceLight.svg");
 						top: 40px;
 						right: 65px;
 					}
 					#versa {
+						background-image: url("../resources/images/versaLight.svg");
 						top: -40px;
 						right: -65px;
 					}
@@ -45,22 +43,19 @@
 					top: 0;
 					right: 0;
 					position: absolute;
-					mask-repeat: no-repeat;
+					background-repeat: no-repeat;
 					width: 100%;
 					height: 100%;
-					background-color: $primary;
 					background-size: contain;
 					transition: top 0.2s, right 0.2s;
 				}
 
 				#vice {
-					-webkit-mask-image: url("../resources/images/vice.svg");
-					mask-image: url("../resources/images/vice.svg");
+					background-image: url("../resources/images/vice.svg");
 				}
 
 				#versa {
-					-webkit-mask-image: url("../resources/images/versa.svg");
-					mask-image: url("../resources/images/versa.svg");
+					background-image: url("../resources/images/versa.svg");
 				}
 			}
 			h2 {
@@ -100,13 +95,13 @@
 	}
 
 	#vice {
-		background-color: $primary !important;
+		background-image: url("../resources/images/vice.svg") !important;
 		top: 400px !important;
 		right: 650px !important;
 		transition: top 3000ms, right 3000ms !important;
 	}
 	#versa {
-		background-color: $primary !important;
+		background-image: url("../resources/images/versa.svg") !important;
 		top: -400px !important;
 		right: -650px !important;
 		transition: top 3000ms, right 3000ms !important;

@@ -54,15 +54,9 @@
 
 	.nav-head {
 		a#brand-logo {
-			-webkit-mask-image: url("../resources/images/logo.svg");
-			mask-image: url("../resources/images/logo.svg");
-			mask-repeat: no-repeat;
-			background-color: $primary;
+			background-image: url("../resources/images/logo.svg");
+			background-repeat: no-repeat;
 			background-size: contain;
-
-			&:hover {
-				background-color: $dark;
-			}
 
 			//Desktop
 			@media screen and (min-device-width: $break-med),
