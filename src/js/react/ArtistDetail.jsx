@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 export default class ArtistDetail extends React.Component {
 	constructor(props) {
@@ -65,18 +64,3 @@ export default class ArtistDetail extends React.Component {
 		return <div className="artist" />;
 	}
 }
-ArtistDetail.propTypes = {
-	artist: PropTypes.shape({
-		id: PropTypes.string,
-		name: PropTypes.string,
-		bio: PropTypes.string,
-		content: PropTypes.string,
-		url: PropTypes.string,
-		links: PropTypes.arrayOf(
-			PropTypes.shape({
-				title: PropTypes.string,
-				url: PropTypes.string
-			})
-		)
-	})
-};

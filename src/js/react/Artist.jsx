@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 
 export default class Artist extends React.Component {
 	constructor(props) {
@@ -42,18 +41,3 @@ export default class Artist extends React.Component {
 		);
 	}
 }
-Artist.propTypes = {
-	title: PropTypes.string,
-	image: PropTypes.string,
-	path: PropTypes.string,
-	click: PropTypes.shape({
-		func: PropTypes.func,
-		params: PropTypes.object
-	})
-};
-Artist.defaultProps = {
-	title: "",
-	image: "",
-	path: "",
-	click: null
-};

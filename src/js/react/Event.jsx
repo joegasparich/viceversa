@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 export default class Event extends React.Component {
 	render() {
@@ -13,12 +12,3 @@ export default class Event extends React.Component {
 		);
 	}
 }
-Event.propTypes = {
-	name: PropTypes.string.isRequired,
-	date: PropTypes.instanceOf(Date),
-	link: PropTypes.string
-};
-Event.defaultProps = {
-	link: "#",
-	date: null
-};

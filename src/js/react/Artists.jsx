@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import Queries from "../utils/Queries";
 
@@ -68,6 +67,3 @@ export default class Artists extends React.Component {
 		);
 	}
 }
-Artists.propTypes = {
-	match: PropTypes.object.isRequired
-};

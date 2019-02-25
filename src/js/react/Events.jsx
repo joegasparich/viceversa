@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import Event from "./Event";
 import Queries from "../utils/Queries";
@@ -57,9 +56,3 @@ export default class Events extends React.Component {
 		return <p>No upcoming events</p>;
 	}
 }
-Events.propTypes = {
-	displayCount: PropTypes.number
-};
-Events.defaultProps = {
-	displayCount: -1
-};

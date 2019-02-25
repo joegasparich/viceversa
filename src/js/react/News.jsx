@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import Queries from "../utils/Queries";
 import Article from "./Article";
@@ -82,8 +81,3 @@ export default class News extends React.Component {
 		);
 	}
 }
-News.propTypes = {
-	match: PropTypes.object.isRequired,
-	history: PropTypes.object.isRequired,
-	delayLoad: PropTypes.bool
-};

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Close from "@material-ui/icons/Close";
 
 export default class Article extends React.Component {
@@ -149,19 +148,3 @@ export default class Article extends React.Component {
 		);
 	}
 }
-Article.propTypes = {
-	article: PropTypes.shape({
-		id: PropTypes.string,
-		title: PropTypes.string,
-		date: PropTypes.instanceOf(Date),
-		content: PropTypes.string,
-		image: PropTypes.string,
-		animation: PropTypes.bool
-	}).isRequired,
-	startPos: PropTypes.instanceOf(DOMRect),
-	history: PropTypes.object.isRequired,
-	open: PropTypes.bool.isRequired
-};
-Article.defaultProps = {
-	startPos: null
-};
